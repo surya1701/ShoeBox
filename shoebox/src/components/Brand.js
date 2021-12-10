@@ -57,7 +57,7 @@ const Wrap = styled.div`
         height: 100%;
         object-fit: cover;
         opacity: 1;
-        z-index: 1500;
+        z-index: 2;
         diplay: block;
         border-radius: 10px;
         transition: opacity 500ms ease-in-out 0s;
