@@ -5,6 +5,7 @@ import Brand from './Brand'
 import Header from './Header'
 import NewArrival from './NewArrival'
 import SlipOns from './SlipOns'
+import LargeCategories from './LargeCategories'
 
 import { store } from '../app/store'
 import { PlusCircleIcon } from '../assets/icons';
@@ -44,8 +45,12 @@ function Home({ cartValue }) {
                     Nike<PlusCircleIcon width={"20px"}/>
                  </button>
                  <br/>
-                <Advert className='img-fluid ad-image' src="/images/adidas-ad-image.jpg" />
-                <Advert_gif className='img-fluid' src="/images/adidas-ad.gif" />
+                 <Advert>
+                     <img className='gif' src='/images/adidas-ad.gif'/>
+                     <img className='image' src='/images/adidas-ad-image.jpg'/>
+                 </Advert>
+
+                <LargeCategories/>
             </Container>
         </div>
     )
@@ -70,19 +75,21 @@ const Container = styled.main`
         z-index: -1;
     }
 `
-const Advert = styled.img`
-position: absolute;
-left: 0;
+const Advert = styled.div`
+width:100vw;
+padding:5vw 10vw 5vw 10vw;
+.gif {
+    display: none;
+}
+.image {
+    display:block;
+}
     &:hover {
-        opacity: 0;
-    }
-`;
-const Advert_gif = styled.img`
-opacity: 0;
-position: absolute;
-left: 0;
-z-index: 2;
-    &:hover {
-        opacity: 1;
+        .gif {
+            display:block;
+        }       
+        .image {
+            display:none;
+        }
     }
 `;
