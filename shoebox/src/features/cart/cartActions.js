@@ -25,3 +25,8 @@ export const reduceQuantity = (itemId, value)=>{
         }
     }
 }
+export const orderConfirmed = (itemId, value)=>{
+    return {
+        type: actionTypes.ORDER_CONFIRMED,
+    }
+}

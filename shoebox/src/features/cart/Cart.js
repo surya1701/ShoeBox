@@ -1,5 +1,6 @@
 import {connect} from "react-redux";
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 import Header from "../../components/Header";
 import CartView from "./cartView";
 
@@ -36,7 +37,8 @@ const Cart =({cartValue})=>{
                             </div>
                                     :
                             <div className="p-3 text-center text-muted">
-                                Your cart is empty
+                                Your cart is empty<br/>
+                                <Link to="/"><button type="button" className="btn btn-primary mb-2">Back Home</button></Link>
                             </div>
                         }
                     </div>
@@ -50,7 +52,7 @@ const Cart =({cartValue})=>{
                                 <h3 className="m-0">&#8377; {totalPrice}</h3>
                                 <hr className="my-4"/>
                                 <div className="text-center">
-                                    <button type="button" className="btn btn-primary mb-2">CHECKOUT</button>
+                                <Link to="/checkout"><button type="button" className="btn btn-primary mb-2">CHECKOUT</button></Link>
                                     <button type="button" className="btn btn-outline-primary btn-sm">CLEAR</button>
                                 </div>
                                 {/* <div className="text-center">

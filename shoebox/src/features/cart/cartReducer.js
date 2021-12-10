@@ -29,6 +29,11 @@ const CartReducer = (state = initialState, action)=>{
                 ...state,
                 cart: state.cart.map((item)=>item.key === action.payload.id ? {...item, qty: item.qty-1}: item )
             }
+        case actionTypes.ORDER_CONFIRMED:
+            return {
+                ...state,
+                cart: []
+            }
         default: return state
     }
 }
