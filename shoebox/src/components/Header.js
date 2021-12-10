@@ -1,24 +1,24 @@
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 //import { mobile } from "../responsive";
 //import { useSelector } from "react-redux";
 //import { Link } from "react-router-dom";
 
-function Header({cartValue}) {
-  const [totalItems, setTotalItems]= useState(0);
-    useEffect(()=>{
-        let items= 0;
-        cartValue.forEach(item => {
-            items += item.qty;
-        });
-        setTotalItems(items);
-    },[cartValue,totalItems ])
+function Header({ cartValue }) {
+  const [totalItems, setTotalItems] = useState(0);
+  useEffect(() => {
+    let items = 0;
+    cartValue.forEach(item => {
+      items += item.qty;
+    });
+    setTotalItems(items);
+  }, [cartValue, totalItems])
 
   return (
     <Container className="sticky-top">
@@ -32,8 +32,7 @@ function Header({cartValue}) {
         </Left>
         <Center>
           <Logo>
-          <Link to="/">ShoeBox</Link>
-            {/* <img src="/concept_logo.png" /> */}
+            ShoeBox
           </Logo>
         </Center>
         <Right>
@@ -41,12 +40,12 @@ function Header({cartValue}) {
           <MenuItem>SIGN IN</MenuItem>
           <MenuItem>
             <Badge color="primary">
-            <Link to="/cart">
-              <ShoppingCartOutlined/>
-              <CartCount>
-                {totalItems}
-              </CartCount>
-            </Link>
+              <Link to="/cart">
+                <ShoppingCartOutlined />
+                <CartCount>
+                  {totalItems}
+                </CartCount>
+              </Link>
             </Badge>
           </MenuItem>
 
@@ -106,6 +105,8 @@ const Center = styled.div`
 
 const Logo = styled.h1`
   font-weight: bold;
+  text-color: #000000;
+  text-transform: uppercase;
   
 `;
 const Right = styled.div`
@@ -135,9 +136,9 @@ const CartCount = styled.span`
   text-align: center;
 `;
 
-const mapStateToProps=(state)=>{
+const mapStateToProps = (state) => {
   return {
-      cartValue: state.cart.cart
+    cartValue: state.cart.cart
   }
 }
 export default connect(mapStateToProps)(Header);
