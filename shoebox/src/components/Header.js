@@ -1,15 +1,27 @@
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import {Link} from "react-router-dom";
 import React from "react";
+import {useEffect, useState} from "react";
 import styled from "styled-components";
+import {connect} from "react-redux";
+
 //import { mobile } from "../responsive";
 //import { useSelector } from "react-redux";
 //import { Link } from "react-router-dom";
 
-function Header() {
-  /*const quantity = useSelector(state =>state.cart.quantity)*/
+function Header({cartValue}) {
+  const [totalItems, setTotalItems]= useState(0);
+    useEffect(()=>{
+        let items= 0;
+        cartValue.forEach(item => {
+            items += item.qty;
+        });
+        setTotalItems(items);
+    },[cartValue,totalItems ])
+
   return (
-    <Container>
+    <Container className="sticky-top">
       <Wrapper>
         <Left>
           <Language>EN</Language>
@@ -19,14 +31,22 @@ function Header() {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>SHOEBOX</Logo>
+          <Logo>
+          <Link to="/">ShoeBox</Link>
+            {/* <img src="/concept_logo.png" /> */}
+          </Logo>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>
           <MenuItem>SIGN IN</MenuItem>
           <MenuItem>
             <Badge color="primary">
-              <ShoppingCartOutlined />
+            <Link to="/cart">
+              <ShoppingCartOutlined/>
+              <CartCount>
+                {totalItems}
+              </CartCount>
+            </Link>
             </Badge>
           </MenuItem>
 
@@ -43,7 +63,7 @@ function Header() {
 
 const Container = styled.div`
   height: 60px;
-  
+  background-color: white;
 `;
 
 const Wrapper = styled.div`
@@ -102,6 +122,22 @@ const MenuItem = styled.div`
   margin-left: 25px;
   
 `;
+const CartCount = styled.span`
+  font-size: .6rem;
+  position: absolute;
+  top: -6px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  color: #fff;
+  background-color: #418deb;
+  border-radius: 50%;
+  text-align: center;
+`;
 
-
-export default Header
+const mapStateToProps=(state)=>{
+  return {
+      cartValue: state.cart.cart
+  }
+}
+export default connect(mapStateToProps)(Header);
