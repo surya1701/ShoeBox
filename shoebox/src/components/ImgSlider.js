@@ -17,13 +17,16 @@ function ImgSlider() {
     return (
         <Carousel {...settings}>
             <Wrap>
-                <img src="/images/shoe1.png" />
+                <img src="https://lh3.googleusercontent.com/proxy/b29uIB1uaWdU9UVP08LMJJaBQ8rrTsTSgkgUWhUxgGezuzqrTOQcBvRUQhW8WwnOZo_Q9NdOn6Jd7RxwG9XcBbN2WX6SAwKxrOKjrCkZR6FK3Js1A-0GySTCSquqFuEwGDZFgHH1NOMc3PzcOSM2f7F1Qw" />
             </Wrap>
             <Wrap>
-                <img src="/images/shoe2.jpg" />
+                <img src="https://wallpaperaccess.com/full/1252085.jpg" />
             </Wrap>
             <Wrap>
-                <img src="/images/shoe3.jpg" />
+                <img src="https://c1.wallpaperflare.com/preview/60/37/209/feet-trainers-adidas-vigenette.jpg" />
+            </Wrap>
+            <Wrap>
+                <img src="https://www.teahub.io/photos/full/82-828480_adidas-shoes-computer-wallpapers-adidas-shoes-picture-adidas.jpg" />
             </Wrap>
         </Carousel>
     )
@@ -61,7 +64,7 @@ const Wrap = styled.div`
         height: 400px;
         box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
         rgb(0 0 0 / 73%) 0px 16px 10px -10px;
-        transition-duration: 300ms;
+        transition-duration: 250ms;
 
         &:hover {
             border: 4px solid rgba(249, 249, 249, 0.8);
