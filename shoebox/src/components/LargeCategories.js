@@ -1,27 +1,50 @@
 import React from 'react'
 import styled from 'styled-components'
+import {Card} from 'react-bootstrap'
 
 const LargeCategories = () => {
+
     return (
-        <div className='container'>
-            <div className='row g-0'>
-                <div className='col-6 text-center'>
-                    <Jumbotron className='jumbotron jumbotron-fluid'>
-                        <h3>Men's</h3>
-                    </Jumbotron>
-                </div>
-                <div className='col-6 text-center'>
-                    <Jumbotron className='jumbotron jumbotron-fluid'>
-                        <h3>Women's</h3>
-                    </Jumbotron>
-                </div>
+        <CardDiv className='row g-0 mb-5'>
+            <div className='col-6 p-3 text-center'>
+                <Card style={{height: "40vw", overflow: "hidden"}}>
+                    <Card.Img variant="top" src="https://i.pinimg.com/564x/e0/fa/9e/e0fa9e571ff73f3ba6e49292e50ae0eb.jpg" />
+                    <Card.Body>
+                    <Card.ImgOverlay className='d-flex justify-content-center align-items-center'>
+                        <h1 className='display-1 text-white'>Men's</h1>
+                    </Card.ImgOverlay>
+                    </Card.Body>
+                </Card>
             </div>
-        </div>
+            <div className='col-6 p-3 text-center'>
+                <Card style={{height: "40vw", overflow: "hidden"}}>
+                    <Card.Img variant="top" src="https://i.pinimg.com/originals/1d/d6/61/1dd661660d9ce8e66180cbd00bd41d2a.jpg" />
+                    <Card.Body>
+                    <Card.ImgOverlay className='d-flex justify-content-center align-items-center'>
+                        <h1 className='display-1 text-white'>Women's</h1>
+                    </Card.ImgOverlay>
+                    </Card.Body>
+                </Card>
+            </div>
+        </CardDiv>
     )
 }
 
 export default LargeCategories;
-
-const Jumbotron = styled.div`
-background: url('https://cdn.lookastic.com/looks/long-sleeve-shirt-crew-neck-t-shirt-jeans-large-64197.jpg')
-`
+const CardDiv = styled.div`
+div {
+    div {
+        overflow: hidden;
+        img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s all ease-in-out;
+        }
+    }
+    div:hover {
+    img {
+        transform: scale(1.2);
+    }
+}
+}
+`;
