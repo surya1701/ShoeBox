@@ -1,22 +1,35 @@
-import React from 'react'
+import {useState} from 'react'
 import styled from 'styled-components'
+import { connect } from "react-redux"
+import { Offcanvas } from 'react-bootstrap'
 import { useSelector } from "react-redux"
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { store } from '../app/store'
+import Product from './Product'
 
-const ItemDisplay = ({id, url}) => {
-    const addToCart = (idValue) => {
-        store.dispatch({ type: 'ADD_TO_CART', payload: { id: idValue } });
-    }
+const ItemDisplay = ({item}) => {
+    const [show, setShow] = useState(false);
+    const product = {...item};
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
-    <Wrap onClick={() => addToCart(id)}>
-        <img src={url} />
-    </Wrap>
+    <>
+        <Product item={product} show={show} handleClose={handleClose}/>
+        <Wrap onClick={() => handleShow()}>
+            <img src={product.image} />
+        </Wrap>
+    </>
     )
 }
-export default ItemDisplay
+const mapStateToProps=(state)=>{
+    return {
+        shoesValue: state.cart.ShoesData
+    }
+}
+export default connect(mapStateToProps)(ItemDisplay);
 
 const Wrap = styled.div`
     border-radius: 10px;

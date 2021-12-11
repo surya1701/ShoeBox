@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState} from 'react'
 import styled from 'styled-components'
 import ImgSlider from '../../components/ImgSlider'
 import Brand from '../../components/Brand'
@@ -8,7 +8,7 @@ import SlipOns from './SlipOns'
 import LargeCategories from './LargeCategories'
 import Footer from '../../components/Footer'
 
-function Home({ cartValue }) {
+function Home() {
     return (
         <div>
             <Header />
