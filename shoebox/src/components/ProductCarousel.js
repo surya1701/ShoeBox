@@ -1,5 +1,4 @@
 import {Carousel} from "react-bootstrap"
-import PinchZoomPan from "react-responsive-pinch-zoom-pan";
 import PrismaZoom from 'react-prismazoom'
 
 const ProductCarousel = ({images}) => {
