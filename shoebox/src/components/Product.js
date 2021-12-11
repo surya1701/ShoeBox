@@ -9,9 +9,9 @@ import { SubscriptionsOutlined } from '@material-ui/icons';
 import ImgSlider from './ImgSlider';
 
 const Product = ({item, show, handleClose}) => {
-    const addToCart = (idValue) => {
+    const addToCart = () => {
         handleClose();
-        store.dispatch({ type: 'ADD_TO_CART', payload: { id: idValue } });
+        store.dispatch({ type: 'ADD_TO_CART', payload: { id: item.key } });
     }
     let settings = {
         dots: true,
