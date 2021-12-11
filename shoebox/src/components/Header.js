@@ -32,7 +32,7 @@ function Header({ cartValue }) {
         </Left>
         <Center>
           <Logo>
-            ShoeBox
+            <Link to="/" style={{color: "black"}}>ShoeBox</Link>
           </Logo>
         </Center>
         <Right>
@@ -109,7 +109,9 @@ const Logo = styled.h1`
   font-weight: bold;
   text-color: #000000;
   text-transform: uppercase;
+
   ${mobile({ fontSize: "24px" })}
+
 `;
 const Right = styled.div`
   flex: 1;
