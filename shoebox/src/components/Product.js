@@ -8,6 +8,7 @@ import { store } from '../app/store'
 import { useForm, FormProvider } from "react-hook-form";
 import {Button} from "react-bootstrap"
 import FormInputRadio from './SizeForm';
+import ProductCarousel from './ProductCarousel';
 
 const Product = ({item, show, handleClose}) => {
     const methods = useForm();
@@ -26,16 +27,17 @@ const Product = ({item, show, handleClose}) => {
         autoplay: true
     }
     const {key, name, brand, image, price} = item;
+    const images = [image, image, image]
     return (
         <Offcanvas show={show} onHide={handleClose} placement='end' className='text-center'>
             <Offcanvas.Header closeButton>
-            <Offcanvas.Title>{name}</Offcanvas.Title>
+            <Offcanvas.Title>{brand}</Offcanvas.Title>
             </Offcanvas.Header>
-            {/* <ImgSlider/> */}
+                {/* <ImgSlider/> */}
             <Offcanvas.Body>
-            <img className='img-fluid' src={image}></img>
+            <ProductCarousel images={images}/>
             <br/>
-            <h3 className='display-4'>{brand}</h3>
+            <h3 className='display-6'>{name}</h3>
             <h4>&#8377; {price}</h4>
             <br/>
             <FormProvider {...methods}>
