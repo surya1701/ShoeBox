@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Home from './components/Home';
+import Home from './features/home/Home';
 import Cart from './features/cart/Cart';
 import Checkout from './features/checkout/Checkout';
 import Confirmation from './features/checkout/Confirmation';

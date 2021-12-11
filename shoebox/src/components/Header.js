@@ -36,8 +36,7 @@ function Header({ cartValue }) {
           </Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem>LOGIN</MenuItem>
           <MenuItem>
             <Badge color="primary">
               <Link to="/cart">

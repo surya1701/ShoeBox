@@ -17,16 +17,16 @@ function ImgSlider() {
     return (
         <Carousel {...settings}>
             <Wrap>
-                <img src="https://lh3.googleusercontent.com/proxy/b29uIB1uaWdU9UVP08LMJJaBQ8rrTsTSgkgUWhUxgGezuzqrTOQcBvRUQhW8WwnOZo_Q9NdOn6Jd7RxwG9XcBbN2WX6SAwKxrOKjrCkZR6FK3Js1A-0GySTCSquqFuEwGDZFgHH1NOMc3PzcOSM2f7F1Qw" />
+                <img className='img-fluid' src="https://lh3.googleusercontent.com/proxy/b29uIB1uaWdU9UVP08LMJJaBQ8rrTsTSgkgUWhUxgGezuzqrTOQcBvRUQhW8WwnOZo_Q9NdOn6Jd7RxwG9XcBbN2WX6SAwKxrOKjrCkZR6FK3Js1A-0GySTCSquqFuEwGDZFgHH1NOMc3PzcOSM2f7F1Qw" />
             </Wrap>
             <Wrap>
-                <img src="https://wallpaperaccess.com/full/1252085.jpg" />
+                <img className='img-fluid' src="https://wallpaperaccess.com/full/1252085.jpg" />
             </Wrap>
             <Wrap>
-                <img src="https://c1.wallpaperflare.com/preview/60/37/209/feet-trainers-adidas-vigenette.jpg" />
+                <img className='img-fluid' src="https://c1.wallpaperflare.com/preview/60/37/209/feet-trainers-adidas-vigenette.jpg" />
             </Wrap>
             <Wrap>
-                <img src="https://www.teahub.io/photos/full/82-828480_adidas-shoes-computer-wallpapers-adidas-shoes-picture-adidas.jpg" />
+                <img className='img-fluid' src="https://www.teahub.io/photos/full/82-828480_adidas-shoes-computer-wallpapers-adidas-shoes-picture-adidas.jpg" />
             </Wrap>
         </Carousel>
     )

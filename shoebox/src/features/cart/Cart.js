@@ -53,7 +53,6 @@ const Cart =({cartValue})=>{
                                 <hr className="my-4"/>
                                 <div className="text-center">
                                 <Link to="/checkout"><button type="button" className="btn btn-primary mb-2">CHECKOUT</button></Link>
-                                    <button type="button" className="btn btn-outline-primary btn-sm">CLEAR</button>
                                 </div>
                                 {/* <div className="text-center">
                                     <button type="button" className="btn btn-primary mb-2" onClick={handleCheckout}>CHECKOUT</button>

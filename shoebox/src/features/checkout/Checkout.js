@@ -5,13 +5,14 @@ import {Paper,Stepper,Step,StepLabel,Typography} from "@material-ui/core";
 import { store } from "../../app/store";
 import { Navigate } from "react-router-dom";
 import useStyles from "./styles";
-import AddressForm from "../../components/AddressForm";
-import PaymentForm from "../../components/PaymentForm"
+import AddressForm from "./Forms/AddressForm";
+import PaymentForm from './Forms/PaymentForm';
 
 const steps = ["Shipping Address", "Payment Details"];
 
 const Checkout = ({ cartValue }) => {
-  const [toRedirect, setToRedirect] = useState(false);
+  // toRedirect = 0 (no items), 1 (has items), 2 (order confirmed)
+  const [toRedirect, setToRedirect] = useState(1);
   const [activeStep, setActiveStep] = useState(0);
   const [shippingData, setShippingData] = useState({});
 
@@ -22,7 +23,7 @@ const Checkout = ({ cartValue }) => {
     cartValue.forEach(item => {
         items += item.qty;
     });
-    if(items === 0) {setToRedirect(true)}
+    if(items === 0) {setToRedirect(0)}
    },[cartValue])
 
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -36,6 +37,7 @@ const Checkout = ({ cartValue }) => {
   const Confirmation = () => {
     setShippingData({"data": shippingData, "cart": [...cartValue]});
     store.dispatch({type:'ORDER_CONFIRMED'});
+    if(toRedirect === 1) {setToRedirect(2)}
     console.log(shippingData);
     return <p>{JSON.stringify(shippingData)}</p>;
   }
@@ -57,7 +59,9 @@ const Checkout = ({ cartValue }) => {
     );
 
   return (
-    (toRedirect) ?
+    (toRedirect === 0) ?
+     <Navigate to="/"/> :
+     (toRedirect === 2) ?
      <Navigate to="/confirmation" state={shippingData}/> :
     <>
       <div className={classes.toolbar} />
