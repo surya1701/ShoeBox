@@ -6,6 +6,7 @@ import Header from './Header'
 import NewArrival from './NewArrival'
 import SlipOns from './SlipOns'
 import LargeCategories from './LargeCategories'
+import Footer from './Footer'
 
 import { store } from '../app/store'
 import { PlusCircleIcon } from '../assets/icons';
@@ -33,24 +34,14 @@ function Home({ cartValue }) {
                 </button>
                 <NewArrival />
                 <SlipOns />
+                <br />
+                <Advert>
+                    <img className='gif' src='/images/adidas-ad.gif' />
+                    <img className='image' src='/images/adidas-ad-image.jpg' />
+                </Advert>
 
-                <button 
-                 onClick={() => addToCart(1)}
-                 className={"btn btn-primary btn-sm mr-2 mb-1"}>
-                    Adidas<PlusCircleIcon width={"20px"}/>
-                 </button>
-                 <button 
-                 onClick={() => addToCart(2)}
-                 className={"btn btn-primary btn-sm mr-2 mb-1"}>
-                    Nike<PlusCircleIcon width={"20px"}/>
-                 </button>
-                 <br/>
-                 <Advert>
-                     <img className='gif' src='/images/adidas-ad.gif'/>
-                     <img className='image' src='/images/adidas-ad-image.jpg'/>
-                 </Advert>
-
-                <LargeCategories/>
+                <LargeCategories />
+                <Footer />
             </Container>
         </div>
     )
