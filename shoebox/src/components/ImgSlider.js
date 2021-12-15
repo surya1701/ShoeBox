@@ -26,7 +26,7 @@ function ImgSlider() {
                 <img className='img-fluid' src="https://udg-about-puma-prod-endpoint.azureedge.net/-/media/images/newsroom/brand-product-news/2020/2020_09_24_mercedes_speedcatpro/m07.jpg?as=1&h=960&iar=1&w=1920&rev=e74364146ba04fa389110b996eaca642&hash=4889FE8AC5BF8FC8D3BD6F199DCD759A" />
             </Wrap>
             <Wrap>
-                <img className='img-fluid' src="https://contents.spin.ph/image/resize/image/2021/09/29/curry9-2-r-1632878334.webp" />
+                <img className='img-fluid' src="https://s3.amazonaws.com/nikeinc/assets/12562/Nike_Find_Your_Greatness_Diver_hd_1600.jpg?1343147683" />
             </Wrap>
         </Carousel>
     )
