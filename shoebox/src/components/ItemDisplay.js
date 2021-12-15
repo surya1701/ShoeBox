@@ -16,10 +16,17 @@ const ItemDisplay = ({item}) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
+    (typeof product.image === 'string') ?
     <>
         <Product item={product} show={show} handleClose={handleClose}/>
         <Wrap onClick={() => handleShow()}>
             <img src={product.image} />
+        </Wrap>
+    </> :
+    <>
+        <Product item={product} show={show} handleClose={handleClose}/>
+        <Wrap onClick={() => handleShow()}>
+            <img src={product.image[0]} />
         </Wrap>
     </>
     )

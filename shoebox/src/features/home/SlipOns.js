@@ -18,9 +18,10 @@ function SlipOns({shoesValue}) {
     }
     return (
         <Container>
-            <h4>Adidas</h4>
+            <h4>Nike</h4>
             <Content>
-                {shoesValue.map((item) => (item.brand === "Adidas") && <ItemDisplay item={{...item}}/>)}
+                {/* {shoesValue.map((item) => (item.brand === "Nike") && <ItemDisplay item={{...item}}/>)} */}
+                {shoesValue.filter((item) => (item.brand === "Nike")).slice(-4).map((item) => <ItemDisplay item={{...item}}/>)}
             </Content>
         </Container>
     )

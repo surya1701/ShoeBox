@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useSelector } from "react-redux"
+import { connect } from "react-redux"
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ItemDisplay from '../../components/ItemDisplay';
 
-function NewArrival() {
+function NewArrival({shoesValue}) {
     let settings = {
         dots: true,
         infinite: true,
@@ -17,18 +17,20 @@ function NewArrival() {
     }
     return (
         <Container>
-            <h4>New Arrival</h4>
+            <h4>Puma</h4>
             <Content>
-                <ItemDisplay id={2} url="https://wallpaperaccess.com/full/1252085.jpg" />
-                <ItemDisplay id={2} url="https://i.pinimg.com/736x/dc/c3/a8/dcc3a8ad7715b7c82c07fbb8d5915b55--adidas-shoes-adidas-neo.jpg" />
-                <ItemDisplay id={2} url="https://media.istockphoto.com/photos/adidas-blue-shoes-for-women-picture-id543052632?k=20&m=543052632&s=612x612&w=0&h=w5295upJmjPSCrGfygyi4zZrX6xajCrLvFcr8IeUH1g=" />
-                <ItemDisplay id={2} url="https://media.istockphoto.com/photos/adidas-superstar-picture-id458068097?k=20&m=458068097&s=612x612&w=0&h=57J_lM_EMo1ddJZsWlbWgJMy5Nr9XlLMqRA4MpbRMX4=" />
+                {/* {shoesValue.map((item) => (item.brand === "Puma") && <ItemDisplay item={{...item}}/>)} */}
+                {shoesValue.filter((item) => (item.brand === "Puma")).slice(-4).map((item) => <ItemDisplay item={{...item}}/>)}
             </Content>
         </Container>
     )
 }
-
-export default NewArrival
+const mapStateToProps=(state)=>{
+    return {
+        shoesValue: state.cart.ShoesData
+    }
+}
+export default connect(mapStateToProps)(NewArrival);
 
 const Container = styled.div`
 margin-top: 20px;

@@ -27,7 +27,7 @@ const Product = ({item, show, handleClose}) => {
         autoplay: true
     }
     const {key, name, brand, image, price} = item;
-    const images = [image, image, image]
+    const images = image
     return (
         <Offcanvas show={show} onHide={handleClose} placement='end' className='text-center'>
             <Offcanvas.Header closeButton>

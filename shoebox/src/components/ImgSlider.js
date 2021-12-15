@@ -17,16 +17,16 @@ function ImgSlider() {
     return (
         <Carousel {...settings}>
             <Wrap>
-                <img className='img-fluid' src="https://lh3.googleusercontent.com/proxy/b29uIB1uaWdU9UVP08LMJJaBQ8rrTsTSgkgUWhUxgGezuzqrTOQcBvRUQhW8WwnOZo_Q9NdOn6Jd7RxwG9XcBbN2WX6SAwKxrOKjrCkZR6FK3Js1A-0GySTCSquqFuEwGDZFgHH1NOMc3PzcOSM2f7F1Qw" />
+                <img className='img-fluid' src="https://i0.wp.com/www.opindia.com/wp-content/uploads/2018/09/Hima-Das-Adidas-Ad.jpg?fit=1200%2C1200&ssl=1" />
             </Wrap>
             <Wrap>
-                <img className='img-fluid' src="https://wallpaperaccess.com/full/1252085.jpg" />
+                <img className='img-fluid' src="https://wallpaperaccess.com/full/680082.png" />
             </Wrap>
             <Wrap>
-                <img className='img-fluid' src="https://c1.wallpaperflare.com/preview/60/37/209/feet-trainers-adidas-vigenette.jpg" />
+                <img className='img-fluid' src="https://udg-about-puma-prod-endpoint.azureedge.net/-/media/images/newsroom/brand-product-news/2020/2020_09_24_mercedes_speedcatpro/m07.jpg?as=1&h=960&iar=1&w=1920&rev=e74364146ba04fa389110b996eaca642&hash=4889FE8AC5BF8FC8D3BD6F199DCD759A" />
             </Wrap>
             <Wrap>
-                <img className='img-fluid' src="https://www.teahub.io/photos/full/82-828480_adidas-shoes-computer-wallpapers-adidas-shoes-picture-adidas.jpg" />
+                <img className='img-fluid' src="https://contents.spin.ph/image/resize/image/2021/09/29/curry9-2-r-1632878334.webp" />
             </Wrap>
         </Carousel>
     )
