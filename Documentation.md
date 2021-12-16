@@ -43,7 +43,10 @@ Week 6 - Customization, Track order, Customer Service Page
 
 ## Wireframes
 
-<img src="ShoeBox/ecommerce-wireframe-1.png" width="50%">
+![image info](ShoeBox/ecommerce-wireframe-1.png)
+![image info](ShoeBox/ecommerce-wireframe-2.jpg)
+![image info](ShoeBox/ecommerce-wireframe-3.jpeg)
+![image info](ShoeBox/ecommerce-wireframe-4.jpeg)
 
 
 <!-- 
