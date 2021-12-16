@@ -24,6 +24,7 @@ After [cloning](https://docs.github.com/en/github/creating-cloning-and-archiving
 foo@bar:~$ cd shoebox
 foo@bar:~$ npm i
 foo@bar:~$ npm start
+foo@bar:~$ https://localhost:3000/
 ```
 
 ## Code Snippets
@@ -32,6 +33,21 @@ The Home Page contains a carousel component and several item display components.
 The Cart icon and the item counter in the navbar is accompanied by the logo and a search bar. The icon leads to the cart page, which displays all added items with sizes and buttons to increase count, decrease count or remove item from cart. A part of this page shows the number of items and the total cost of the cart.
 
 The checkout buttons redirects users to the payment page. Here the delivery information and payment details are to be provided. Once the form is submitted, the application returns a payment confirmation page.
+
+## Future Work
+
+Week 3 - Item Review, Additional social media Functions
+Week 4 - Google Auth Login, Pagination, Order Module
+Week 5 - Likes, Follow, Brand Pages, Filtering
+Week 6 - Customization, Track order, Customer Service Page
+
+## Wireframes
+
+![image info](ShoeBox/ecommerce-wireframe-1.png)
+![image info](ShoeBox/ecommerce-wireframe-2.jpg)
+![image info](ShoeBox/ecommerce-wireframe-3.jpeg)
+![image info](ShoeBox/ecommerce-wireframe-4.jpeg)
+
 
 <!-- 
 ## Screenshots
