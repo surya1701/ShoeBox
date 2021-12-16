@@ -7,7 +7,7 @@ This application has been designed by GROUP 21, as a semester project for the Fu
     <li><a href="#installation">Installation</a>
     </li>
     <li><a href="#code-snippets">Code Snippets</a></li>
-    <li><a href="#screenshots">Screenshots</a></li>
+    <!-- <li><a href="#screenshots">Screenshots</a></li> -->
     <li><a href="#contributors">Contributors</a></li>
     <li><a href="#deployed-website">Deployed Website</a></li>
     <li><a href="#tech-stack">Tech Stack</a></li>
@@ -32,33 +32,6 @@ The Home Page contains a carousel component and several item display components.
 The Cart icon and the item counter in the navbar is accompanied by the logo and a search bar. The icon leads to the cart page, which displays all added items with sizes and buttons to increase count, decrease count or remove item from cart. A part of this page shows the number of items and the total cost of the cart.
 
 The checkout buttons redirects users to the payment page. Here the delivery information and payment details are to be provided. Once the form is submitted, the application returns a payment confirmation page.
-
-
-## Screenshots
-<br>
-<p float="left">
-<img src="static/images/screenshots/WAD1.PNG" width="45%">
-<img src="static/images/screenshots/WAD3.PNG" width="45%">
-</p>
-<p float="left">
-<img src="static/images/screenshots/WAD9.PNG" width="45%">
-<img src="static/images/screenshots/WAD10.PNG" width="45%">
-</p>
-<p float="left">
-<img src="static/images/screenshots/WAD6.jpg" width="45%">
-<img src="static/images/screenshots/WAD13.PNG" width="45%">
-</p>
-<img src="static/images/screenshots/WAD11.PNG" width="90%">
-<p float="left">
-<img src="static/images/screenshots/WAD15.PNG" width="45%">
-<img src="static/images/screenshots/WAD12.PNG" width="45%">
-</p>
-<p float="left">
-<img src="static/images/screenshots/WAD14.PNG" width="45%">
-<img src="static/images/screenshots/WAD8.PNG" width="45%">
-</p>
-<br>
-<img src="static/images/screenshots/WAD7.PNG" width="90%">
 
 ## Contributors
 [Piyush Kumar](https://github.com/piyush9311)<br>
