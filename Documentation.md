@@ -43,11 +43,14 @@ Week 6 - Customization, Track order, Customer Service Page
 
 ## Wireframes
 
-![image info](ShoeBox/ecommerce-wireframe-1.png)
-![image info](ShoeBox/ecommerce-wireframe-2.jpg)
-![image info](ShoeBox/ecommerce-wireframe-3.jpeg)
-![image info](ShoeBox/ecommerce-wireframe-4.jpeg)
-
+<p float="left">
+<img src="ecommerce-wireframe-1.png" width="45%">
+<img src="ecommerce-wireframe-2.jpg" width="45%">
+</p>
+<p float="left">
+<img src="ecommerce-wireframe-3.jpeg" width="45%">
+<img src="ecommerce-wireframe-4.jpeg" width="45%">
+</p>
 
 <!-- 
 ## Screenshots
@@ -84,7 +87,7 @@ Week 6 - Customization, Track order, Customer Service Page
 [Chaintany Anand Kopoori](https://github.com/chaitanya9993)<br>
 
 ## Deployed Website
-[Deployed Website](https://donationplatform-wad.herokuapp.com/)
+[Deployed Website](#)
 The project has not been deployed yet. It will be deployed soon.
 
 ## Tech Stack
