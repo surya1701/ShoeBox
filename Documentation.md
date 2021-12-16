@@ -48,8 +48,8 @@ Week 6 - Customization, Track order, Customer Service Page
 <img src="ecommerce-wireframe-2.jpg" width="45%">
 </p>
 <p float="left">
-<img src="ecommerce-wireframe-3.jpg" width="45%">
-<img src="ecommerce-wireframe-4.jpg" width="45%">
+<img src="ecommerce-wireframe-3.jpeg" width="45%">
+<img src="ecommerce-wireframe-4.jpeg" width="45%">
 </p>
 
 <!-- 
