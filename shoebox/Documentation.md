@@ -69,7 +69,7 @@ The checkout buttons redirects users to the payment page. Here the delivery info
 
 ## Deployed Website
 [Deployed Website](https://donationplatform-wad.herokuapp.com/)
-The project has not been deployed. It will will deployed soon.
+The project has not been deployed yet. It will be deployed soon.
 
 ## Tech Stack
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
