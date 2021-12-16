@@ -33,6 +33,33 @@ The Cart icon and the item counter in the navbar is accompanied by the logo and 
 
 The checkout buttons redirects users to the payment page. Here the delivery information and payment details are to be provided. Once the form is submitted, the application returns a payment confirmation page.
 
+<!-- 
+## Screenshots
+<br>
+<p float="left">
+<img src="static/images/screenshots/WAD1.PNG" width="45%">
+<img src="static/images/screenshots/WAD3.PNG" width="45%">
+</p>
+<p float="left">
+<img src="static/images/screenshots/WAD9.PNG" width="45%">
+<img src="static/images/screenshots/WAD10.PNG" width="45%">
+</p>
+<p float="left">
+<img src="static/images/screenshots/WAD6.jpg" width="45%">
+<img src="static/images/screenshots/WAD13.PNG" width="45%">
+</p>
+<img src="static/images/screenshots/WAD11.PNG" width="90%">
+<p float="left">
+<img src="static/images/screenshots/WAD15.PNG" width="45%">
+<img src="static/images/screenshots/WAD12.PNG" width="45%">
+</p>
+<p float="left">
+<img src="static/images/screenshots/WAD14.PNG" width="45%">
+<img src="static/images/screenshots/WAD8.PNG" width="45%">
+</p>
+<br>
+<img src="static/images/screenshots/WAD7.PNG" width="90%"> -->
+
 ## Contributors
 [Piyush Kumar](https://github.com/piyush9311)<br>
 [S Suryavardan](https://github.com/surya1701)<br>
