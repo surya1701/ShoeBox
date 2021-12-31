@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  RadioGroup,
-} from "@material-ui/core";
+import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@material-ui/core";
 import { Controller, useFormContext } from "react-hook-form";
 
 const sizes = [
@@ -34,21 +28,12 @@ const FormInputRadio = ({ name,control }) => {
             name={name}
             render={({ field }) => (
                 <RadioGroup {...field}>
+                {sizes.map((size) =>
                 <FormControlLabel
-                    value="small"
+                    value={size.value}
                     control={<Radio />}
-                    label="Small"
-                />
-                <FormControlLabel
-                    value="medium"
-                    control={<Radio />}
-                    label="Medium"
-                />
-                <FormControlLabel
-                    value="large"
-                    control={<Radio />}
-                    label="Large"
-                />
+                    label={size.label}
+                />)}
                 </RadioGroup>
             )}
             />
