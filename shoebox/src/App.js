@@ -5,7 +5,8 @@ import Cart from './features/cart/Cart';
 import Explore from './features/explore/Explore';
 import Checkout from './features/checkout/Checkout';
 import Confirmation from './features/checkout/Confirmation';
-import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProductSingle from './features/product/ProductSingle';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -14,16 +15,17 @@ function App() {
     //   <Home />
     // </div>
     <div className="App">
-    <Router>
-      <Routes>
-          <Route exact path ="/" element={<Home/>}/>
-          <Route path ="/cart" element={<Cart/>}/>
-          <Route path ="/explore" element={<Explore/>}/>
-          <Route path ="/checkout" element={<Checkout/>}/>
-          <Route path ="/confirmation" element={<Confirmation/>}/>
-      </Routes>
-    </Router>
-  </div>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/confirmation" element={<Confirmation />} />
+          <Route path="/productView" element={<ProductSingle />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
