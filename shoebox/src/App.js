@@ -7,6 +7,7 @@ import Checkout from './features/checkout/Checkout';
 import Confirmation from './features/checkout/Confirmation';
 import ProductSingle from './features/product/ProductSingle';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProductDemo from './features/product/ProductDemo';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/productView" element={<ProductSingle />} />
+          <Route path="/productDemo" element={<ProductDemo />} />
         </Routes>
       </Router>
     </div>
