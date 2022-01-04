@@ -5,30 +5,22 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import NewArrival from "../home/NewArrival";
 import { mobile } from "../../responsive";
+import { Accordion, Button, Image } from "react-bootstrap";
 
 const Container = styled.div``;
 
 const Wrapper = styled.div`
-  padding: 50px;
-  display: flex;
-  ${mobile({ padding: "10px", flexDirection: "column" })}
+ 
 `;
 
 const ImgContainer = styled.div`
-  flex: 1;
+
 `;
 
-const Image = styled.img`
-  width: 95%;
-  height: 80vh;
-  object-fit: cover;
-  ${mobile({ height: "40vh" })}
-`;
+
 
 const InfoContainer = styled.div`
-  flex: 1;
-  padding: 0px 50px;
-  ${mobile({ padding: "10px" })}
+  
 `;
 
 const Title = styled.h1`
@@ -79,7 +71,6 @@ const FilterSize = styled.select`
 const FilterSizeOption = styled.option``;
 
 const AddContainer = styled.div`
-  width: 50%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -88,9 +79,13 @@ const AddContainer = styled.div`
 
 const AmountContainer = styled.div`
   display: flex;
+  flex : 1;
   align-items: center;
   font-weight: 700;
 `;
+const ButtonContainer = styled.div`
+  flex: 1;
+`
 
 const Amount = styled.span`
   width: 30px;
@@ -104,68 +99,76 @@ const Amount = styled.span`
   cursor: pointer;
 `;
 
-const Button = styled.button`
-  padding: 15px;
-  border: 2px solid teal;
-  background-color: white;
-  cursor: pointer;
-  font-weight: 500;
-  &:hover{
-      background-color: #f8f4f4;
-  }
-`;
+;
 
-const ProductDemo = () => {
-    return (
-        <Container>
-            <Header />
-            <Wrapper>
-                <ImgContainer>
-                    <Image src="https://images.vans.com/is/image/Vans/EYEBWW-HERO" />
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>Adidas Yeezy</Title>
-                    <Desc>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                        venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
-                        iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
-                        tristique tortor pretium ut. Curabitur elit justo, consequat id
-                        condimentum ac, volutpat ornare.
-                    </Desc>
-                    <Price>$ 5,999</Price>
-                    <FilterContainer>
-                        <Filter>
-                            <FilterTitle>Color</FilterTitle>
-                            <FilterColor color="black" />
-                            <FilterColor color="darkblue" />
-                            <FilterColor color="gray" />
-                        </Filter>
-                        <Filter>
-                            <FilterTitle>Size</FilterTitle>
-                            <FilterSize>
-                                <FilterSizeOption>6</FilterSizeOption>
-                                <FilterSizeOption>7</FilterSizeOption>
-                                <FilterSizeOption>8</FilterSizeOption>
-                                <FilterSizeOption>9</FilterSizeOption>
-                                <FilterSizeOption>10</FilterSizeOption>
-                            </FilterSize>
-                        </Filter>
-                    </FilterContainer>
-                    <AddContainer>
-                        <AmountContainer>
-                            <Remove />
-                            <Amount>1</Amount>
-                            <Add />
-                        </AmountContainer>
-                        <Button>ADD TO CART</Button>
-                    </AddContainer>
-                </InfoContainer>
-            </Wrapper>
-            <NewArrival />
-            <Divider />
-            <Footer />
-        </Container>
-    );
+const ProductDemo = ({ item }) => {
+  console.log(item);
+  return (
+    <Container>
+      <Header />
+      <Wrapper className="row g-0 p-1 mt-20">
+        <ImgContainer className="col-md-6 col-12 p-1 text-center" >
+          <Image src="https://images.vans.com/is/image/Vans/EYEBWW-HERO" fluid rounded className="" />
+        </ImgContainer>
+
+        <InfoContainer className="col-md-6 col-12 p-1">
+          <Accordion defaultActiveKey="0">
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>Know Your Shoe</Accordion.Header>
+              <Accordion.Body>
+                <Title>{item.name}</Title>
+                <Desc>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                  venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
+                  iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
+                  tristique tortor pretium ut. Curabitur elit justo, consequat id
+                  condimentum ac, volutpat ornare.
+                </Desc>
+                <Price>$ 5,999</Price>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="1">
+              <Accordion.Header>Take Away</Accordion.Header>
+              <Accordion.Body>
+                <FilterContainer>
+                  <Filter>
+                    <FilterTitle>Color</FilterTitle>
+                    <FilterColor color="black" />
+                    <FilterColor color="darkblue" />
+                    <FilterColor color="gray" />
+                  </Filter>
+                  <Filter>
+                    <FilterTitle>Size</FilterTitle>
+                    <FilterSize>
+                      <FilterSizeOption>6</FilterSizeOption>
+                      <FilterSizeOption>7</FilterSizeOption>
+                      <FilterSizeOption>8</FilterSizeOption>
+                      <FilterSizeOption>9</FilterSizeOption>
+                      <FilterSizeOption>10</FilterSizeOption>
+                    </FilterSize>
+                  </Filter>
+                </FilterContainer>
+                <AddContainer>
+                  <AmountContainer>
+                    <Remove />
+                    <Amount>1</Amount>
+                    <Add />
+                  </AmountContainer>
+                  <ButtonContainer>
+                    <Button variant="primary" className="mr-2">ADD TO CART</Button>
+                    <Button variant="outline-danger">WishList</Button>
+                  </ButtonContainer>
+                </AddContainer>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+        </InfoContainer>
+      </Wrapper>
+      <NewArrival />
+      <Divider />
+      <Footer />
+    </Container>
+  );
 };
 
 export default ProductDemo;
