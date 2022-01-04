@@ -5,24 +5,23 @@ function Brand() {
     return (
         <Container>
             <Wrap>
-                <img src="https://greepx.com/wp-content/uploads/2020/02/adidas-wallpapers.jpg" />
+                <img src="https://greepx.com/wp-content/uploads/2020/02/adidas-wallpapers.jpg" alt="adidas-logo"/>
 
             </Wrap>
             <Wrap>
-                <img src="https://wallpaperaccess.com/full/135853.jpg" />
+                <img src="https://wallpaperaccess.com/full/135853.jpg" alt="nike-logo"/>
 
             </Wrap>
             <Wrap>
-                <img src="https://logodix.com/logo/487483.png" />
+                <img src="https://logodix.com/logo/487483.png" alt="puma-logo"/>
 
             </Wrap>
             <Wrap>
-                <img src="https://wallpaperaccess.com/full/1174929.jpg" />
+                <img src="https://wallpaperaccess.com/full/1174929.jpg" alt="reebok-logo"/>
 
             </Wrap>
             <Wrap>
-                <img src="https://i.pinimg.com/originals/d1/44/7c/d1447c8316d301d058f17bd5e9f0c52d.jpg" />
-
+                <img src="https://i.pinimg.com/originals/d1/44/7c/d1447c8316d301d058f17bd5e9f0c52d.jpg" alt="underarmour-logo"/>
             </Wrap>
 
         </Container>

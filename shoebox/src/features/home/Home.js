@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import styled from 'styled-components'
 import ImgSlider from '../../components/ImgSlider'
 import Brand from '../../components/Brand'
@@ -19,8 +18,8 @@ function Home() {
                 <SlipOns />
                 <br />
                 <Advert>
-                    <img className='gif' src='/images/adidas-ad.gif' />
-                    <img className='image' src='/images/adidas-ad-image.jpg' />
+                    <img className='gif' src='/images/adidas-ad.gif' alt="img-ad-1"/>
+                    <img className='image' src='/images/adidas-ad-image.jpg' alt="img-ad-2"/>
                 </Advert>
 
                 <LargeCategories />

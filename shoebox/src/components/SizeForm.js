@@ -1,6 +1,6 @@
 import React from "react";
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@material-ui/core";
-import { Controller, useFormContext } from "react-hook-form";
+import { Controller } from "react-hook-form";
 
 const sizes = [
 {

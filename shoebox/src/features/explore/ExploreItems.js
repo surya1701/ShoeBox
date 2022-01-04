@@ -20,8 +20,7 @@ function ExploreItems({ currentItems, brands }) {
                         <Card.Img variant="top" style={{ height: "50vh", 'object-fit': "cover" }} src={item.image[0]} />
                         <Card.Body style={{ zIndex: "2" }}>
                             <Card.Title className='display-6' style={{ display: "inline" }}>
-                                {/* <Link to="/productDemo" item={item}>{item.name}</Link> */}
-                                <Link to={{ pathname: "/productDemo", item: { ...item } }}>{item.name}</Link>
+                                <Link to={{ pathname: "/product", search: "?key="+item.key }}>{item.name}</Link>
                             </Card.Title>
                             <Card.Text style={{ float: "right" }}>&#8377; {item.price}</Card.Text>
                             <Card.Text style={{ float: "left" }}>View count</Card.Text>

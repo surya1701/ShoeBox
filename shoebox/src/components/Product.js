@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { connect } from "react-redux"
 import {Offcanvas} from "react-bootstrap"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -18,15 +15,7 @@ const Product = ({item, show, handleClose}) => {
         store.dispatch({ type: 'ADD_TO_CART', payload: { id: item.key, size: data['size']} });
         handleClose();
     }
-    let settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true
-    }
-    const {key, name, brand, image, price} = item;
+    const {name, brand, image, price} = item;
     const images = image
     return (
         <Offcanvas show={show} onHide={handleClose} placement='end' className='text-center'>

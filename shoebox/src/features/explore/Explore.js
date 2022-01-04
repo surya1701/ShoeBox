@@ -5,7 +5,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import ExploreItems from "./ExploreItems";
-import { Box, FormControl, InputLabel, Select, MenuItem, ListSubheader } from "@material-ui/core";
+import { Box, FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
 import ArrowDownwardOutlined from '@material-ui/icons/ArrowDownwardOutlined';
 import ArrowUpwardOutlined from '@material-ui/icons/ArrowUpwardOutlined';
 import {Button} from "react-bootstrap"

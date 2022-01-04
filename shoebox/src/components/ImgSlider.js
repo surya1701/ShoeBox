@@ -17,16 +17,16 @@ function ImgSlider() {
     return (
         <Carousel {...settings}>
             <Wrap>
-                <img className='img-fluid' src="https://i0.wp.com/www.opindia.com/wp-content/uploads/2018/09/Hima-Das-Adidas-Ad.jpg?fit=1200%2C1200&ssl=1" />
+                <img className='img-fluid' src="https://i0.wp.com/www.opindia.com/wp-content/uploads/2018/09/Hima-Das-Adidas-Ad.jpg?fit=1200%2C1200&ssl=1" alt="wallpaper-1"/>
             </Wrap>
             <Wrap>
-                <img className='img-fluid' src="https://wallpaperaccess.com/full/680082.png" />
+                <img className='img-fluid' src="https://wallpaperaccess.com/full/680082.png" alt="wallpaper-2"/>
             </Wrap>
             <Wrap>
-                <img className='img-fluid' src="https://udg-about-puma-prod-endpoint.azureedge.net/-/media/images/newsroom/brand-product-news/2020/2020_09_24_mercedes_speedcatpro/m07.jpg?as=1&h=960&iar=1&w=1920&rev=e74364146ba04fa389110b996eaca642&hash=4889FE8AC5BF8FC8D3BD6F199DCD759A" />
+                <img className='img-fluid' src="https://udg-about-puma-prod-endpoint.azureedge.net/-/media/images/newsroom/brand-product-news/2020/2020_09_24_mercedes_speedcatpro/m07.jpg?as=1&h=960&iar=1&w=1920&rev=e74364146ba04fa389110b996eaca642&hash=4889FE8AC5BF8FC8D3BD6F199DCD759A" alt="wallpaper-3"/>
             </Wrap>
             <Wrap>
-                <img className='img-fluid' src="https://s3.amazonaws.com/nikeinc/assets/12562/Nike_Find_Your_Greatness_Diver_hd_1600.jpg?1343147683" />
+                <img className='img-fluid' src="https://s3.amazonaws.com/nikeinc/assets/12562/Nike_Find_Your_Greatness_Diver_hd_1600.jpg?1343147683" alt="wallpaper-4"/>
             </Wrap>
         </Carousel>
     )

@@ -5,23 +5,12 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import NewArrival from "../home/NewArrival";
 import { mobile } from "../../responsive";
-import { Accordion, Button, Image } from "react-bootstrap";
-
-const Container = styled.div``;
-
-const Wrapper = styled.div`
- 
-`;
-
-const ImgContainer = styled.div`
-
-`;
-
-
-
-const InfoContainer = styled.div`
-  
-`;
+import { Accordion, Button } from "react-bootstrap";
+import {connect} from "react-redux";
+import { useLocation } from "react-router-dom"
+import { useEffect, useState } from "react";
+import ProductCarousel from "../../components/ProductCarousel";
+const queryString = require('query-string');
 
 const Title = styled.h1`
   font-weight: 200;
@@ -99,32 +88,40 @@ const Amount = styled.span`
   cursor: pointer;
 `;
 
-;
-
-const ProductDemo = ({ item }) => {
+const ProductDemo = ({shoesValue}) => {
+  const location = useLocation()
+  const [item, setItem] = useState(null);
+  useEffect(() => {
+    const {key} = queryString.parse(location.search);
+    shoesValue.forEach(element => {
+      if (parseInt(element.key) === parseInt(key)) setItem({...element});
+    });
+  }, [shoesValue, location]);
   console.log(item);
   return (
-    <Container>
+    (item) ?
+    <div>
       <Header />
-      <Wrapper className="row g-0 p-1 mt-20">
-        <ImgContainer className="col-md-6 col-12 p-1 text-center" >
-          <Image src="https://images.vans.com/is/image/Vans/EYEBWW-HERO" fluid rounded className="" />
-        </ImgContainer>
-
-        <InfoContainer className="col-md-6 col-12 p-1">
+      <div className="row g-0 p-1 mt-20">
+        <div className="col-md-6 col-12 p-1 text-center" >
+          <ProductCarousel images={item.image}/>
+        </div>
+        <div className="col-md-6 col-12 p-1">
           <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="0">
               <Accordion.Header>Know Your Shoe</Accordion.Header>
               <Accordion.Body>
                 <Title>{item.name}</Title>
+                {/* <Title>name</Title> */}
                 <Desc>
+                  <strong><i>{item.brand}</i></strong><br/>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                   venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
                   iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
                   tristique tortor pretium ut. Curabitur elit justo, consequat id
                   condimentum ac, volutpat ornare.
                 </Desc>
-                <Price>$ 5,999</Price>
+                <Price>&#8377; {item.price}</Price>
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="1">
@@ -162,13 +159,18 @@ const ProductDemo = ({ item }) => {
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
-        </InfoContainer>
-      </Wrapper>
+        </div>
+      </div>
       <NewArrival />
       <Divider />
       <Footer />
-    </Container>
+    </div>
+    : <p>404</p>
   );
 };
-
-export default ProductDemo;
+const mapStateToProps=(state)=>{
+  return {
+      shoesValue: state.cart.ShoesData
+  }
+}
+export default connect(mapStateToProps)(ProductDemo);

@@ -1,4 +1,3 @@
-import {connect} from "react-redux";
 import React, {useEffect, useState} from "react";
 import { Typography, Button, Divider, List, ListItem, ListItemText } from "@material-ui/core";
 

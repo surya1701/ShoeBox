@@ -2,7 +2,6 @@ import {Offcanvas, Button} from "react-bootstrap"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Checkbox, FormLabel, FormControlLabel, TextField } from "@material-ui/core";
-import { useState } from "react";
 
 const ExploreFilter = ({show, handleClose, filtering, brands, filterBrands}) => {
     var mapper = {"Adidas": false, "Nike": false, "Puma": false, "Vans": false, "Adidas2": false};

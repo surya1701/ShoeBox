@@ -1,12 +1,8 @@
 import {useState} from 'react'
 import styled from 'styled-components'
 import { connect } from "react-redux"
-import { Offcanvas } from 'react-bootstrap'
-import { useSelector } from "react-redux"
-import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { store } from '../app/store'
 import Product from './Product'
 
 const ItemDisplay = ({item}) => {
@@ -20,13 +16,13 @@ const ItemDisplay = ({item}) => {
     <>
         <Product item={product} show={show} handleClose={handleClose}/>
         <Wrap onClick={() => handleShow()}>
-            <img src={product.image} />
+            <img src={product.image} alt={"product-image-"+product.key}/>
         </Wrap>
     </> :
     <>
         <Product item={product} show={show} handleClose={handleClose}/>
         <Wrap onClick={() => handleShow()}>
-            <img src={product.image[0]} />
+            <img src={product.image[0]} alt={"product-image-"+product.key}/>
         </Wrap>
     </>
     )
