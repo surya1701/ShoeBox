@@ -6,7 +6,6 @@ import { useState } from "react";
 
 const ExploreFilter = ({show, handleClose, filtering, brands, filterBrands}) => {
     var mapper = {"Adidas": false, "Nike": false, "Puma": false, "Vans": false, "Adidas2": false};
-    console.log(filterBrands);
     filterBrands.map((v) => mapper[v] = true)
     const handleChange = (event) => {
         if (event.target.type === "checkbox") {
