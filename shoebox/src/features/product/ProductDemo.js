@@ -116,7 +116,21 @@ const ProductDemo = ({shoesValue}) => {
       <Divider />
       <Footer />
     </div>
-    : <p>404</p>
+    : 
+    <div>
+      <Header />
+      <div className="text-center mt-2 text-danger">
+        <h1>Request Not Found</h1>
+      </div>
+      <Container>
+            <h4 className="ml-3">Other Products</h4>
+            <Content>
+                {shoesValue.slice(-4).map((i) => <ItemDisplay item={{...i}}/>)}
+            </Content>
+        </Container>
+      <Divider />
+      <Footer />
+    </div>
   );
 };
 const mapStateToProps=(state)=>{
