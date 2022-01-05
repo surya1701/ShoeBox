@@ -98,7 +98,10 @@ function Explore({shoesValue, items, filterBrands}) {
                             </div>
                         </div>
                     </div>
-                    <ExploreItems currentItems={currentItems} brands={brands} />
+                    {currentItems &&
+                    currentItems.map((item) => (
+                    <ExploreItems item={item} brands={brands} />
+                    ))}
                 </div>
                 <div className='col-md-4 col-12 p-2'>
                     <ReactPaginate

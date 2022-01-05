@@ -1,28 +1,25 @@
-import {useState} from 'react'
 import styled from 'styled-components'
 import { connect } from "react-redux"
+import { Link } from "react-router-dom"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Product from './Product'
 
 const ItemDisplay = ({item}) => {
-    const [show, setShow] = useState(false);
     const product = {...item};
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     return (
     (typeof product.image === 'string') ?
     <>
-        <Product item={product} show={show} handleClose={handleClose}/>
-        <Wrap onClick={() => handleShow()}>
+        <Wrap>
+        <Link to={{ pathname: "/product", search: "?key="+item.key }}>
             <img src={product.image} alt={"product-image-"+product.key}/>
+        </Link>
         </Wrap>
     </> :
-    <>
-        <Product item={product} show={show} handleClose={handleClose}/>
-        <Wrap onClick={() => handleShow()}>
+    <> 
+        <Wrap>
+        <Link to={{ pathname: "/product", search: "?key="+item.key }}>
             <img src={product.image[0]} alt={"product-image-"+product.key}/>
+        </Link>
         </Wrap>
     </>
     )

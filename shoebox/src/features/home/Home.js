@@ -1,19 +1,29 @@
 import styled from 'styled-components'
 import ImgSlider from '../../components/ImgSlider'
-import Brand from '../../components/Brand'
+import Brand from './Brand'
 import Header from '../../components/Header'
 import NewArrival from './NewArrival'
 import SlipOns from './SlipOns'
 import LargeCategories from './LargeCategories'
 import Footer from '../../components/Footer'
 
+const brands = [
+    {label: "Adidas", value: "Adidas", img: "https://greepx.com/wp-content/uploads/2020/02/adidas-wallpapers.jpg"},
+    {label: "Nike", value: "Nike", img: "https://wallpaperaccess.com/full/135853.jpg"},
+    {label: "Puma", value: "Puma", img: "https://logodix.com/logo/487483.png"},
+    {label: "Vans", value: "Vans", img: "https://logodix.com/logo/487483.png"},
+    {label: "Adidas2", value: "Adidas2", img: "https://greepx.com/wp-content/uploads/2020/02/adidas-wallpapers.jpg"},
+];
 function Home() {
     return (
         <div>
             <Header />
             <Container>
                 <ImgSlider />
-                <Brand />
+                <WrapContainer>
+                {brands.map((b) => <Brand brand={b} brands={brands}/>)}
+                </WrapContainer>
+                {/* <Brand /> */}
                 <NewArrival />
                 <SlipOns />
                 <br />
@@ -66,3 +76,10 @@ padding:5vw 10vw 5vw 10vw;
         }
     }
 `;
+const WrapContainer = styled.div`
+    margin-top: 30px;
+    display: grid;
+    padding: 30px 0 26px;
+    grid-gap: 25px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+`
