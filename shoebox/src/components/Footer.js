@@ -1,14 +1,15 @@
 import {
-    Facebook,
-    Instagram,
-    MailOutline,
-    Phone,
-    Pinterest,
-    Room,
-    Twitter,
+  Facebook,
+  Instagram,
+  MailOutline,
+  Phone,
+  Pinterest,
+  Room,
+  Twitter,
 } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
     display: flex;
@@ -84,58 +85,57 @@ const Payment = styled.img`
   `;
 
 const Footer = () => {
-    return (
-        <Container>
-            <Left>
-                <Logo>SHOEBOX</Logo>
-                <Desc>
-                    Welcome to the world of shoes.Choose the best from the list for comfort of your legs.
-                </Desc>
-                <SocialContainer>
-                    <SocialIcon color="3B5999">
-                        <Facebook />
-                    </SocialIcon>
-                    <SocialIcon color="E4405F">
-                        <Instagram />
-                    </SocialIcon>
-                    <SocialIcon color="55ACEE">
-                        <Twitter />
-                    </SocialIcon>
-                    <SocialIcon color="E60023">
-                        <Pinterest />
-                    </SocialIcon>
-                </SocialContainer>
-            </Left>
-            <Center>
-                <Title>Useful Links</Title>
-                <List>
-                    <ListItem>Home</ListItem>
-                    <ListItem>Cart</ListItem>
-                    <ListItem>Man Fashion</ListItem>
-                    <ListItem>Woman Fashion</ListItem>
-                    <ListItem>Accessories</ListItem>
-                    <ListItem>My Account</ListItem>
-                    <ListItem>Order Tracking</ListItem>
-                    <ListItem>Follow</ListItem>
-                    <ListItem>Wishlist</ListItem>
-                    <ListItem>Terms</ListItem>
-                </List>
-            </Center>
-            <Right>
-                <Title>Contact</Title>
-                <ContactItem>
-                    <Room style={{ marginRight: "10px" }} /> 113 Boys Hostel , IIIT SRI City 98336
-                </ContactItem>
-                <ContactItem>
-                    <Phone style={{ marginRight: "10px" }} /> +123 4567 890
-                </ContactItem>
-                <ContactItem>
-                    <MailOutline style={{ marginRight: "10px" }} /> contact@shoebox.dev
-                </ContactItem>
-                <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
-            </Right>
-        </Container>
-    );
+  return (
+    <Container>
+      <Left>
+        <Logo>SHOEBOX</Logo>
+        <Desc>
+          Welcome to the world of shoes.Choose the best from the list for comfort of your legs.
+        </Desc>
+        <SocialContainer>
+          <SocialIcon color="3B5999">
+            <Facebook />
+          </SocialIcon>
+          <SocialIcon color="E4405F">
+            <Instagram />
+          </SocialIcon>
+          <SocialIcon color="55ACEE">
+            <Twitter />
+          </SocialIcon>
+          <SocialIcon color="E60023">
+            <Pinterest />
+          </SocialIcon>
+        </SocialContainer>
+      </Left>
+      <Center>
+        <Title>Useful Links</Title>
+        <List>
+          <ListItem><Link to="/" style={{ color: 'black', textDecoration: 'none' }}>Home</Link></ListItem>
+          <ListItem><Link to="/cart" style={{ color: 'black', textDecoration: 'none' }}>Cart</Link></ListItem>
+          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Men's Fashion</Link></ListItem>
+          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Women's Fashion</Link></ListItem>
+          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>My Account</Link></ListItem>
+          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Order Tracking</Link></ListItem>
+          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Follow</Link></ListItem>
+          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Wishlist</Link></ListItem>
+          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Terms</Link></ListItem>
+        </List>
+      </Center>
+      <Right>
+        <Title>Contact</Title>
+        <ContactItem>
+          <Room style={{ marginRight: "10px" }} /> 113 Boys Hostel , IIIT SRI City 98336
+        </ContactItem>
+        <ContactItem>
+          <Phone style={{ marginRight: "10px" }} /> +123 4567 890
+        </ContactItem>
+        <ContactItem>
+          <MailOutline style={{ marginRight: "10px" }} /> contact@shoebox.dev
+        </ContactItem>
+        <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
+      </Right>
+    </Container>
+  );
 };
 
 export default Footer;
