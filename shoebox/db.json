@@ -1,10 +1,10 @@
 {
   "users": [
-      {
-          "id": 1,
-          "name": "Hello",
-          "liked": []
-      }
+    {
+      "id": 1,
+      "name": "Hello",
+      "liked": []
+    }
   ],
   "followed": [
     {
@@ -15,12 +15,12 @@
   "liked": [],
   "brands": [
     {
-      "id": 1,
-      "followed": false,
+      "followed": true,
       "name": "Adidas",
       "Followers": 1,
       "Posts": 10,
-      "logo": "https://greepx.com/wp-content/uploads/2020/02/adidas-wallpapers.jpg"
+      "logo": "https://greepx.com/wp-content/uploads/2020/02/adidas-wallpapers.jpg",
+      "id": 1
     },
     {
       "id": 2,
