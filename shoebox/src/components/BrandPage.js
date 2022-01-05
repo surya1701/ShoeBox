@@ -7,14 +7,22 @@ import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt';
 
 const BrandPage = ({brand, brands, show, handleClose}) => {
     const followBrand = (event) => {
-        let temp = {}
-        temp[event.target.name]=true;
-        fetch("http://localhost:3001/followed/", {
-            method: "POST",
+        // let temp = {}
+        // temp[event.target.name]=true;
+        fetch("http://localhost:3001/brands/"+brand.id, {
+            method: "PUT",
             headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(temp)});
+        body: JSON.stringify(
+            {
+                "followed": true,
+                "name": brand.name,
+                "Followers": brand.Followers,
+                "Posts": brand.Posts,
+                "logo": brand.logo
+              }
+        )});
     }
     
     return (
