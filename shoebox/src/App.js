@@ -7,6 +7,8 @@ import Explore from './features/explore/Explore';
 import Checkout from './features/checkout/Checkout';
 import Confirmation from './features/checkout/Confirmation';
 import ProductDemo from './features/product/ProductDemo';
+import Profile from './features/Profile/Profile'
+
 import ExploreBrandName from './features/explore/ExploreBrandName';
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/product" element={<ProductDemo />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/brand/:brandName" element={<ExploreBrandName/>} />
         </Routes>
       </Router>
