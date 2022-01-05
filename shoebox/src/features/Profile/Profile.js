@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Tabs from 'react-bootstrap/Tabs';
@@ -34,6 +33,7 @@ const Profile = ({ auth }) => {
                                 <div className="image-container">
                                     <img
                                         src={getCurrentUser().imageUrl}
+                                        alt='user-profile'
                                         style={{
                                             width: 150,
                                             height: 150,
