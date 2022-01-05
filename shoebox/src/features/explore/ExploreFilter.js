@@ -4,7 +4,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { Checkbox, FormLabel, FormControlLabel, TextField } from "@material-ui/core";
 
 const ExploreFilter = ({show, handleClose, filtering, brands, filterBrands}) => {
-    var mapper = {"Adidas": false, "Nike": false, "Puma": false, "Reebok": false, "Under Armour": false};
+    var mapper = {}
+    brands.forEach((b) => mapper[b] = false);
     filterBrands.map((v) => mapper[v] = true)
     const handleChange = (event) => {
         if (event.target.type === "checkbox") {
@@ -21,6 +22,7 @@ const ExploreFilter = ({show, handleClose, filtering, brands, filterBrands}) => 
     const handleClear = (event) => {
         document.getElementById("search").value="";
         filtering.filter_clear();
+        handleClose();
     }
     return (
         <Offcanvas show={show} onHide={handleClose} placement='end' className='text-center'>

@@ -5,17 +5,17 @@ const initialState = {
     localUser: null,
 };
 
-const authReducer = (state = initialState, { type, payload }) => {
-    switch (type) {
+const authReducer = (state = initialState, action) => {
+    switch (action.type) {
         case Types.GOOGLE_AUTH_SUCCESS:
             return {
                 ...state,
-                googleUser: { ...payload },
+                googleUser: {...action.payload.user},
             };
         case Types.GET_GOOGLE_USER:
             return {
                 ...state,
-                googleUser: payload,
+                googleUser: action.payload,
             };
         case Types.LOGOUT_GOOGLE_USER:
             return {
@@ -25,12 +25,12 @@ const authReducer = (state = initialState, { type, payload }) => {
         case Types.REGISTER_LOCAL_USER:
             return {
                 ...state,
-                localUser: { ...payload },
+                localUser: { ...action.payload },
             };
         case Types.LOGIN_LOCAL_USER:
             return {
                 ...state,
-                localUser: payload,
+                localUser: action.payload,
             };
         case Types.LOGOUT_LOCAL_USER:
             return {
@@ -40,7 +40,7 @@ const authReducer = (state = initialState, { type, payload }) => {
         case Types.GET_LOCAL_USER:
             return {
                 ...state,
-                localUser: payload,
+                localUser: action.payload,
             };
         case Types.REDIRECT_AFTER_LOGIN:
             return {

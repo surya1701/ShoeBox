@@ -22,7 +22,13 @@ function Header({ cartValue }) {
     <Container className="sticky-top">
       <Wrapper>
         <Left>
-          <MenuItem><Link to="/explore" style={{ color: '#1ce890', textDecoration: 'none', fontStyle: 'italic' }}>Explore</Link></MenuItem>
+          <MenuItem><Link to="/explore" style={{ color: 'lightblue', textDecoration: 'none' }}>Explore</Link></MenuItem>
+          <MenuItem><Link to="/profile" style={{ color: 'lightblue', textDecoration: 'none' }}>Profile</Link></MenuItem>
+          <MenuItem>
+            <div className="g-signin">
+              <Login />
+            </div>
+          </MenuItem>
         </Left>
         <Center>
           <Logo>
@@ -30,11 +36,6 @@ function Header({ cartValue }) {
           </Logo>
         </Center>
         <Right>
-          <MenuItem>
-            <div className="g-signin">
-              <Login />
-            </div>
-          </MenuItem>
           <MenuItem>
             <Badge color="primary">
               <Link to="/cart">

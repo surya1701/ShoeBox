@@ -1,23 +1,28 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components'
 import BrandPage from '../../components/BrandPage'
 
-function Brand({brand, brands}) {
+function Brand({user, brand, brands}) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
     return (
         <>
-            <BrandPage brand={brand} brands={brands} show={show} handleClose={handleClose}/>
+            <BrandPage brand={brand} brands={brands} show={show} handleClose={handleClose} user={user}/>
             <Wrap onClick={handleShow}>
                 <img src={brand.logo} alt={brand.name + "-logo"}/>
             </Wrap>
         </>
     )
 }
-
-export default Brand
+const mapStateToProps=(state)=>{
+    return {
+        user: state.auth.googleUser
+    }
+}
+export default connect(mapStateToProps)(Brand);
 
 const Wrap = styled.div`
     position: relative;

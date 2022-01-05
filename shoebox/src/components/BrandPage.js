@@ -1,28 +1,52 @@
+import { useState } from "react";
 import {Offcanvas} from "react-bootstrap"
+import { store } from "../app/store";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {Button, Image} from "react-bootstrap"
 import Check from '@material-ui/icons/Check';
 import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt';
 
-const BrandPage = ({brand, brands, show, handleClose}) => {
-    const followBrand = (event) => {
-        // let temp = {}
-        // temp[event.target.name]=true;
-        fetch("http://localhost:3001/brands/"+brand.id, {
-            method: "PUT",
-            headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(
-            {
-                "followed": true,
-                "name": brand.name,
-                "Followers": brand.Followers,
-                "Posts": brand.Posts,
-                "logo": brand.logo
-              }
-        )});
+const BrandPage = ({brand, brands, show, handleClose, user}) => {
+    const [follow, setFollow] = useState(false);
+
+    if(!follow && user !== null)
+    fetch("http://localhost:3001/users/"+user.givenName)
+    .then(res => res.json())
+    .then(result => {
+        if(result) {
+            setFollow(result.followed.includes(brand.name));
+        }})
+    const followBrand = (event, type) => {
+        if (type === "add") {
+            fetch("http://localhost:3001/users/"+user.givenName, {
+                method: "PUT",
+                headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(
+                {
+                    ...user,
+                    "followed": [...user.followed, brand.name]
+                }
+            )});
+            store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, followed: [...user.followed, brand.name]}}});
+            setFollow(true);
+        } else {
+            fetch("http://localhost:3001/users/"+user.givenName, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(
+                    {
+                        ...user,
+                        "followed": user.followed.filter((i) => i !== brand.name)
+                    }
+                    )});
+            store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, followed: user.followed.filter((i) => i !== brand.name)}}});
+            setFollow(false);
+        }
     }
     
     return (
@@ -46,13 +70,14 @@ const BrandPage = ({brand, brands, show, handleClose}) => {
             <br/>
             <div className='p-1'>
                 <div className="d-grid gap-2 mb-3">
-                    <Button variant="outline-success" name={brand.name} onClick={followBrand}>
+                    {(follow) ?
+                    <Button variant="success" onClick={(e) => followBrand(e, "del")}>
+                        Followed <Check/>
+                    </Button> :
+                    <Button variant="outline-success"  onClick={(e) => followBrand(e, "add")}>
                         Follow
                     </Button>
-                    <Button variant="success">
-                        Followed <Check/>
-                    </Button>
-                    
+                    }
                     <Button variant="primary" href={"/brand/"+brand.name}>
                         Explore Products <ArrowRightAlt/>
                     </Button>

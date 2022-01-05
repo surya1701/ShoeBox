@@ -1,27 +1,25 @@
-import React from 'react';
+import { useState } from 'react';
 import { connect } from 'react-redux';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
+import Brand from '../home/Brand';
+import Header from "../../components/Header";
 import './style.css';
+import styled from 'styled-components'
 
-const Profile = ({ auth }) => {
-    function getCurrentUser() {
-        let user = {
-            name: 'Default Name',
-            email: 'email@email.com',
-            imageUrl: 'http://placehold.it/150x150',
-        };
-
-        if (auth.googleUser) {
-            user = auth.googleUser;
-        } else if (auth.localUser) {
-            user = auth.localUser; //name, email
-            // user.imageUrl = require(`https://i.stack.imgur.com/YQu5k.png`);
-        }
-        return user;
-    }
-
+const Profile = ({user}) => {
+    const [brands, setBrands] = useState(null);
+    if (! brands)
+    fetch("http://localhost:3001/brands")
+    .then(res => res.json())
+    .then(result => {
+        if(result) {
+            setBrands(result);
+        }})
     return (
+        <>
+        <Header/>
+        {(user) ?
         <div className="row">
             <div className="col-12">
                 <div className="card">
@@ -30,7 +28,7 @@ const Profile = ({ auth }) => {
                             <div className="d-flex justify-content-start">
                                 <div className="image-container">
                                     <img
-                                        src={getCurrentUser().imageUrl}
+                                        src={user.imageUrl}
 
                                         alt='user-profile'
 
@@ -43,8 +41,8 @@ const Profile = ({ auth }) => {
                                     />
                                 </div>
                                 <div className="userData ml-3">
-                                    <h2>{getCurrentUser().name}</h2>
-                                    <h6>{getCurrentUser().email}</h6>
+                                    <h2>{user.name}</h2>
+                                    <h6>{user.email}</h6>
                                     <h6>Customer info</h6>
                                 </div>
                             </div>
@@ -95,6 +93,10 @@ const Profile = ({ auth }) => {
                                         </div>
                                     </Tab>
                                     <Tab eventKey="additional" title="Additional info">
+                                        <WrapContainer>
+                                        <h4 className='display-6'>Followed Brands</h4>
+                                        {(brands) ? brands.filter((b) => user.followed.includes(b.name)).map((b) => <Brand brand={b} brands={brands}/>):<p>Empty</p>}
+                                        </WrapContainer>
                                         <div className="mt-4">
                                             Dolorem ipsa ea voluptatem. Qui voluptatem totam velit rem
                                             dolores. Esse delectus eius quidem et eveniet.Dolorem ipsa
@@ -108,13 +110,20 @@ const Profile = ({ auth }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> : <p></p>}
+        </>
     );
 };
-
-export default connect(
-    state => ({
-        auth: state.authReducer,
-    }),
-    {},
-)(Profile);
+const mapStateToProps=(state)=>{
+    return {
+        user: state.auth.googleUser
+    }
+}
+export default connect(mapStateToProps)(Profile);
+const WrapContainer = styled.div`
+    margin-top: 30px;
+    display: grid;
+    padding: 30px 0 26px;
+    grid-gap: 25px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+`

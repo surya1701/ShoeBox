@@ -12,7 +12,7 @@ import {Button} from "react-bootstrap"
 import ExploreFilter from './ExploreFilter';
 import ReactPaginate from 'react-paginate';
 
-function Explore({shoesValue, items, filterBrands, brands}) {
+function Explore({user, shoesValue, items, filterBrands, brands}) {
     const itemsPerPage = 4;
     const [sortBy, setSortBy] = useState("viewsDESC");
     const [show, setShow] = useState(false);
@@ -55,6 +55,7 @@ function Explore({shoesValue, items, filterBrands, brands}) {
         console.log(event.target.value);
         store.dispatch({type:'Sort', payload:{by: event.target.value}});
     }
+    
     return (
         <div>
             <Header />
@@ -92,7 +93,7 @@ function Explore({shoesValue, items, filterBrands, brands}) {
                     </div>
                     {currentItems &&
                     currentItems.map((item) => (
-                    <ExploreItems item={item} brands={brands} />
+                    <ExploreItems item={item} brands={brands} user={user} />
                     ))}
                 </div>
                 <div className='col-md-4 col-12 p-2'>
@@ -131,6 +132,7 @@ function Explore({shoesValue, items, filterBrands, brands}) {
 
 const mapStateToProps=(state)=>{
     return {
+        user: state.auth.googleUser,
         shoesValue: state.cart.ShoesData,
         items: state.explore.items,
         filterBrands: state.explore.brands

@@ -6,36 +6,55 @@ import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import { Card, Image } from 'react-bootstrap'
 import { Link } from "react-router-dom"
 import BrandPage from '../../components/BrandPage';
+import { store } from "../../app/store";
 
-function ExploreItems({ item, brands }) {
+function ExploreItems({ item, brands, user }) {
     const [show, setShow] = useState(false);
     const [like, setLike] = useState(false);
+    if(!like && user !== null)
+    fetch("http://localhost:3001/users/"+user.givenName)
+    .then(res => res.json())
+    .then(result => {
+        if(result) {
+            setLike(result.liked.includes(item.key));
+        }})
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleLike = (event) => {
         if (event.target.checked) {
-            fetch("http://localhost:3001/liked", {
-                method: "POST",
+            fetch("http://localhost:3001/users/"+user.givenName, {
+                method: "PUT",
                 headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({id: item.key})
-            });
+            body: JSON.stringify(
+                {
+                    ...user,
+                    "liked": [...user.liked, item.key]
+                }
+            )});
+            store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: [...user.liked, item.key]}}});
             setLike(true);
         } else {
-            fetch("http://localhost:3001/liked/"+item.key, {
-                method: "DELETE",
+            fetch("http://localhost:3001/users/"+user.givenName, {
+                method: "PUT",
                 headers: {
-                "Content-Type": "application/json"
-            }
-            });
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(
+                    {
+                        ...user,
+                        "liked": user.liked.filter((i) => i !== item.key)
+                    }
+                    )});
+            store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: user.liked.filter((i) => i !== item.key)}}});
             setLike(false);
         }
     }
     const brand = brands.find((brand) => brand.name === item.brand);
     return (
         <>
-        <BrandPage brand={brand} brands={brands} show={show} handleClose={handleClose}/>
+        <BrandPage brand={brand} brands={brands} show={show} handleClose={handleClose} user={user}/>
         <Card border="primary" className='mb-5'>
             <Card.ImgOverlay>
                 <Image fluid rounded style={{ height: "3em", float: "left" }}
