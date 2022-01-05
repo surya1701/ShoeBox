@@ -23,6 +23,7 @@ After [cloning](https://docs.github.com/en/github/creating-cloning-and-archiving
 ```console
 foo@bar:~$ cd shoebox
 foo@bar:~$ npm i
+foo@bar:~$ npm i -g json-server
 foo@bar:~$ npm start
 ```
 In a different terminal:
