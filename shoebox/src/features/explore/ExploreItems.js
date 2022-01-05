@@ -11,18 +11,19 @@ function ExploreItems({ item, brands }) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
     return (
         <>
         <BrandPage name={item.brand} brands={brands} show={show} handleClose={handleClose}/>
         <Card border="primary" className='mb-5'>
             <Card.ImgOverlay>
                 <Image fluid rounded style={{ height: "3em", float: "left" }}
-                    src={brands.filter((brand) => brand.label === item.brand)[0].img}
+                    src={brands.filter((brand) => brand.name === item.brand)[0].logo}
                     onClick={handleShow} role={"button"}/>
                 <FormControlLabel control={<Checkbox icon={<FavoriteBorder />}
                     checkedIcon={<Favorite />} name="checkedH" />} style={{ float: "right" }} />
             </Card.ImgOverlay>
-            <Card.Img variant="top" style={{ height: "50vh", 'object-fit': "cover" }} src={item.image[0]} />
+            <Card.Img variant="top" style={{ height: "50vh", objectFit: "cover" }} src={item.image[0]} />
             <Card.Body style={{ zIndex: "2" }}>
                 <Card.Title className='display-6' style={{ display: "inline" }}>
                     <Link to={{ pathname: "/product", search: "?key="+item.key }}>{item.name}</Link>

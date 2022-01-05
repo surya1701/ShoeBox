@@ -16,7 +16,7 @@
   {
     "key": 3,
     "name": "Parley x",
-    "brand": "Adidas2",
+    "brand": "Under Armour",
     "image": ["https://wallpaperaccess.com/full/1252085.jpg"],
     "price": "19999"
   },
@@ -58,15 +58,15 @@
   {
     "key": 9,
     "name": "Classic Van Doren Hoffman",
-    "brand": "Vans",
-    "image": ["https://scene7.zumiez.com/is/image/zumiez/pdp_hero/Vans-Classic-Van-Doren-Hoffman-Mens-Slip-On-Shoes-_259880-front.jpg"],
+    "brand": "Reebok",
+    "image": ["https://scene7.zumiez.com/is/image/zumiez/pdp_hero/Reebok-Classic-Van-Doren-Hoffman-Mens-Slip-On-Shoes-_259880-front.jpg"],
     "price": "19999"
   },
   {
     "key": 10,
     "name": "EYEBWW-HERO",
-    "brand": "Vans",
-    "image": ["https://images.vans.com/is/image/Vans/EYEBWW-HERO"],
+    "brand": "Reebok",
+    "image": ["https://images.Reebok.com/is/image/Reebok/EYEBWW-HERO"],
     "price": "14495"
   },
   {
@@ -86,14 +86,14 @@
   {
     "key": 13,
     "name": "FLEX 2.0",
-    "brand": "Vans",
+    "brand": "Reebok",
     "image": ["https://5.imimg.com/data5/ZU/RU/FL/SELLER-7946070/skechers-men-s-flex-advantage-2-0-black-sneakers-500x500.jpg"],
     "price": "9999"
   },
   {
     "key": 14,
     "name": "ULTRALOOP",
-    "brand": "Vans",
+    "brand": "Reebok",
     "image": ["https://n4.sdlcdn.com/imgs/a/s/5/Fila-Black-Sport-Shoes-SDL088863588-1-d2c69.jpg","https://n3.sdlcdn.com/imgs/a/s/5/Fila-Black-Sport-Shoes-SDL088863588-2-a04c6.jpg","https://n1.sdlcdn.com/imgs/a/s/5/Fila-Black-Sport-Shoes-SDL088863588-4-a4e97.jpg"],
     "price": "11999"
   },
