@@ -5,7 +5,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-
+import Login from "../Login";
 import { mobile } from "../responsive";
 
 function Header({ cartValue }) {
@@ -30,7 +30,11 @@ function Header({ cartValue }) {
           </Logo>
         </Center>
         <Right>
-          <MenuItem>LOGIN</MenuItem>
+          <MenuItem>
+          <div className="g-signin">
+            <Login />
+          </div>
+          </MenuItem>
           <MenuItem>
             <Badge color="primary">
               <Link to="/cart">

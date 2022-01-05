@@ -27,11 +27,11 @@ const FormInputRadio = ({ name,control }) => {
             control={control}
             name={name}
             render={({ field }) => (
-                <RadioGroup {...field}>
+                <RadioGroup {...field} row>
                 {sizes.map((size) =>
                 <FormControlLabel
                     value={size.value}
-                    control={<Radio />}
+                    control={<Radio/>}
                     label={size.label}
                 />)}
                 </RadioGroup>

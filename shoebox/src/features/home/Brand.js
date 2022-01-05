@@ -1,42 +1,23 @@
-import React from 'react'
+import { useState } from 'react';
 import styled from 'styled-components'
+import BrandPage from '../../components/BrandPage'
 
-function Brand() {
+function Brand({brand, brands}) {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    console.log(brands);
     return (
-        <Container>
-            <Wrap>
-                <img src="https://greepx.com/wp-content/uploads/2020/02/adidas-wallpapers.jpg" alt="adidas-logo"/>
-
+        <>
+            <BrandPage name={brand.label} brands={brands} show={show} handleClose={handleClose}/>
+            <Wrap onClick={handleShow}>
+                <img src={brand.img} alt={brand.label + "-logo"}/>
             </Wrap>
-            <Wrap>
-                <img src="https://wallpaperaccess.com/full/135853.jpg" alt="nike-logo"/>
-
-            </Wrap>
-            <Wrap>
-                <img src="https://logodix.com/logo/487483.png" alt="puma-logo"/>
-
-            </Wrap>
-            <Wrap>
-                <img src="https://wallpaperaccess.com/full/1174929.jpg" alt="reebok-logo"/>
-
-            </Wrap>
-            <Wrap>
-                <img src="https://i.pinimg.com/originals/d1/44/7c/d1447c8316d301d058f17bd5e9f0c52d.jpg" alt="underarmour-logo"/>
-            </Wrap>
-
-        </Container>
+        </>
     )
 }
 
 export default Brand
-
-const Container = styled.div`
-    margin-top: 30px;
-    display: grid;
-    padding: 30px 0 26px;
-    grid-gap: 25px;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-`
 
 const Wrap = styled.div`
     position: relative;
