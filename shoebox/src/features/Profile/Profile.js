@@ -31,11 +31,9 @@ const Profile = ({ auth }) => {
                                 <div className="image-container">
                                     <img
                                         src={getCurrentUser().imageUrl}
-<<<<<<< HEAD
-                                        alt="Profile Image"
-=======
+
                                         alt='user-profile'
->>>>>>> 5221dbdca788bb643407ac8b76dab44720cb2e03
+
                                         style={{
                                             width: 150,
                                             height: 150,
