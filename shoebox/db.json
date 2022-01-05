@@ -1,5 +1,11 @@
 {
-  "users": [],
+  "users": [
+      {
+          "id": 1,
+          "name": "Hello",
+          "liked": []
+      }
+  ],
   "followed": [
     {
       "Nike": true,
