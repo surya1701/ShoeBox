@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-
 import './style.css';
 
 const Profile = ({ auth }) => {
@@ -33,7 +31,11 @@ const Profile = ({ auth }) => {
                                 <div className="image-container">
                                     <img
                                         src={getCurrentUser().imageUrl}
+<<<<<<< HEAD
+                                        alt="Profile Image"
+=======
                                         alt='user-profile'
+>>>>>>> 5221dbdca788bb643407ac8b76dab44720cb2e03
                                         style={{
                                             width: 150,
                                             height: 150,

@@ -22,18 +22,18 @@ function Header({ cartValue }) {
     <Container className="sticky-top">
       <Wrapper>
         <Left>
-          <MenuItem><Link to="/explore">Explore</Link></MenuItem>
+          <MenuItem><Link to="/explore" style={{ color: '#1ce890', textDecoration: 'none', fontStyle: 'italic' }}>Explore</Link></MenuItem>
         </Left>
         <Center>
           <Logo>
-            <Link to="/" style={{color: "black"}}>ShoeBox</Link>
+            <Link to="/" style={{ color: '#1ce890', textDecoration: 'none', fontStyle: 'italic' }}>ShoeBox</Link>
           </Logo>
         </Center>
         <Right>
           <MenuItem>
-          <div className="g-signin">
-            <Login />
-          </div>
+            <div className="g-signin">
+              <Login />
+            </div>
           </MenuItem>
           <MenuItem>
             <Badge color="primary">
@@ -84,7 +84,6 @@ const Center = styled.div`
 `;
 
 const Logo = styled.h1`
-  font-weight: bold;
   text-color: #000000;
   text-transform: uppercase;
 
@@ -100,9 +99,11 @@ const Right = styled.div`
 `;
 
 const MenuItem = styled.div`
-  font-size: 14px;
+  font-size: 28px;
   cursor: pointer;
   margin-left: 25px;
+  text-transform: uppercase;
+
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 const CartCount = styled.span`

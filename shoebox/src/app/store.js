@@ -1,12 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
 import CartReducer from '../features/cart/cartReducer';
 import ExploreReducer from '../features/explore/ExploreReducer';
+import authReducer from '../features/Profile/authReducer';
+import toastReducer from '../features/Profile/toastReducer'
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     cart: CartReducer,
-    explore: ExploreReducer
+    explore: ExploreReducer,
+    auth: authReducer,
+    toast: toastReducer
+
   },
 });
