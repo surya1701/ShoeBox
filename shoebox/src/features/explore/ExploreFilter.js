@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Checkbox, FormLabel, FormControlLabel, TextField } from "@material-ui/core";
 
 const ExploreFilter = ({show, handleClose, filtering, brands, filterBrands}) => {
-    var mapper = {"Adidas": false, "Nike": false, "Puma": false, "Vans": false, "Adidas2": false};
+    var mapper = {"Adidas": false, "Nike": false, "Puma": false, "Reebok": false, "Under Armour": false};
     filterBrands.map((v) => mapper[v] = true)
     const handleChange = (event) => {
         if (event.target.type === "checkbox") {
@@ -32,7 +32,7 @@ const ExploreFilter = ({show, handleClose, filtering, brands, filterBrands}) => 
             <br/><br/>
             <FormLabel component="legend">Brand</FormLabel>
             {brands.map((brand) =>
-                <FormControlLabel control={<Checkbox checked={mapper[brand.label]} value={brand.label} id={brand.label}/>} label={brand.label} onChange={handleChange}/>
+                <FormControlLabel control={<Checkbox checked={mapper[brand.name]} value={brand.name} id={brand.name}/>} label={brand.name} onChange={handleChange}/>
                 )}
             <br/><br/>
             <Button variant="danger" onClick={handleClear}>Clear All</Button>

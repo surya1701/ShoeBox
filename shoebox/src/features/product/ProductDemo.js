@@ -12,6 +12,10 @@ import {connect} from "react-redux";
 import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Favorite from '@material-ui/icons/Favorite';
+import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import ProductCarousel from "../../components/ProductCarousel";
 const queryString = require('query-string');
 
@@ -19,7 +23,27 @@ const ProductDemo = ({shoesValue}) => {
   const methods = useForm();
   const location = useLocation()
   const [item, setItem] = useState(null);
-  
+  const [like, setLike] = useState(false);
+  const handleLike = (event) => {
+      if (event.target.checked) {
+          fetch("http://localhost:3001/liked", {
+              method: "POST",
+              headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({id: item.key})
+          });
+          setLike(true);
+      } else {
+          fetch("http://localhost:3001/liked/"+item.key, {
+              method: "DELETE",
+              headers: {
+              "Content-Type": "application/json"
+          }
+          });
+          setLike(false);
+      }
+  }
   useEffect(() => {
     const {key} = queryString.parse(location.search);
     shoesValue.forEach(element => {
@@ -74,6 +98,8 @@ const ProductDemo = ({shoesValue}) => {
                     </Button>
                     </form>
                   </FormProvider>
+                  <FormControlLabel control={<Checkbox checked={like} onClick={handleLike} icon={<FavoriteBorder />}
+                    checkedIcon={<Favorite />} name="checkedH" />} style={{ float: "right" }} />
                   {/* <Filter>
                     <FilterTitle>Color</FilterTitle>
                     <FilterColor color="black" />
@@ -116,7 +142,21 @@ const ProductDemo = ({shoesValue}) => {
       <Divider />
       <Footer />
     </div>
-    : <p>404</p>
+    : 
+    <div>
+      <Header />
+      <div className="text-center mt-2 text-danger">
+        <h1>Request Not Found</h1>
+      </div>
+      <Container>
+            <h4 className="ml-3">Other Products</h4>
+            <Content>
+                {shoesValue.slice(-4).map((i) => <ItemDisplay item={{...i}}/>)}
+            </Content>
+        </Container>
+      <Divider />
+      <Footer />
+    </div>
   );
 };
 const mapStateToProps=(state)=>{

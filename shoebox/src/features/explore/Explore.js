@@ -12,15 +12,7 @@ import {Button} from "react-bootstrap"
 import ExploreFilter from './ExploreFilter';
 import ReactPaginate from 'react-paginate';
 
-const brands = [
-    {label: "Adidas", value: "Adidas", img: "https://greepx.com/wp-content/uploads/2020/02/adidas-wallpapers.jpg"},
-    {label: "Nike", value: "Nike", img: "https://wallpaperaccess.com/full/135853.jpg"},
-    {label: "Puma", value: "Puma", img: "https://logodix.com/logo/487483.png"},
-    {label: "Vans", value: "Vans", img: "https://logodix.com/logo/487483.png"},
-    {label: "Adidas2", value: "Adidas2", img: "https://greepx.com/wp-content/uploads/2020/02/adidas-wallpapers.jpg"},
-];
-
-function Explore({shoesValue, items, filterBrands}) {
+function Explore({shoesValue, items, filterBrands, brands}) {
     const itemsPerPage = 4;
     const [sortBy, setSortBy] = useState("viewsDESC");
     const [show, setShow] = useState(false);
@@ -29,7 +21,7 @@ function Explore({shoesValue, items, filterBrands}) {
     const [currentItems, setCurrentItems] = useState(null);
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
-
+    
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
         console.log(`Loading items from ${itemOffset} to ${endOffset}`);

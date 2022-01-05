@@ -7,14 +7,8 @@ import SlipOns from './SlipOns'
 import LargeCategories from './LargeCategories'
 import Footer from '../../components/Footer'
 
-const brands = [
-    {label: "Adidas", value: "Adidas", img: "https://greepx.com/wp-content/uploads/2020/02/adidas-wallpapers.jpg"},
-    {label: "Nike", value: "Nike", img: "https://wallpaperaccess.com/full/135853.jpg"},
-    {label: "Puma", value: "Puma", img: "https://logodix.com/logo/487483.png"},
-    {label: "Vans", value: "Vans", img: "https://logodix.com/logo/487483.png"},
-    {label: "Adidas2", value: "Adidas2", img: "https://greepx.com/wp-content/uploads/2020/02/adidas-wallpapers.jpg"},
-];
-function Home() {
+function Home({brands}) {
+    
     return (
         <div>
             <Header />

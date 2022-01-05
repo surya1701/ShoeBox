@@ -24,8 +24,12 @@ After [cloning](https://docs.github.com/en/github/creating-cloning-and-archiving
 foo@bar:~$ cd shoebox
 foo@bar:~$ npm i
 foo@bar:~$ npm start
-foo@bar:~$ https://localhost:3000/
 ```
+In a different terminal:
+```console
+foo@bar:~$ json-server --watch db.json --port 3001
+```
+Website launches at https://localhost:3000/
 
 ## Code Snippets
 The Home Page contains a carousel component and several item display components. Each item display, on click, opens a sidebar where all images of the shoes can be viewed. Here the images can be zoomed into and after choosing the size, one can add it to cart. Other compenents for different filtered views of shoes (eg. gender, brand) are also in the home page.

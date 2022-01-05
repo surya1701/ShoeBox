@@ -6,12 +6,12 @@ function Brand({brand, brands}) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    console.log(brands);
+    
     return (
         <>
-            <BrandPage name={brand.label} brands={brands} show={show} handleClose={handleClose}/>
+            <BrandPage brand={brand} brands={brands} show={show} handleClose={handleClose}/>
             <Wrap onClick={handleShow}>
-                <img src={brand.img} alt={brand.label + "-logo"}/>
+                <img src={brand.logo} alt={brand.name + "-logo"}/>
             </Wrap>
         </>
     )

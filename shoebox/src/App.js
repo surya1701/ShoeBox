@@ -1,4 +1,4 @@
-import React from 'react';
+import {useState, useEffect} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './features/home/Home';
@@ -12,24 +12,30 @@ import Profile from './features/Profile/Profile'
 import ExploreBrandName from './features/explore/ExploreBrandName';
 
 function App() {
+  const [brands, setBrands] = useState(null)
+    const url = "http://localhost:3001/brands";
+
+    useEffect(()=>{
+        fetch(url)
+        .then(resp => resp.json())
+        .then(data => {setBrands(data)})
+    }, [url])
   return (
-    // <div className="App">
-    //   <Header />
-    //   <Home />
-    // </div>
     <div className="App">
+      { (brands) ?
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<Home brands={brands}/>} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/explore" element={<Explore />} />
+          <Route path="/explore" element={<Explore brands={brands}/>} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/product" element={<ProductDemo />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/brand/:brandName" element={<ExploreBrandName/>} />
+          <Route path="/brand/:brandName" element={<ExploreBrandName brands={brands}/>} />
         </Routes>
-      </Router>
+      </Router> : <p></p>
+    }
     </div>
   );
 }
