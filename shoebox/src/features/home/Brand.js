@@ -9,7 +9,7 @@ function Brand({brand, brands}) {
     
     return (
         <>
-            <BrandPage name={brand.name} brands={brands} show={show} handleClose={handleClose}/>
+            <BrandPage brand={brand} brands={brands} show={show} handleClose={handleClose}/>
             <Wrap onClick={handleShow}>
                 <img src={brand.logo} alt={brand.name + "-logo"}/>
             </Wrap>
