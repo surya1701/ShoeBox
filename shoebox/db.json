@@ -1,5 +1,16 @@
 {
   "users": [
+    {
+      "googleId": "114905377469731631540",
+      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgV_ej9ofgiu7UtvoXqSTZEA4lVlqeF44NrnoOe7w=s96-c",
+      "email": "kumarpiyushsingh9311@gmail.com",
+      "name": "Piyush Kumar",
+      "givenName": "Piyush",
+      "familyName": "Kumar",
+      "liked": [],
+      "followed": [],
+      "id": "Piyush"
+    }
   ],
   "followed": [
     {
