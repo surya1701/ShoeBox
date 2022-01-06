@@ -9,7 +9,7 @@ import Confirmation from './features/checkout/Confirmation';
 import ProductDemo from './features/product/ProductDemo';
 import Profile from './features/Profile/Profile'
 
-import ExploreBrandName from './features/explore/ExploreBrandName';
+import ExploreByName from './features/explore/ExploreByName';
 
 function App() {
   const [brands, setBrands] = useState(null)
@@ -32,7 +32,7 @@ function App() {
           <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/product" element={<ProductDemo />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/brand/:brandName" element={<ExploreBrandName brands={brands}/>} />
+          <Route path="/brand/:value" element={<ExploreByName brands={brands}/>} />
         </Routes>
       </Router> : <p></p>
     }
