@@ -96,7 +96,7 @@ const Profile = ({user}) => {
                                     <Tab eventKey="additional" title="Additional info">
                                         <WrapContainer>
                                         <h4 className='display-6'>Followed Brands</h4>
-                                        {(brands) ? brands.filter((b) => user.followed.includes(b.name)).map((b) => <Brand brand={b} brands={brands}/>):<p>Empty</p>}
+                                        {(brands && user) ? brands.filter((b) => user.followed.includes(b.name)).map((b) => <Brand brand={b} brands={brands}/>):<p>Empty</p>}
                                         </WrapContainer>
                                         <div className="mt-4">
                                             Dolorem ipsa ea voluptatem. Qui voluptatem totam velit rem

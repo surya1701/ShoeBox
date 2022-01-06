@@ -3,6 +3,7 @@ import Data from "./../../assets/Data.json"
 
 const initialState = {
     brands: Data.map((item) => item.brand),
+    genders: Data.map((item) => item.gender),
     text: "",
     ShoesData: Data,
     sortBy: "viewsDESC",
@@ -24,6 +25,14 @@ const ExploreReducer = (state = initialState, action)=>{
         case actionTypes.REMOVE_BY_BRAND:
             temp = state.brands.filter((b) => b !== action.payload.brand);
             return {...state, brands: temp, items: sort(state.ShoesData.filter((item) => temp.includes(item.brand) && item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
+            case actionTypes.ADD_BY_GENDER:
+                temp = [...state.genders, action.payload.gender]
+                return {...state, genders: temp, items: sort(state.ShoesData.filter((item) => temp.includes(item.gender) && item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
+            case actionTypes.REMOVE_BY_GENDER:
+                temp = state.genders.filter((b) => b !== action.payload.gender);
+                return {...state, genders: temp, items: sort(state.ShoesData.filter((item) => temp.includes(item.gender) && item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
+            case actionTypes.SINGLE_GENDER:
+                return {...state, genders: [action.payload.gender], items: sort(state.ShoesData.filter((item) => item.gender === action.payload.gender && item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
         case actionTypes.SEARCH:
             if (action.payload.text.length < state.text.length) {
                 temp = [...state.brands, action.payload.brand]

@@ -12,7 +12,11 @@ import { Button } from "react-bootstrap"
 import ExploreFilter from './ExploreFilter';
 import ReactPaginate from 'react-paginate';
 
+
 function Explore({ user, shoesValue, items, filterBrands, brands }) {
+
+function Explore({user, shoesValue, items, filterBrands, filterGenders, brands}) {
+
     const itemsPerPage = 4;
     const [sortBy, setSortBy] = useState("viewsDESC");
     const [show, setShow] = useState(false);
@@ -37,11 +41,21 @@ function Explore({ user, shoesValue, items, filterBrands, brands }) {
         setItemOffset(newOffset);
     };
     const filtering = {
+
         filter_add: (form, brand) => {
             if (form === "brand") store.dispatch({ type: 'ADDbyBRAND', payload: { brand: brand } });
         },
         filter_del: (form, brand) => {
             if (form === "brand") store.dispatch({ type: 'DELbyBRAND', payload: { brand: brand } });
+
+        filter_add: (form, value) => {
+            if (form === "brand") store.dispatch({type:'ADDbyBRAND', payload:{brand: value}});
+            else if (form === "gender") store.dispatch({type:'ADDbyGENDER', payload:{gender: value}});
+        },
+        filter_del: (form, value) => {
+            if (form === "brand") store.dispatch({type:'DELbyBRAND', payload:{brand: value}});
+            else if (form === "gender") store.dispatch({type:'DELbyGENDER', payload:{gender: value}});
+
         },
         filter_search: (text) => {
             store.dispatch({ type: 'search', payload: { text: text } });
@@ -59,11 +73,16 @@ function Explore({ user, shoesValue, items, filterBrands, brands }) {
     return (
         <div>
             <Header />
+
             <ExploreFilter show={show} handleClose={handleClose} filtering={filtering} brands={brands} filterBrands={filterBrands} />
+
+            <ExploreFilter show={show} handleClose={handleClose} filtering={filtering} brands={brands} filterBrands={filterBrands} filterGenders={filterGenders}/>
+
             <div className='row g-0 mb-5'>
                 <div className='col-md-8 col-12 p-2 text-center'>
                     <div className='row g-0'>
                         <div className='col-4'>
+
                             <Box sx={{ minWidth: 120 }}>
                                 <FormControl fullWidth>
                                     <InputLabel htmlFor="grouped-select">Sort By</InputLabel>
@@ -79,6 +98,23 @@ function Explore({ user, shoesValue, items, filterBrands, brands }) {
                                         <MenuItem value={"viewsASC"}>Views: Lower to Higher <ArrowUpwardOutlined /></MenuItem>
                                     </Select>
                                 </FormControl>
+
+                        <Box sx={{ minWidth: 120 }}>
+                            <FormControl variant="filled" fullWidth>
+                                <InputLabel htmlFor="grouped-select">Sort By</InputLabel>
+                                <Select
+                                id="grouped-select"
+                                value={sortBy}
+                                label="Sort By"
+                                onChange={sorting}
+                                >
+                                <MenuItem value={"priceDESC"}>Price: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
+                                <MenuItem value={"priceASC"}>Price: Lower to Higher <ArrowUpwardOutlined/></MenuItem>
+                                <MenuItem value={"viewsDESC"}>Views: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
+                                <MenuItem value={"viewsASC"}>Views: Lower to Higher <ArrowUpwardOutlined/></MenuItem>
+                                </Select>
+                            </FormControl>
+
                             </Box>
                         </div>
                         <div className='col-8 p-1'>
@@ -117,9 +153,16 @@ function Explore({ user, shoesValue, items, filterBrands, brands }) {
                         renderOnZeroPageCount={null}
                     />
                     <TwitterTimelineEmbed
+
                         sourceType="profile"
                         screenName="shoesdotcom"
                         options={{ height: "75vh" }}
+
+                    sourceType="profile"
+                    screenName="shoesdotcom"
+                    theme="dark"
+                    options={{height: "75vh"}}
+
                     />
                 </div>
             </div>
@@ -134,7 +177,8 @@ const mapStateToProps = (state) => {
         user: state.auth.googleUser,
         shoesValue: state.cart.ShoesData,
         items: state.explore.items,
-        filterBrands: state.explore.brands
+        filterBrands: state.explore.brands,
+        filterGenders: state.explore.genders
     }
 }
 export default connect(mapStateToProps)(Explore);

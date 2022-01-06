@@ -3,16 +3,19 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Checkbox, FormLabel, FormControlLabel, TextField } from "@material-ui/core";
 
-const ExploreFilter = ({show, handleClose, filtering, brands, filterBrands}) => {
+const ExploreFilter = ({show, handleClose, filtering, brands, filterBrands, filterGenders}) => {
     var mapper = {}
+    mapper["Men"] = false;
+    mapper["Women"] = false;
     brands.forEach((b) => mapper[b] = false);
     filterBrands.map((v) => mapper[v] = true)
+    filterGenders.map((v) => mapper[v] = true)
     const handleChange = (event) => {
         if (event.target.type === "checkbox") {
             if (event.target.checked) {
-                filtering.filter_add("brand", event.target.value);
+                filtering.filter_add(event.target.id, event.target.value);
             } else {
-                filtering.filter_del("brand", event.target.value);
+                filtering.filter_del(event.target.id, event.target.value);
             }
         }
         else if (event.target.type === "text") {
@@ -34,8 +37,12 @@ const ExploreFilter = ({show, handleClose, filtering, brands, filterBrands}) => 
             <br/><br/>
             <FormLabel component="legend">Brand</FormLabel>
             {brands.map((brand) =>
-                <FormControlLabel control={<Checkbox checked={mapper[brand.name]} value={brand.name} id={brand.name}/>} label={brand.name} onChange={handleChange}/>
+                <FormControlLabel control={<Checkbox checked={mapper[brand.name]} value={brand.name} id={"brand"}/>} label={brand.name} onChange={handleChange}/>
                 )}
+            <br/>
+            <FormLabel component="legend">Gender</FormLabel>
+            <FormControlLabel control={<Checkbox checked={mapper["Men"]} value={"Men"} id={"gender"}/>} label={"Men"} onChange={handleChange}/>
+            <FormControlLabel control={<Checkbox checked={mapper["Women"]} value={"Women"} id={"gender"}/>} label={"Women"} onChange={handleChange}/>
             <br/><br/>
             <Button variant="danger" onClick={handleClear}>Clear All</Button>
             </Offcanvas.Body>
