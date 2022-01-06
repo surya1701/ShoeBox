@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { store } from '../../app/store';
 import { PlusCircleIcon, MinusCircleIcon, TrashIcon } from './../../assets/icons';
 
@@ -16,10 +17,12 @@ const CartView = ({product}) => {
     return (
         <div className="row no-gutters py-2">
             <div className="col-sm-2 p-2">
+                <Link to={{ pathname: "/product", search: "?key=" + product.id }}>
                 <img
                 alt={product.name}
                 style={{margin: "0 auto", maxHeight: "200px"}} 
                 src={product.image[0]} className="img-fluid d-block"/>
+                </Link>
             </div>
             <div className="col-sm-4 p-2">
                 <h5 className="mb-1">{product.name}</h5>
