@@ -1,8 +1,7 @@
 import * as Types from './Types';
 
 const initialState = {
-    googleUser: null,
-    localUser: null,
+    googleUser: null
 };
 
 const authReducer = (state = initialState, action) => {
@@ -17,36 +16,6 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 googleUser: null,
             };
-        case Types.GET_GOOGLE_USER:
-            return {
-                ...state,
-                googleUser: action.payload,
-            };
-        case Types.REGISTER_LOCAL_USER:
-            return {
-                ...state,
-                localUser: { ...action.payload },
-            };
-        case Types.LOGIN_LOCAL_USER:
-            return {
-                ...state,
-                localUser: action.payload,
-            };
-        case Types.LOGOUT_LOCAL_USER:
-            return {
-                ...state,
-                localUser: null,
-            };
-        case Types.GET_LOCAL_USER:
-            return {
-                ...state,
-                localUser: action.payload,
-            };
-        case Types.REDIRECT_AFTER_LOGIN:
-            return {
-                ...state,
-            };
-
         default:
             return state;
     }
