@@ -10,7 +10,7 @@ function MostViewed({shoesValue}) {
         <Container>
             <h4>Most Viewed</h4>
             <Content>
-                {shoesValue.sort((a,b) => (a.views < b.views) ? 1 : ((b.views < a.views) ? -1 : 0)).slice(0,4).map((item) => <ItemDisplay item={{...item}}/>)}
+                {shoesValue.sort((a,b) => (a.views < b.views) ? 1 : ((b.views < a.views) ? -1 : 0)).slice(0,4).map((item) => <ItemDisplay key={item.id} item={{...item}}/>)}
             </Content>
         </Container>
     )

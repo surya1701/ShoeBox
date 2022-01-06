@@ -68,14 +68,18 @@ function ExploreItems({ item, brands, user }) {
                 </Card.ImgOverlay>
                 <Card.Img variant="top" style={{ height: "50vh", objectFit: "cover" }} src={item.image[0]} />
                 <Card.Body style={{ zIndex: "2" }}>
+                    <div>
                     <Card.Title className='display-6' style={{ display: "inline" }}>
                         <Link to={{ pathname: "/product", search: "?key=" + item.id }}
-                            style={{ color: "black", fontSize: "28px", fontWeight: '300', fontFamily: 'sans-serif', textDecoration: 'none', border: '1px solid black', padding: '5px', borderRadius: '5px' }}>
+                            style={{ color: "black", fontSize: "28px", fontWeight: '300', fontFamily: 'sans-serif', textDecoration: 'none', padding: '5px', borderRadius: '5px' }}>
                             {item.name}
                         </Link>
                     </Card.Title>
+                    </div>
+                    <div>
                     <Card.Text style={{ float: "right" }}>&#8377; {item.price}</Card.Text>
                     <Card.Text style={{ float: "left" }}>{item.views} Views</Card.Text>
+                    </div>
                 </Card.Body>
             </Card>
         </>

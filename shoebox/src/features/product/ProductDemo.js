@@ -114,9 +114,9 @@ const ProductDemo = ({ shoesValue, user }) => {
                     checkedIcon={<Favorite />} name="checkedH" />} style={{ float: "right" }} />
                     : <p></p>}
                   </Title>
-                  <Desc>
                     <strong><i>{item.brand}</i>: {item.type}</strong><br />
                     <h4>For {item.gender}</h4>
+                  <Desc>
                     A shoe is an item of footwear intended to protect and comfort the human foot.
                     Shoes are also used as an item of decoration and fashion. The design of shoes has varied enormously
                     through time and from culture to culture, with form originally being tied to function.
@@ -148,7 +148,7 @@ const ProductDemo = ({ shoesValue, user }) => {
         <Container>
           <h4 className="ml-3">Others in {item.brand}</h4>
           <Content>
-            {shoesValue.filter((i) => (i.brand === item.brand && i.name !== item.name)).slice(-4).map((i) => <ItemDisplay item={{ ...i }} />)}
+            {shoesValue.filter((i) => (i.brand === item.brand && i.name !== item.name)).slice(-4).map((i) => <ItemDisplay key={i.id} item={{ ...i }} />)}
           </Content>
         </Container>
         <Divider />
@@ -163,7 +163,7 @@ const ProductDemo = ({ shoesValue, user }) => {
         <Container>
           <h4 className="ml-3">Other Products</h4>
           <Content>
-            {shoesValue.slice(-4).map((i) => <ItemDisplay item={{ ...i }} />)}
+            {shoesValue.slice(-4).map((i) => <ItemDisplay key={i.id} item={{ ...i }} />)}
           </Content>
         </Container>
         <Divider />

@@ -10,7 +10,7 @@ function Random({shoesValue}) {
         <Container>
             <h4>Our Picks</h4>
             <Content>
-                {shoesValue.filter((item) => (Math.random() > 0.5)).slice(-4).map((item) => <ItemDisplay item={{...item}}/>)}
+                {shoesValue.filter((item) => (Math.random() > 0.5)).slice(-4).map((item) => <ItemDisplay key={item.id} item={{...item}}/>)}
             </Content>
         </Container>
     )

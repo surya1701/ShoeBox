@@ -97,12 +97,12 @@ const Profile = ({user, ShoesData}) => {
                                     <Tab eventKey="additional" title="Additional info">
                                         <WrapContainer>
                                         <h4 className='display-6'>Followed Brands</h4>
-                                        {(brands && user) ? brands.filter((b) => user.followed.includes(b.name)).map((b) => <Brand brand={b} brands={brands}/>):<p>Empty</p>}
+                                        {(brands && user) ? brands.filter((b) => user.followed.includes(b.name)).map((b) => <Brand key={b.id} brand={b} brands={brands}/>):<p>Empty</p>}
                                         </WrapContainer>
                                         <Container>
                                         <h4 className='display-6'>Liked Shoes</h4>
                                         <Content>
-                                        {(user) ? ShoesData.filter((item) => user.liked.includes(item.id)).map((item) => <ItemDisplay item={{...item}}/>):<p>No Liked Shoes</p>}
+                                        {(user) ? ShoesData.filter((item) => user.liked.includes(item.id)).map((item) => <ItemDisplay key={item.id} item={{...item}}/>):<p>No Liked Shoes</p>}
                                         </Content>
                                         </Container>
                                     </Tab>

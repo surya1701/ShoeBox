@@ -32,7 +32,7 @@ const Cart =({cartValue, user})=>{
                             totalItems > 0 ?
                             <div className={"container"}>
                                 <div className="card card-body border-0">
-                                    {cartValue.map(product =>  <CartView product={product}/>)}
+                                    {cartValue.map(product =>  <CartView key={product.id} product={product}/>)}
                                 </div>
                             </div>
                                     :

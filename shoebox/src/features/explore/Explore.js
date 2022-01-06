@@ -104,7 +104,7 @@ function Explore({ user, shoesValue, items, filterBrands, filterGenders, filterT
                     </div>
                     {currentItems &&
                         currentItems.map((item) => (
-                            <ExploreItems item={item} brands={brands} user={user} />
+                            <ExploreItems key={item.id} item={item} brands={brands} user={user} />
                         ))}
                 </div>
                 <div className='col-md-4 col-12 p-2'>

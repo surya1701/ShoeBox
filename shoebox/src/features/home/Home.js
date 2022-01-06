@@ -15,7 +15,7 @@ function Home({brands}) {
             <Container>
                 <ImgSlider />
                 <WrapContainer>
-                {brands.map((b) => <Brand brand={b} brands={brands}/>)}
+                {brands.map((b) => <Brand key={b.id} brand={b} brands={brands}/>)}
                 </WrapContainer>
                 {/* <Brand /> */}
                 <MostViewed />

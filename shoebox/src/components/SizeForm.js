@@ -38,6 +38,7 @@ const FormInputRadio = ({ name, control }) => {
                     <RadioGroup {...field} row>
                         {sizes.map((size) =>
                             <FormControlLabel
+                                key={size.value}
                                 value={size.value}
                                 control={<Radio />}
                                 label={size.label}

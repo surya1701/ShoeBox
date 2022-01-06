@@ -38,12 +38,12 @@ const ExploreFilter = ({show, handleClose, filtering, brands, filterBrands, filt
             <br/><br/>
             <FormLabel component="legend">Brand</FormLabel>
             {brands.map((brand) =>
-                <FormControlLabel control={<Checkbox checked={mapper[brand.name]} value={brand.name} id={"brand"}/>} label={brand.name} onChange={handleChange}/>
+                <FormControlLabel key={brand.id} control={<Checkbox checked={mapper[brand.name]} value={brand.name} id={"brand"}/>} label={brand.name} onChange={handleChange}/>
             )}
             <br/>
             <FormLabel component="legend">Type</FormLabel>
             {["Sneakers", "Sports", "Casual"].map((type) =>
-                <FormControlLabel control={<Checkbox checked={mapper[type]} value={type} id={"type"}/>} label={type} onChange={handleChange}/>
+                <FormControlLabel key={type} control={<Checkbox checked={mapper[type]} value={type} id={"type"}/>} label={type} onChange={handleChange}/>
             )}
             <br/>
             <FormLabel component="legend">Gender</FormLabel>
