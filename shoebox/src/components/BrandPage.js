@@ -70,13 +70,13 @@ const BrandPage = ({brand, brands, show, handleClose, user}) => {
             <br/>
             <div className='p-1'>
                 <div className="d-grid gap-2 mb-3">
-                    {(follow) ?
+                    {(user) ? (follow) ?
                     <Button variant="success" onClick={(e) => followBrand(e, "del")}>
                         Followed <Check/>
                     </Button> :
                     <Button variant="outline-success"  onClick={(e) => followBrand(e, "add")}>
                         Follow
-                    </Button>
+                    </Button> : <p></p>
                     }
                     <Button variant="primary" href={"/brand/"+brand.name}>
                         Explore Products <ArrowRightAlt/>

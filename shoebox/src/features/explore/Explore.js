@@ -73,10 +73,8 @@ function Explore({user, shoesValue, items, filterBrands, brands}) {
                                 label="Sort By"
                                 onChange={sorting}
                                 >
-                                {/* <ListSubheader>Price</ListSubheader> */}
                                 <MenuItem value={"priceDESC"}>Price: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
                                 <MenuItem value={"priceASC"}>Price: Lower to Higher <ArrowUpwardOutlined/></MenuItem>
-                                {/* <ListSubheader>Views</ListSubheader> */}
                                 <MenuItem value={"viewsDESC"}>Views: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
                                 <MenuItem value={"viewsASC"}>Views: Lower to Higher <ArrowUpwardOutlined/></MenuItem>
                                 </Select>
@@ -84,11 +82,11 @@ function Explore({user, shoesValue, items, filterBrands, brands}) {
                             </Box>
                         </div>
                         <div className='col-8 p-1'>
-                            <div className="d-grid gap-2 mb-3">
-                                <Button variant="primary" onClick={handleShow}>
+                            {/* <div className="d-grid gap-2 mb-3"> */}
+                                <Button variant="info" size="lg" className='float-right' onClick={handleShow}>
                                     Filters
                                 </Button>
-                            </div>
+                            {/* </div> */}
                         </div>
                     </div>
                     {currentItems &&

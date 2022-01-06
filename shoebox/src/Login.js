@@ -43,6 +43,7 @@ function Login() {
     };
 
     const onSignoutSuccess = () => {
+        store.dispatch({type:'LOGOUT_GOOGLE_USER'});
         alert("You have been logged out successfully");
         console.clear();
         setShowloginButton(true);

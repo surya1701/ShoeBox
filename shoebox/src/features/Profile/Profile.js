@@ -6,6 +6,7 @@ import Brand from '../home/Brand';
 import Header from "../../components/Header";
 import './style.css';
 import styled from 'styled-components'
+import { Navigate } from 'react-router-dom';
 
 const Profile = ({user}) => {
     const [brands, setBrands] = useState(null);
@@ -110,7 +111,7 @@ const Profile = ({user}) => {
                     </div>
                 </div>
             </div>
-        </div> : <p></p>}
+        </div> : <Navigate to="/"/>}
         </>
     );
 };

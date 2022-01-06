@@ -10,7 +10,7 @@ import PaymentForm from './Forms/PaymentForm';
 
 const steps = ["Shipping Address", "Payment Details"];
 
-const Checkout = ({ cartValue }) => {
+const Checkout = ({ cartValue, user }) => {
   // toRedirect = 0 (no items), 1 (has items), 2 (order confirmed)
   const [toRedirect, setToRedirect] = useState(1);
   const [activeStep, setActiveStep] = useState(0);
@@ -48,6 +48,7 @@ const Checkout = ({ cartValue }) => {
         next={next}
         nextStep={nextStep}
         setShippingData={setShippingData}
+        user={user}
       />
     ) : (
       <PaymentForm
@@ -55,11 +56,12 @@ const Checkout = ({ cartValue }) => {
         backStep={backStep}
         shippingData={shippingData}
         cartValue={cartValue}
+        user={user}
       />
     );
 
   return (
-    (toRedirect === 0) ?
+    (toRedirect === 0 || user === null) ?
      <Navigate to="/"/> :
      (toRedirect === 2) ?
      <Navigate to="/confirmation" state={shippingData}/> :
@@ -90,7 +92,8 @@ const Checkout = ({ cartValue }) => {
 
 const mapStateToProps=(state)=>{
     return {
-        cartValue: state.cart.cart
+        cartValue: state.cart.cart,
+        user: state.auth.googleUser
     }
 }
 export default connect(mapStateToProps)(Checkout);

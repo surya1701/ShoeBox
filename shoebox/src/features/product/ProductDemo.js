@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import ItemDisplay from "../../components/ItemDisplay";
 import FormInputRadio from "../../components/SizeForm";
-import { Accordion, Button } from "react-bootstrap";
+import { Accordion, Button, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react";
@@ -17,29 +17,48 @@ import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import ProductCarousel from "../../components/ProductCarousel";
 const queryString = require('query-string');
 
-const ProductDemo = ({ shoesValue }) => {
+const ProductDemo = ({ shoesValue, user }) => {
   const methods = useForm();
   const location = useLocation()
   const [item, setItem] = useState(null);
+  const [addedToCart, setaddedToCart] = useState(false);
   const [like, setLike] = useState(false);
+    if(!like && user !== null && item !== null)
+    fetch("http://localhost:3001/users/"+user.givenName)
+    .then(res => res.json())
+    .then(result => {
+        if(result) {
+            setLike(result.liked.includes(item.key));
+    }})
   const handleLike = (event) => {
     if (event.target.checked) {
-      fetch("http://localhost:3001/liked", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
+        fetch("http://localhost:3001/users/"+user.givenName, {
+            method: "PUT",
+            headers: {
+            "Content-Type": "application/json"
         },
-        body: JSON.stringify({ id: item.key })
-      });
-      setLike(true);
+        body: JSON.stringify(
+            {
+                ...user,
+                "liked": [...user.liked, item.key]
+            }
+        )});
+        store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: [...user.liked, item.key]}}});
+        setLike(true);
     } else {
-      fetch("http://localhost:3001/liked/" + item.key, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-      setLike(false);
+        fetch("http://localhost:3001/users/"+user.givenName, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(
+                {
+                    ...user,
+                    "liked": user.liked.filter((i) => i !== item.key)
+                }
+                )});
+        store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: user.liked.filter((i) => i !== item.key)}}});
+        setLike(false);
     }
   }
   useEffect(() => {
@@ -50,6 +69,10 @@ const ProductDemo = ({ shoesValue }) => {
   }, [shoesValue, location]);
 
   const addToCart = (data) => {
+    setaddedToCart(true);
+    setTimeout(() => {
+      setaddedToCart(false);
+    }, 3000);
     store.dispatch({ type: 'ADD_TO_CART', payload: { id: item.key, size: data['size'] } });
   }
 
@@ -57,6 +80,11 @@ const ProductDemo = ({ shoesValue }) => {
     (item) ?
       <div>
         <Header />
+        <Modal show={addedToCart} onHide={()=>setaddedToCart(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Added To Cart</Modal.Title>
+        </Modal.Header>
+        </Modal>
         <div className="row g-0 p-1 mt-20">
           <div className="col-md-6 col-12 p-1 text-center" >
             <ProductCarousel images={item.image} />
@@ -66,8 +94,13 @@ const ProductDemo = ({ shoesValue }) => {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Know Your Shoe</Accordion.Header>
                 <Accordion.Body>
-                  <Title>{item.name}</Title>
-                  {/* <Title>name</Title> */}
+                  <Title>
+                    {item.name}
+                    {(user) ?
+                    <FormControlLabel control={<Checkbox checked={like} onClick={handleLike} icon={<FavoriteBorder />}
+                    checkedIcon={<Favorite />} name="checkedH" />} style={{ float: "right" }} />
+                    : <p></p>}
+                  </Title>
                   <Desc>
                     <strong><i>{item.brand}</i></strong><br />
                     A shoe is an item of footwear intended to protect and comfort the human foot.
@@ -93,8 +126,6 @@ const ProductDemo = ({ shoesValue }) => {
                       </Button>
                     </form>
                   </FormProvider>
-                  <FormControlLabel control={<Checkbox checked={like} onClick={handleLike} icon={<FavoriteBorder />}
-                    checkedIcon={<Favorite />} name="checkedH" />} style={{ float: "right", marginRight: "70px" }} />
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
@@ -128,7 +159,8 @@ const ProductDemo = ({ shoesValue }) => {
 };
 const mapStateToProps = (state) => {
   return {
-    shoesValue: state.cart.ShoesData
+    shoesValue: state.cart.ShoesData,
+    user: state.auth.googleUser
   }
 }
 

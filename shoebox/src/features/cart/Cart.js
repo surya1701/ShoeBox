@@ -24,7 +24,7 @@ const Cart =({cartValue})=>{
             <div >
                 <div className="text-center mt-5">
                     <h1>Cart</h1>
-                    <p>This is the Cart Page.</p>
+                    <p><i>"Life is too short to wear boring shoes"</i></p>
                 </div>
                 <div className="row g-0 justify-content-center">
                     <div className="col-sm-9 p-3">
