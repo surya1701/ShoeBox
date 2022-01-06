@@ -53,6 +53,7 @@ function Explore({ user, shoesValue, items, filterBrands, filterGenders, filterT
             store.dispatch({ type: 'search', payload: { text: text } });
         },
         filter_clear: () => {
+            store.dispatch({ type: 'clearAll' });
             fetch("http://localhost:3001/shoes")
             .then(res => res.json())
             .then(result => {
@@ -109,12 +110,12 @@ function Explore({ user, shoesValue, items, filterBrands, filterGenders, filterT
                 </div>
                 <div className='col-md-4 col-12 p-2'>
                     <ReactPaginate
-                        nextLabel=">"
+                        nextLabel=">>"
                         onPageChange={handlePageClick}
                         pageRangeDisplayed={3}
                         marginPagesDisplayed={2}
                         pageCount={pageCount}
-                        previousLabel="<"
+                        previousLabel="<<"
                         pageClassName="page-item"
                         pageLinkClassName="page-link"
                         previousClassName="page-item"

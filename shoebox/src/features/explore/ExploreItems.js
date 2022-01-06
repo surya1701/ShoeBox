@@ -56,7 +56,7 @@ function ExploreItems({ item, brands, user }) {
     return (
         <>
             <BrandPage brand={brand} brands={brands} show={show} handleClose={handleClose} user={user} />
-            <Card border="primary" className='mb-5'>
+            <Card bg="secondary" border="primary" className='mb-5'>
                 <Card.ImgOverlay>
                     <Image fluid rounded style={{ height: "3em", float: "left" }}
                         src={brand.logo}
