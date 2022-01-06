@@ -60,8 +60,10 @@ function ExploreItems({ item, brands, user }) {
                 <Image fluid rounded style={{ height: "3em", float: "left" }}
                     src={brand.logo}
                     onClick={handleShow} role={"button"}/>
+                {(user) ?
                 <FormControlLabel control={<Checkbox checked={like} onClick={handleLike} icon={<FavoriteBorder />}
                     checkedIcon={<Favorite />} name="checkedH" />} style={{ float: "right" }} />
+                : <p></p>}
             </Card.ImgOverlay>
             <Card.Img variant="top" style={{ height: "50vh", objectFit: "cover" }} src={item.image[0]} />
             <Card.Body style={{ zIndex: "2" }}>

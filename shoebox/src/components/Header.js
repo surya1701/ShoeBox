@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import Login from "../Login";
 import { mobile } from "../responsive";
 
-function Header({ cartValue }) {
+function Header({ cartValue, user }) {
   const [totalItems, setTotalItems] = useState(0);
   useEffect(() => {
     let items = 0;
@@ -23,7 +23,11 @@ function Header({ cartValue }) {
       <Wrapper>
         <Left>
           <MenuItem><Link to="/explore" style={{ color: 'lightblue', textDecoration: 'none' }}>Explore</Link></MenuItem>
-          <MenuItem><Link to="/profile" style={{ color: 'lightblue', textDecoration: 'none' }}>Profile</Link></MenuItem>
+          <MenuItem>
+          {(user) ?
+          <Link to="/profile" style={{ color: 'lightblue', textDecoration: 'none' }}>Profile</Link>
+          :<p></p>}
+          </MenuItem>
           <MenuItem>
             <div className="g-signin">
               <Login />
@@ -52,11 +56,6 @@ function Header({ cartValue }) {
     </Container>
   );
 };
-
-
-
-
-
 
 const Container = styled.div`
   height: 60px;
@@ -122,7 +121,8 @@ const CartCount = styled.span`
 
 const mapStateToProps = (state) => {
   return {
-    cartValue: state.cart.cart
+    cartValue: state.cart.cart,
+    user: state.auth.googleUser
   }
 }
 export default connect(mapStateToProps)(Header);

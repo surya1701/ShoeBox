@@ -5,7 +5,7 @@ import { useForm, FormProvider } from "react-hook-form";
 import { Link } from "react-router-dom";
 import FormInput from "./FormField";
 
-const AddressForm = ({ next }) => {
+const AddressForm = ({ next, user }) => {
 
     const methods = useForm();
 
@@ -25,7 +25,7 @@ const AddressForm = ({ next }) => {
             <FormInput required name="firstName" label="First Name"  size={6} type="text"/>
             <FormInput required name="lastName" label="Last Name"  size={6} type="text"/>
             <FormInput required name="address" label="Address Line" size={12} type="text"/>
-            <FormInput required name="email" label="Email"  size={6} type="email"/>
+            <FormInput required name="email" label="Email"  size={6} type="email" value={user.email}/>
             <FormInput required name="state" label="State"  size={6} type="text"/>
             <FormInput required name="country" label="Country"  size={6} type="text"/>
             <FormInput required name="zip" label="Zip / Postal code"  size={6} type="number"/>
