@@ -14,7 +14,7 @@ import ReactPaginate from 'react-paginate';
 
 
 function Explore({ user, shoesValue, items, filterBrands, filterGenders, filterTypes, brands }) {
-    const itemsPerPage = 4;
+    const itemsPerPage = 8;
     const [sortBy, setSortBy] = useState("viewsDESC");
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -103,10 +103,20 @@ function Explore({ user, shoesValue, items, filterBrands, filterGenders, filterT
                             {/* </div> */}
                         </div>
                     </div>
-                    {currentItems &&
-                        currentItems.map((item) => (
-                            <ExploreItems key={item.id} item={item} brands={brands} user={user} />
-                        ))}
+                    <div className='row g-0'>
+                        <div className='col-md-6 col-12 p-2'>
+                            {(currentItems && currentItems.length >= 1) ? <ExploreItems key={currentItems[0].id} item={currentItems[0]} brands={brands} user={user} /> :<p></p>}
+                            {(currentItems && currentItems.length >= 3) ? <ExploreItems key={currentItems[2].id} item={currentItems[2]} brands={brands} user={user} /> :<p></p>}
+                            {(currentItems && currentItems.length >= 5) ? <ExploreItems key={currentItems[4].id} item={currentItems[4]} brands={brands} user={user} /> :<p></p>}
+                            {(currentItems && currentItems.length >= 7) ? <ExploreItems key={currentItems[6].id} item={currentItems[6]} brands={brands} user={user} /> :<p></p>}
+                        </div>
+                        <div className='col-md-6 col-12 p-2'>
+                            {(currentItems && currentItems.length >= 2) ? <ExploreItems key={currentItems[1].id} item={currentItems[1]} brands={brands} user={user} /> :<p></p>}
+                            {(currentItems && currentItems.length >= 4) ? <ExploreItems key={currentItems[3].id} item={currentItems[3]} brands={brands} user={user} /> :<p></p>}
+                            {(currentItems && currentItems.length >= 6) ? <ExploreItems key={currentItems[5].id} item={currentItems[5]} brands={brands} user={user} /> :<p></p>}
+                            {(currentItems && currentItems.length >= 8) ? <ExploreItems key={currentItems[7].id} item={currentItems[7]} brands={brands} user={user} /> :<p></p>}
+                        </div>
+                    </div>
                 </div>
                 <div className='col-md-4 col-12 p-2'>
                     <ReactPaginate
@@ -133,7 +143,7 @@ function Explore({ user, shoesValue, items, filterBrands, filterGenders, filterT
                         sourceType="profile"
                         screenName="shoesdotcom"
                         theme="dark"
-                        options={{ height: "75vh" }}
+                        options={{ height: "100vw" }}
 
                     />
                 </div>

@@ -27,7 +27,7 @@ const Profile = ({user, ShoesData}) => {
                 <div className="card">
                     <div className="card-body">
                         <div className="card-title mb-4">
-                            <div className="d-flex justify-content-start">
+                            <div className="d-flex justify-content-center">
                                 <div className="image-container">
                                     <img
                                         src={user.imageUrl}
@@ -42,65 +42,46 @@ const Profile = ({user, ShoesData}) => {
                                         className="img-thumbnail"
                                     />
                                 </div>
-                                <div className="userData ml-3">
-                                    <h2>{user.name}</h2>
-                                    <h6>{user.email}</h6>
-                                    <h6>Customer info</h6>
-                                </div>
                             </div>
                         </div>
 
                         <div className="row g-0">
-                            <div className="col-12">
+                            <div className="col-12 p-1">
                                 <Tabs defaultActiveKey="info" id="uncontrolled-tab-example">
-                                    <Tab eventKey="info" title="Basic info">
+                                    <Tab eventKey="info" title="Info">
                                         <div className="mt-4">
                                             <div className="row">
                                                 <div className="col-sm-3 col-md-2 col-5">
                                                     <label className="item-label">Full Name</label>
                                                 </div>
-                                                <div className="col-md-8 col-6">Lorem Ipsum</div>
-                                            </div>
-                                            <hr />
-
-                                            <div className="row">
-                                                <div className="col-sm-3 col-md-2 col-5">
-                                                    <label className="item-label">Birth Date</label>
-                                                </div>
-                                                <div className="col-md-8 col-6">March 22, 1983.</div>
-                                            </div>
-                                            <hr />
-
-                                            <div className="row">
-                                                <div className="col-sm-3 col-md-2 col-5">
-                                                    <label className="item-label">Lorem Ipsum</label>
-                                                </div>
-                                                <div className="col-md-8 col-6">Lorem Ipsum</div>
+                                                <div className="col-md-8 col-6">{user.name}</div>
                                             </div>
                                             <hr />
                                             <div className="row">
                                                 <div className="col-sm-3 col-md-2 col-5">
-                                                    <label className="item-label">Lorem Ipsum</label>
+                                                    <label className="item-label">Email</label>
                                                 </div>
-                                                <div className="col-md-8 col-6">Lorem Ipsum</div>
+                                                <div className="col-md-8 col-6">{user.email}</div>
                                             </div>
                                             <hr />
                                             <div className="row">
                                                 <div className="col-sm-3 col-md-2 col-5">
-                                                    <label className="item-label">Lorem Ipsum</label>
+                                                    <label className="item-label">User Since</label>
                                                 </div>
-                                                <div className="col-md-8 col-6">Lorem Ipsum</div>
+                                                <div className="col-md-8 col-6">{user.since}</div>
                                             </div>
-                                            <hr />
+                                            <hr/>
+                                            
                                         </div>
                                     </Tab>
-                                    <Tab eventKey="additional" title="Additional info">
+                                    <Tab eventKey="additional" title="Followed">
                                         <WrapContainer>
-                                        <h4 className='display-6'>Followed Brands</h4>
+                                        {/* <h4 className='display-6'>Followed Brands</h4> */}
                                         {(brands && user) ? brands.filter((b) => user.followed.includes(b.name)).map((b) => <Brand key={b.id} brand={b} brands={brands}/>):<p>Empty</p>}
                                         </WrapContainer>
+                                    </Tab>
+                                    <Tab eventKey="likedShoes" title="Liked">
                                         <Container>
-                                        <h4 className='display-6'>Liked Shoes</h4>
                                         <Content>
                                         {(user) ? ShoesData.filter((item) => user.liked.includes(item.id)).map((item) => <ItemDisplay key={item.id} item={{...item}}/>):<p>No Liked Shoes</p>}
                                         </Content>
@@ -124,11 +105,10 @@ const mapStateToProps=(state)=>{
 }
 export default connect(mapStateToProps)(Profile);
 const WrapContainer = styled.div`
-    margin-top: 30px;
+    margin-top: 20px;
     display: grid;
-    padding: 30px 0 26px;
     grid-gap: 25px;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 `
 const Container = styled.div`
 margin-top: 20px;

@@ -29,7 +29,7 @@ function App() {
         .then(data => {setBrands(data)})
     }, [url])
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor: "#fffdd0"}}>
       { (brands) ?
       <Router>
         <Routes>

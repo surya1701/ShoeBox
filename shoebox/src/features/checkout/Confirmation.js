@@ -11,7 +11,6 @@ const Confirmation = () => {
         <p className="lead"><strong>Please check your email</strong> for further information on your order.</p>
         <hr/>
         <p>Name: {data.data["firstName"]} {data.data["lastName"]}</p>
-        <p>Email: {data.data["email"]}</p>
         <p>Address: {data.data["address"]}</p>
         <ul>
         {data.cart.map((item) => <li>{item["name"]} x {item["qty"]}</li>)}

@@ -24,7 +24,7 @@ const ExploreReducer = (state = initialState, action)=>{
     switch(action.type) {
         case actionTypes.LOAD_DATA:
             return {...state,
-                ShoesData: action.payload.shoes,
+                ShoesData: sort(action.payload.shoes, state.sortBy),
                 items: sort(action.payload.shoes, state.sortBy),
                 brands: action.payload.shoes.map((item) => item.brand),
                 genders: action.payload.shoes.map((item) => item.gender),
@@ -60,7 +60,7 @@ const ExploreReducer = (state = initialState, action)=>{
                 return {...state, text:action.payload.text, items: sort(state.items.filter((item) => item.name.toLowerCase().startsWith(action.payload.text.toLowerCase())), state.sortBy)}
             }
         case actionTypes.CLEAR_ALL:
-            return {...initialState}
+            return {...initialState, sortBy: state.sortBy}
         case actionTypes.SORT:
             return {...state, sortBy: action.payload.by, items: sort([...state.items], action.payload.by)}
         case actionTypes.INCREMENT_VIEWS:

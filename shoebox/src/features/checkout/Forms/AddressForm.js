@@ -25,7 +25,7 @@ const AddressForm = ({ next, user }) => {
             <FormInput required name="firstName" label="First Name"  size={6} type="text"/>
             <FormInput required name="lastName" label="Last Name"  size={6} type="text"/>
             <FormInput required name="address" label="Address Line" size={12} type="text"/>
-            <FormInput required name="email" label="Email"  size={6} type="email" value={user.email}/>
+            <FormInput required name="email" label="Email"  size={6} type="email" fill={user.email}/>
             <FormInput required name="state" label="State"  size={6} type="text"/>
             <FormInput required name="country" label="Country"  size={6} type="text"/>
             <FormInput required name="zip" label="Zip / Postal code"  size={6} type="number"/>

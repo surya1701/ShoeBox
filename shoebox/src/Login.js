@@ -16,6 +16,8 @@ function Login() {
         .then(res => res.json())
         .then(result => {
             if (! result.name) {
+                const today = new Date();
+                const date = today.getDate() + " / " + (today.getMonth()+1) +  " / "+ today.getFullYear();
                 fetch("http://localhost:3001/users", {
                     method: "POST",
                     headers: {
@@ -25,6 +27,7 @@ function Login() {
                     {
                         ...res.profileObj,
                         "id": res.profileObj.givenName,
+                        "since": date,
                         "liked": [],
                         "followed": []
                     }
@@ -32,8 +35,11 @@ function Login() {
             }
             fetch("http://localhost:3001/users/"+res.profileObj.givenName)
             .then(res => res.json())
-            .then(result => {if(result) store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: 
-            {user: {...res.profileObj,
+            .then(result => {
+                const today = new Date();
+                const date = today.getDate() + " / " + (today.getMonth()+1) +  " / "+ today.getFullYear();
+                if(result) store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: 
+            {user: {...res.profileObj, since: date,
                 liked: (result.liked)?result.liked:[],
                 followed: (result.followed)?result.followed:[]}}})})
         })

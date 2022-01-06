@@ -2,9 +2,8 @@ import React from "react";
 import { TextField, Grid } from "@material-ui/core";
 import { useFormContext, Controller } from "react-hook-form";
 
-const FormInput = ({ name, label, size, type, value }) => {
+const FormInput = ({ name, label, size, type, fill }) => {
   const { control } = useFormContext();
-  if (!value) value = "";
   return (
     <Grid item xs={12} sm={size}>
       <Controller
@@ -13,7 +12,9 @@ const FormInput = ({ name, label, size, type, value }) => {
         render={({
             field: {onChange},
           }) => (
-            <TextField label={label} type={type} value={value} required fullWidth onChange={onChange}/>
+            (fill)? 
+            <TextField label={label} type={type} value={fill} required fullWidth onChange={onChange}/>:
+            <TextField label={label} type={type} required fullWidth onChange={onChange}/>
         )}
         />
     </Grid>

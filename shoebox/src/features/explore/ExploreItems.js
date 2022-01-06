@@ -56,7 +56,7 @@ function ExploreItems({ item, brands, user }) {
     return (
         <>
             <BrandPage brand={brand} brands={brands} show={show} handleClose={handleClose} user={user} />
-            <Card bg="secondary" border="primary" className='mb-5'>
+            <Card bg="light" border="primary" className='mb-5'>
                 <Card.ImgOverlay>
                     <Image fluid rounded style={{ height: "3em", float: "left" }}
                         src={brand.logo}
@@ -66,8 +66,8 @@ function ExploreItems({ item, brands, user }) {
                             checkedIcon={<Favorite />} name="checkedH" />} style={{ float: "right" }} />
                         : <p></p>}
                 </Card.ImgOverlay>
-                <Card.Img variant="top" style={{ height: "50vh", objectFit: "cover" }} src={item.image[0]} />
-                <Card.Body style={{ zIndex: "2" }}>
+                <Card.Img variant="top" style={{ height: "60vh", objectFit: "contain" }} src={item.image[0]} />
+                <Card.Body style={{ zIndex: "2", height: "30vh"}}>
                     <div>
                     <Card.Title className='display-6' style={{ display: "inline" }}>
                         <Link to={{ pathname: "/product", search: "?key=" + item.id }}

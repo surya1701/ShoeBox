@@ -58,13 +58,9 @@ const BrandPage = ({brand, brands, show, handleClose, user}) => {
             <Image fluid rounded src={brands.filter((b) => b.name === brand.name)[0].logo}/>
             <br/>
             <div className="row g-0">
-                <div className="col-6">
+                <div className="col-12 justify-content-center">
                     <h5 className='display-6'>{brand.Posts}</h5>
                     <h6>Posts</h6>
-                </div>
-                <div className="col-6">
-                    <h5 className='display-6'>{brand.Followers}</h5>
-                    <h6>Followers</h6>
                 </div>
             </div>
             <br/>

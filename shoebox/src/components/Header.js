@@ -22,10 +22,10 @@ function Header({ cartValue, user }) {
     <Container className="sticky-top">
       <Wrapper>
         <Left>
-          <MenuItem><Link to="/explore" style={{ color: 'lightblue', textDecoration: 'none' }}>Explore</Link></MenuItem>
+          <MenuItem><Link to="/explore" style={{ color: '#265db5', textDecoration: 'none' }}>Explore</Link></MenuItem>
           <MenuItem>
           {(user) ?
-          <Link to="/profile" style={{ color: 'lightblue', textDecoration: 'none' }}>Profile</Link>
+          <Link to="/profile" style={{ color: '#265db5', textDecoration: 'none' }}>Profile</Link>
           :<p></p>}
           </MenuItem>
           <MenuItem>
@@ -58,8 +58,8 @@ function Header({ cartValue, user }) {
 };
 
 const Container = styled.div`
-  height: 60px;
-  background-color: white;
+  height: 65px;
+  background-color: #fffdd0;
   ${mobile({ height: "50px" })}
 `;
 
