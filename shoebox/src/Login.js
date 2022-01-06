@@ -32,7 +32,9 @@ function Login() {
             fetch("http://localhost:3001/users/"+res.profileObj.givenName)
             .then(res => res.json())
             .then(result => {if(result) store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: 
-            {user: {...res.profileObj, liked: result.liked, followed: result.followed}}})})
+            {user: {...res.profileObj,
+                liked: (result.liked)?result.liked:[],
+                followed: (result.followed)?result.followed:[]}}})})
         })
         setShowloginButton(false);
         setShowlogoutButton(true);

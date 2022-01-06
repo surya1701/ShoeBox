@@ -4,11 +4,12 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Brand from '../home/Brand';
 import Header from "../../components/Header";
+import ItemDisplay from '../../components/ItemDisplay';
 import './style.css';
 import styled from 'styled-components'
 import { Navigate } from 'react-router-dom';
 
-const Profile = ({user}) => {
+const Profile = ({user, ShoesData}) => {
     const [brands, setBrands] = useState(null);
     if (! brands)
     fetch("http://localhost:3001/brands")
@@ -21,7 +22,7 @@ const Profile = ({user}) => {
         <>
         <Header/>
         {(user) ?
-        <div className="row">
+        <div className="row g-0">
             <div className="col-12">
                 <div className="card">
                     <div className="card-body">
@@ -49,7 +50,7 @@ const Profile = ({user}) => {
                             </div>
                         </div>
 
-                        <div className="row">
+                        <div className="row g-0">
                             <div className="col-12">
                                 <Tabs defaultActiveKey="info" id="uncontrolled-tab-example">
                                     <Tab eventKey="info" title="Basic info">
@@ -98,12 +99,12 @@ const Profile = ({user}) => {
                                         <h4 className='display-6'>Followed Brands</h4>
                                         {(brands && user) ? brands.filter((b) => user.followed.includes(b.name)).map((b) => <Brand brand={b} brands={brands}/>):<p>Empty</p>}
                                         </WrapContainer>
-                                        <div className="mt-4">
-                                            Dolorem ipsa ea voluptatem. Qui voluptatem totam velit rem
-                                            dolores. Esse delectus eius quidem et eveniet.Dolorem ipsa
-                                            ea voluptatem. Qui voluptatem totam velit rem dolores.
-                                            Esse delectus eius quidem et eveniet.
-                                        </div>
+                                        <Container>
+                                        <h4 className='display-6'>Liked Shoes</h4>
+                                        <Content>
+                                        {(user) ? ShoesData.filter((item) => user.liked.includes(item.id)).map((item) => <ItemDisplay item={{...item}}/>):<p>No Liked Shoes</p>}
+                                        </Content>
+                                        </Container>
                                     </Tab>
                                 </Tabs>
                             </div>
@@ -117,7 +118,8 @@ const Profile = ({user}) => {
 };
 const mapStateToProps=(state)=>{
     return {
-        user: state.auth.googleUser
+        user: state.auth.googleUser,
+        ShoesData: state.cart.ShoesData
     }
 }
 export default connect(mapStateToProps)(Profile);
@@ -127,4 +129,14 @@ const WrapContainer = styled.div`
     padding: 30px 0 26px;
     grid-gap: 25px;
     grid-template-columns: repeat(5, minmax(0, 1fr));
+`
+const Container = styled.div`
+margin-top: 20px;
+margin-bottom: 30px;
+`
+
+const Content = styled.div`
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(4, minmax(0,1fr));
 `
