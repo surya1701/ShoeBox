@@ -1,6 +1,5 @@
 {
-  "users": [
-  ],
+  "users": [],
   "liked": [],
   "brands": [
     {
@@ -37,6 +36,29 @@
       "Followers": 5,
       "Posts": 50,
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Under_armour_logo.svg/800px-Under_armour_logo.svg.png"
+    }
+  ],
+  "shoes": [
+    {
+      "id": 1,
+      "name": "Wild Rider Layers Unisex Sneakers",
+      "brand": "Puma",
+      "image": [
+        "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/380697/02/sv01/fnd/IND/fmt/png/Wild-Rider-Layers-Unisex-Sneakers",
+        "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/380697/02/fnd/IND/fmt/png/Wild-Rider-Layers-Unisex-Sneakers",
+        "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/380697/02/bv/fnd/IND/fmt/png/Wild-Rider-Layers-Unisex-Sneakers"
+      ],
+      "price": "19999",
+      "size": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "type": "Sneakers",
+      "rating": "4.0",
+      "gender": "Men",
+      "views": 16
     }
   ]
 }

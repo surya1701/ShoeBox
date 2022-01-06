@@ -1,3 +1,4 @@
+export const LOAD_DATA = "LOAD_DATA_EXPLORE";
 export const ADD_BY_BRAND = "ADDbyBRAND";
 export const REMOVE_BY_BRAND = "DELbyBRAND";
 export const ADD_BY_GENDER = "ADDbyGENDER";

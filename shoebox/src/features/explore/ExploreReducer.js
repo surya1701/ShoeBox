@@ -2,12 +2,12 @@ import * as actionTypes from "./exploreActionTypes"
 import Data from "./../../assets/Data.json"
 
 const initialState = {
-    brands: Data.map((item) => item.brand),
-    genders: Data.map((item) => item.gender),
+    brands: [],
+    genders: [],
     text: "",
-    ShoesData: Data,
+    ShoesData: [],
     sortBy: "viewsDESC",
-    items: Data // {id, name, brand, image url, price}
+    items: [] // {id, name, brand, image url, price}
 }
 
 
@@ -19,6 +19,13 @@ const ExploreReducer = (state = initialState, action)=>{
     }
     var temp = null;
     switch(action.type) {
+        case actionTypes.LOAD_DATA:
+            return {...state,
+                ShoesData: action.payload.shoes,
+                items: action.payload.shoes,
+                brands: action.payload.shoes.map((item) => item.brands),
+                gender: action.payload.shoes.map((item) => item.gender),
+            }
         case actionTypes.ADD_BY_BRAND:
             temp = [...state.brands, action.payload.brand]
             return {...state, brands: temp, items: sort(state.ShoesData.filter((item) => temp.includes(item.brand) && item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}

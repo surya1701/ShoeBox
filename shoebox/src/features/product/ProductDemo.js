@@ -28,7 +28,7 @@ const ProductDemo = ({ shoesValue, user }) => {
     .then(res => res.json())
     .then(result => {
         if(result) {
-            setLike(result.liked.includes(item.key));
+            setLike(result.liked.includes(item.id));
     }})
   const handleLike = (event) => {
     if (event.target.checked) {
@@ -40,10 +40,10 @@ const ProductDemo = ({ shoesValue, user }) => {
         body: JSON.stringify(
             {
                 ...user,
-                "liked": [...user.liked, item.key]
+                "liked": [...user.liked, item.id]
             }
         )});
-        store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: [...user.liked, item.key]}}});
+        store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: [...user.liked, item.id]}}});
         setLike(true);
     } else {
         fetch("http://localhost:3001/users/"+user.givenName, {
@@ -54,17 +54,19 @@ const ProductDemo = ({ shoesValue, user }) => {
             body: JSON.stringify(
                 {
                     ...user,
-                    "liked": user.liked.filter((i) => i !== item.key)
+                    "liked": user.liked.filter((i) => i !== item.id)
                 }
                 )});
-        store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: user.liked.filter((i) => i !== item.key)}}});
+        store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: user.liked.filter((i) => i !== item.id)}}});
         setLike(false);
     }
   }
   useEffect(() => {
     const { key } = queryString.parse(location.search);
     shoesValue.forEach(element => {
-      if (parseInt(element.key) === parseInt(key)) setItem({ ...element });
+      if (parseInt(element.id) === parseInt(key)) {
+        setItem({ ...element, views: parseInt(element.views+1) });
+      }
     });
   }, [shoesValue, location]);
 
@@ -73,7 +75,24 @@ const ProductDemo = ({ shoesValue, user }) => {
     setTimeout(() => {
       setaddedToCart(false);
     }, 3000);
-    store.dispatch({ type: 'ADD_TO_CART', payload: { id: item.key, size: data['size'] } });
+    fetch("http://localhost:3001/shoes/"+item.id, {
+                method: "PUT",
+                headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(
+                {
+                    ...item,
+                    "views": item.views+1
+                }
+          )})
+          .then(fetch("http://localhost:3001/shoes")
+          .then(res => res.json())
+          .then(result => {
+            if(result) {
+            store.dispatch({type:'LOAD_DATA_EXPLORE', payload: {shoes: [...result]}})
+      }}))
+    store.dispatch({ type: 'ADD_TO_CART', payload: { id: item.id, size: data['size'] } });
   }
 
   return (

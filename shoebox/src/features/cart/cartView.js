@@ -33,7 +33,7 @@ const CartView = ({product}) => {
             </div>
             <div className="col-sm-4 p-2 text-right">
                  <button 
-                 onClick={() => addToCart(product.key, product.size)}
+                 onClick={() => addToCart(product.id, product.size)}
                  className="btn btn-primary btn-sm mr-2 mb-1">
                      <PlusCircleIcon width={"20px"}/>
                  </button>
@@ -41,14 +41,14 @@ const CartView = ({product}) => {
                  {
                      product.qty > 1 &&
                      <button
-                    onClick={() => reduceQuantity(product.key, product.size)}
+                    onClick={() => reduceQuantity(product.id, product.size)}
                     className="btn btn-danger btn-sm mb-1">
                         <MinusCircleIcon width={"20px"}/>
                     </button>
                  }
 
                 <button
-                    onClick={() => removeFromCart(product.key, product.size)}
+                    onClick={() => removeFromCart(product.id, product.size)}
                     className="btn btn-danger btn-sm mb-1">
                         <TrashIcon width={"20px"}/>
                 </button>

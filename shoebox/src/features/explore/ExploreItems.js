@@ -16,7 +16,7 @@ function ExploreItems({ item, brands, user }) {
     .then(res => res.json())
     .then(result => {
         if(result) {
-            setLike(result.liked.includes(item.key));
+            setLike(result.liked.includes(item.id));
         }})
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -30,10 +30,10 @@ function ExploreItems({ item, brands, user }) {
             body: JSON.stringify(
                 {
                     ...user,
-                    "liked": [...user.liked, item.key]
+                    "liked": [...user.liked, item.id]
                 }
             )});
-            store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: [...user.liked, item.key]}}});
+            store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: [...user.liked, item.id]}}});
             setLike(true);
         } else {
             fetch("http://localhost:3001/users/"+user.givenName, {
@@ -44,10 +44,10 @@ function ExploreItems({ item, brands, user }) {
                 body: JSON.stringify(
                     {
                         ...user,
-                        "liked": user.liked.filter((i) => i !== item.key)
+                        "liked": user.liked.filter((i) => i !== item.id)
                     }
                     )});
-            store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: user.liked.filter((i) => i !== item.key)}}});
+            store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: user.liked.filter((i) => i !== item.id)}}});
             setLike(false);
         }
     }
@@ -68,10 +68,10 @@ function ExploreItems({ item, brands, user }) {
             <Card.Img variant="top" style={{ height: "50vh", objectFit: "cover" }} src={item.image[0]} />
             <Card.Body style={{ zIndex: "2" }}>
                 <Card.Title className='display-6' style={{ display: "inline" }}>
-                    <Link to={{ pathname: "/product", search: "?key="+item.key }}>{item.name}</Link>
+                    <Link to={{ pathname: "/product", search: "?key="+item.id }}>{item.name}</Link>
                 </Card.Title>
                 <Card.Text style={{ float: "right" }}>&#8377; {item.price}</Card.Text>
-                <Card.Text style={{ float: "left" }}>View count</Card.Text>
+                <Card.Text style={{ float: "left" }}>{item.views} Views</Card.Text>
             </Card.Body>
         </Card>
         </>

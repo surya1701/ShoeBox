@@ -8,6 +8,7 @@ import Checkout from './features/checkout/Checkout';
 import Confirmation from './features/checkout/Confirmation';
 import ProductDemo from './features/product/ProductDemo';
 import Profile from './features/Profile/Profile'
+import {store} from "./app/store";
 
 import ExploreByName from './features/explore/ExploreByName';
 
@@ -16,6 +17,13 @@ function App() {
     const url = "http://localhost:3001/brands";
 
     useEffect(()=>{
+        fetch("http://localhost:3001/shoes")
+            .then(res => res.json())
+            .then(result => {
+              if(result) {
+              store.dispatch({type:'LOAD_DATA', payload: {shoes: [...result]}});
+              store.dispatch({type:'LOAD_DATA_EXPLORE', payload: {shoes: [...result]}})
+            }})
         fetch(url)
         .then(resp => resp.json())
         .then(data => {setBrands(data)})

@@ -67,7 +67,7 @@ function Explore({user, shoesValue, items, filterBrands, filterGenders, brands})
                     <div className='row g-0'>
                         <div className='col-4'>
                         <Box sx={{ minWidth: 120 }}>
-                            <FormControl variant="filled" fullWidth>
+                            <FormControl fullWidth>
                                 <InputLabel htmlFor="grouped-select">Sort By</InputLabel>
                                 <Select
                                 id="grouped-select"
