@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { store } from "./app/store";
+import { Button } from 'react-bootstrap';
 
 const clientId = "88496550643-kdkgke1hc694sk4d0gngrbv5m0l2l3fi.apps.googleusercontent.com";
 
@@ -57,7 +58,10 @@ function Login() {
             {showloginButton ?
                 <GoogleLogin
                     clientId={clientId}
-                    buttonText="Sign In"
+                    buttonText="Log In"
+                    render={renderProps => (
+                        <Button variant="outline-primary" onClick={renderProps.onClick}>Log In</Button>
+                      )}
                     onSuccess={onLoginSuccess}
                     onFailure={onLoginFailure}
                     cookiePolicy={'single_host_origin'}
@@ -68,6 +72,9 @@ function Login() {
                 <GoogleLogout
                     clientId={clientId}
                     buttonText="Sign Out"
+                    render={renderProps => (
+                        <Button variant="outline-danger" onClick={renderProps.onClick}>Sign Out</Button>
+                    )}
                     onLogoutSuccess={onSignoutSuccess}
                 >
                 </GoogleLogout> : null
