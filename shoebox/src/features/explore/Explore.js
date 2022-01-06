@@ -146,7 +146,7 @@ function Explore({ user, shoesValue, items, filterBrands, filterGenders, filterT
 const mapStateToProps = (state) => {
     return {
         user: state.auth.googleUser,
-        shoesValue: state.cart.ShoesData,
+        shoesValue: state.explore.ShoesData,
         items: state.explore.items,
         filterBrands: state.explore.brands,
         filterGenders: state.explore.genders,
