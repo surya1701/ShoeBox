@@ -13,9 +13,8 @@ import ExploreFilter from './ExploreFilter';
 import ReactPaginate from 'react-paginate';
 
 
-function Explore({ user, shoesValue, items, filterBrands, brands }) {
 
-function Explore({user, shoesValue, items, filterBrands, filterGenders, brands}) {
+function Explore({ user, shoesValue, items, filterBrands, filterGenders, brands }) {
 
     const itemsPerPage = 4;
     const [sortBy, setSortBy] = useState("viewsDESC");
@@ -47,14 +46,15 @@ function Explore({user, shoesValue, items, filterBrands, filterGenders, brands})
         },
         filter_del: (form, brand) => {
             if (form === "brand") store.dispatch({ type: 'DELbyBRAND', payload: { brand: brand } });
+        },
 
         filter_add: (form, value) => {
-            if (form === "brand") store.dispatch({type:'ADDbyBRAND', payload:{brand: value}});
-            else if (form === "gender") store.dispatch({type:'ADDbyGENDER', payload:{gender: value}});
+            if (form === "brand") store.dispatch({ type: 'ADDbyBRAND', payload: { brand: value } });
+            else if (form === "gender") store.dispatch({ type: 'ADDbyGENDER', payload: { gender: value } });
         },
         filter_del: (form, value) => {
-            if (form === "brand") store.dispatch({type:'DELbyBRAND', payload:{brand: value}});
-            else if (form === "gender") store.dispatch({type:'DELbyGENDER', payload:{gender: value}});
+            if (form === "brand") store.dispatch({ type: 'DELbyBRAND', payload: { brand: value } });
+            else if (form === "gender") store.dispatch({ type: 'DELbyGENDER', payload: { gender: value } });
 
         },
         filter_search: (text) => {
@@ -73,10 +73,7 @@ function Explore({user, shoesValue, items, filterBrands, filterGenders, brands})
     return (
         <div>
             <Header />
-
-            <ExploreFilter show={show} handleClose={handleClose} filtering={filtering} brands={brands} filterBrands={filterBrands} />
-
-            <ExploreFilter show={show} handleClose={handleClose} filtering={filtering} brands={brands} filterBrands={filterBrands} filterGenders={filterGenders}/>
+            <ExploreFilter show={show} handleClose={handleClose} filtering={filtering} brands={brands} filterBrands={filterBrands} filterGenders={filterGenders} />
 
             <div className='row g-0 mb-5'>
                 <div className='col-md-8 col-12 p-2 text-center'>
@@ -84,7 +81,7 @@ function Explore({user, shoesValue, items, filterBrands, filterGenders, brands})
                         <div className='col-4'>
 
                             <Box sx={{ minWidth: 120 }}>
-                                <FormControl fullWidth>
+                                <FormControl variant="filled" fullWidth>
                                     <InputLabel htmlFor="grouped-select">Sort By</InputLabel>
                                     <Select
                                         id="grouped-select"
@@ -98,22 +95,6 @@ function Explore({user, shoesValue, items, filterBrands, filterGenders, brands})
                                         <MenuItem value={"viewsASC"}>Views: Lower to Higher <ArrowUpwardOutlined /></MenuItem>
                                     </Select>
                                 </FormControl>
-
-                        <Box sx={{ minWidth: 120 }}>
-                            <FormControl variant="filled" fullWidth>
-                                <InputLabel htmlFor="grouped-select">Sort By</InputLabel>
-                                <Select
-                                id="grouped-select"
-                                value={sortBy}
-                                label="Sort By"
-                                onChange={sorting}
-                                >
-                                <MenuItem value={"priceDESC"}>Price: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
-                                <MenuItem value={"priceASC"}>Price: Lower to Higher <ArrowUpwardOutlined/></MenuItem>
-                                <MenuItem value={"viewsDESC"}>Views: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
-                                <MenuItem value={"viewsASC"}>Views: Lower to Higher <ArrowUpwardOutlined/></MenuItem>
-                                </Select>
-                            </FormControl>
 
                             </Box>
                         </div>
@@ -158,17 +139,17 @@ function Explore({user, shoesValue, items, filterBrands, filterGenders, brands})
                         screenName="shoesdotcom"
                         options={{ height: "75vh" }}
 
-                    sourceType="profile"
-                    screenName="shoesdotcom"
-                    theme="dark"
-                    options={{height: "75vh"}}
+                        sourceType="profile"
+                        screenName="shoesdotcom"
+                        theme="dark"
+                        options={{ height: "75vh" }}
 
                     />
                 </div>
             </div>
 
             <Footer />
-        </div>
+        </div >
     )
 }
 
