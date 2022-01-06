@@ -3,13 +3,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Checkbox, FormLabel, FormControlLabel, TextField } from "@material-ui/core";
 
-const ExploreFilter = ({show, handleClose, filtering, brands, filterBrands, filterGenders}) => {
+const ExploreFilter = ({show, handleClose, filtering, brands, filterBrands, filterGenders, filterTypes}) => {
     var mapper = {}
     mapper["Men"] = false;
     mapper["Women"] = false;
     brands.forEach((b) => mapper[b] = false);
     filterBrands.map((v) => mapper[v] = true)
     filterGenders.map((v) => mapper[v] = true)
+    filterTypes.map((v) => mapper[v] = true)
     const handleChange = (event) => {
         if (event.target.type === "checkbox") {
             if (event.target.checked) {
@@ -38,7 +39,12 @@ const ExploreFilter = ({show, handleClose, filtering, brands, filterBrands, filt
             <FormLabel component="legend">Brand</FormLabel>
             {brands.map((brand) =>
                 <FormControlLabel control={<Checkbox checked={mapper[brand.name]} value={brand.name} id={"brand"}/>} label={brand.name} onChange={handleChange}/>
-                )}
+            )}
+            <br/>
+            <FormLabel component="legend">Type</FormLabel>
+            {["Sneakers", "Sports", "Casual"].map((type) =>
+                <FormControlLabel control={<Checkbox checked={mapper[type]} value={type} id={"type"}/>} label={type} onChange={handleChange}/>
+            )}
             <br/>
             <FormLabel component="legend">Gender</FormLabel>
             <FormControlLabel control={<Checkbox checked={mapper["Men"]} value={"Men"} id={"gender"}/>} label={"Men"} onChange={handleChange}/>

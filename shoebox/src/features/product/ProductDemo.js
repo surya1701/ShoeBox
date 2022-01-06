@@ -82,16 +82,10 @@ const ProductDemo = ({ shoesValue, user }) => {
             },
             body: JSON.stringify(
                 {
-                    ...item,
-                    "views": item.views+1
+                    ...item
                 }
-          )})
-          .then(fetch("http://localhost:3001/shoes")
-          .then(res => res.json())
-          .then(result => {
-            if(result) {
-            store.dispatch({type:'LOAD_DATA_EXPLORE', payload: {shoes: [...result]}})
-      }}))
+    )})
+    .then(store.dispatch({type:'INCREMENT_VIEWS', payload: {key: item.id}}))
     store.dispatch({ type: 'ADD_TO_CART', payload: { id: item.id, size: data['size'] } });
   }
 
@@ -178,7 +172,7 @@ const ProductDemo = ({ shoesValue, user }) => {
 };
 const mapStateToProps = (state) => {
   return {
-    shoesValue: state.cart.ShoesData,
+    shoesValue: state.explore.ShoesData,
     user: state.auth.googleUser
   }
 }

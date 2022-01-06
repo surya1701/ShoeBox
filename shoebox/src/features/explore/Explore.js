@@ -13,7 +13,7 @@ import ExploreFilter from './ExploreFilter';
 import ReactPaginate from 'react-paginate';
 
 
-function Explore({ user, shoesValue, items, filterBrands, filterGenders, brands }) {
+function Explore({ user, shoesValue, items, filterBrands, filterGenders, filterTypes, brands }) {
     const itemsPerPage = 4;
     const [sortBy, setSortBy] = useState("viewsDESC");
     const [show, setShow] = useState(false);
@@ -39,17 +39,27 @@ function Explore({ user, shoesValue, items, filterBrands, filterGenders, brands 
     };
     const filtering = {
 
-        filter_add: (form, brand) => {
-            if (form === "brand") store.dispatch({ type: 'ADDbyBRAND', payload: { brand: brand } });
+        filter_add: (form, value) => {
+            if (form === "brand") store.dispatch({type:'ADDbyBRAND', payload:{brand: value}});
+            else if (form === "gender") store.dispatch({type:'ADDbyGENDER', payload:{gender: value}});
+            else if (form === "type") store.dispatch({type:'ADDbyTYPE', payload:{type: value}});
         },
-        filter_del: (form, brand) => {
-            if (form === "brand") store.dispatch({ type: 'DELbyBRAND', payload: { brand: brand } });
+        filter_del: (form, value) => {
+            if (form === "brand") store.dispatch({type:'DELbyBRAND', payload:{brand: value}});
+            else if (form === "gender") store.dispatch({type:'DELbyGENDER', payload:{gender: value}});
+            else if (form === "type") store.dispatch({type:'DELbyTYPE', payload:{type: value}});
         },
         filter_search: (text) => {
             store.dispatch({ type: 'search', payload: { text: text } });
         },
-        filter_clear: (text) => {
-            store.dispatch({ type: 'clearAll' });
+        filter_clear: () => {
+            fetch("http://localhost:3001/shoes")
+            .then(res => res.json())
+            .then(result => {
+              if(result) {
+              store.dispatch({type:'LOAD_DATA', payload: {shoes: [...result]}});
+              store.dispatch({type:'LOAD_DATA_EXPLORE', payload: {shoes: [...result]}})
+            }})
         }
     }
     const sorting = (event) => {
@@ -61,7 +71,7 @@ function Explore({ user, shoesValue, items, filterBrands, filterGenders, brands 
     return (
         <div>
             <Header />
-            <ExploreFilter show={show} handleClose={handleClose} filtering={filtering} brands={brands} filterBrands={filterBrands} filterGenders={filterGenders} />
+            <ExploreFilter show={show} handleClose={handleClose} filtering={filtering} brands={brands} filterBrands={filterBrands} filterGenders={filterGenders} filterTypes={filterTypes} />
             <div className='row g-0 mb-5'>
                 <div className='col-md-8 col-12 p-2 text-center'>
                     <div className='row g-0'>
@@ -139,7 +149,8 @@ const mapStateToProps = (state) => {
         shoesValue: state.cart.ShoesData,
         items: state.explore.items,
         filterBrands: state.explore.brands,
-        filterGenders: state.explore.genders
+        filterGenders: state.explore.genders,
+        filterTypes: state.explore.types
     }
 }
 export default connect(mapStateToProps)(Explore);

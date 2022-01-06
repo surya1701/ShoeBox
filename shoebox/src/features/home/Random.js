@@ -5,12 +5,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ItemDisplay from '../../components/ItemDisplay';
 
-function SlipOns({shoesValue}) {
+function Random({shoesValue}) {
     return (
         <Container>
-            <h4>Nike</h4>
+            <h4>Our Picks</h4>
             <Content>
-                {shoesValue.filter((item) => (item.brand === "Nike")).slice(-4).map((item) => <ItemDisplay item={{...item}}/>)}
+                {shoesValue.filter((item) => (Math.random() > 0.5)).slice(-4).map((item) => <ItemDisplay item={{...item}}/>)}
             </Content>
         </Container>
     )
@@ -18,10 +18,10 @@ function SlipOns({shoesValue}) {
 
 const mapStateToProps=(state)=>{
     return {
-        shoesValue: state.cart.ShoesData
+        shoesValue: state.explore.ShoesData
     }
 }
-export default connect(mapStateToProps)(SlipOns);
+export default connect(mapStateToProps)(Random);
 
 const Container = styled.div`
 margin-top: 30px;

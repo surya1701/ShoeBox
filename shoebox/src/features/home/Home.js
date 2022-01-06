@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import ImgSlider from '../../components/ImgSlider'
 import Brand from './Brand'
 import Header from '../../components/Header'
-import NewArrival from './NewArrival'
-import SlipOns from './SlipOns'
+import MostViewed from './MostViewed'
+import Random from './Random'
 import LargeCategories from './LargeCategories'
 import Footer from '../../components/Footer'
 
@@ -18,8 +18,8 @@ function Home({brands}) {
                 {brands.map((b) => <Brand brand={b} brands={brands}/>)}
                 </WrapContainer>
                 {/* <Brand /> */}
-                <NewArrival />
-                <SlipOns />
+                <MostViewed />
+                <Random />
                 <br />
                 <Advert>
                     <img className='gif' src='/images/adidas-ad.gif' alt="img-ad-1"/>

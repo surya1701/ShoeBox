@@ -5,23 +5,22 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ItemDisplay from '../../components/ItemDisplay';
 
-function NewArrival({shoesValue}) {
+function MostViewed({shoesValue}) {
     return (
         <Container>
-            <h4>Puma</h4>
+            <h4>Most Viewed</h4>
             <Content>
-                {/* {shoesValue.map((item) => (item.brand === "Puma") && <ItemDisplay item={{...item}}/>)} */}
-                {shoesValue.filter((item) => (item.brand === "Puma")).slice(-4).map((item) => <ItemDisplay item={{...item}}/>)}
+                {shoesValue.sort((a,b) => (a.views < b.views) ? 1 : ((b.views < a.views) ? -1 : 0)).slice(0,4).map((item) => <ItemDisplay item={{...item}}/>)}
             </Content>
         </Container>
     )
 }
 const mapStateToProps=(state)=>{
     return {
-        shoesValue: state.cart.ShoesData
+        shoesValue: state.explore.ShoesData
     }
 }
-export default connect(mapStateToProps)(NewArrival);
+export default connect(mapStateToProps)(MostViewed);
 
 const Container = styled.div`
 margin-top: 20px;

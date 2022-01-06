@@ -52,6 +52,7 @@ function ExploreItems({ item, brands, user }) {
         }
     }
     const brand = brands.find((brand) => brand.name === item.brand);
+
     return (
         <>
             <BrandPage brand={brand} brands={brands} show={show} handleClose={handleClose} user={user} />
@@ -74,7 +75,7 @@ function ExploreItems({ item, brands, user }) {
                         </Link>
                     </Card.Title>
                     <Card.Text style={{ float: "right" }}>&#8377; {item.price}</Card.Text>
-                    <Card.Text style={{ float: "left" }}>{item.views}</Card.Text>
+                    <Card.Text style={{ float: "left" }}>{item.views} Views</Card.Text>
                 </Card.Body>
             </Card>
         </>

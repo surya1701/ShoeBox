@@ -1,5 +1,5 @@
 import * as actionTypes from "./cartActionTypes";
-import Data from "./../../assets/Data.json"
+// import Data from "./../../assets/Data.json"
 
 const initialState = {
     ShoesData: [], // {id, name, brand, image url, price}

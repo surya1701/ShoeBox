@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import Header from "../../components/Header";
 import CartView from "./cartView";
 
-const Cart =({cartValue})=>{
+const Cart =({cartValue, user})=>{
     const [totalPrice, setTotalPrice]= useState(0);
     const [totalItems, setTotalItems]= useState(0);
     
@@ -52,12 +52,10 @@ const Cart =({cartValue})=>{
                                 <h3 className="m-0">&#8377; {totalPrice}</h3>
                                 <hr className="my-4"/>
                                 <div className="text-center">
+                                {(user) ?
                                 <Link to="/checkout"><button type="button" className="btn btn-primary mb-2">CHECKOUT</button></Link>
+                                : <p>Login To Checkout</p>}
                                 </div>
-                                {/* <div className="text-center">
-                                    <button type="button" className="btn btn-primary mb-2" onClick={handleCheckout}>CHECKOUT</button>
-                                    <button type="button" className="btn btn-outlineprimary btn-sm" onClick={clearCart}>CLEAR</button>
-                                </div> */}
 
                             </div>
                         </div>
@@ -70,7 +68,8 @@ const Cart =({cartValue})=>{
 
 const mapStateToProps=(state)=>{
     return {
-        cartValue: state.cart.cart
+        cartValue: state.cart.cart,
+        user: state.auth.googleUser
     }
 }
 export default connect(mapStateToProps)(Cart);
