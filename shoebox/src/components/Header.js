@@ -24,9 +24,9 @@ function Header({ cartValue, user }) {
         <Left>
           <MenuItem><Link to="/explore" style={{ color: '#265db5', textDecoration: 'none' }}>Explore</Link></MenuItem>
           <MenuItem>
-          {(user) ?
-          <Link to="/profile" style={{ color: '#265db5', textDecoration: 'none' }}>Profile</Link>
-          :<p></p>}
+            {(user) ?
+              <Link to="/profile" style={{ color: '#265db5', textDecoration: 'none' }}>Profile</Link>
+              : <p></p>}
           </MenuItem>
           <MenuItem>
             <div className="g-signin">
@@ -36,7 +36,7 @@ function Header({ cartValue, user }) {
         </Left>
         <Center>
           <Logo>
-            <Link to="/" style={{ color: '#1ce890', textDecoration: 'none', fontStyle: 'italic' }}>ShoeBox</Link>
+            <Link to="/" style={{ color: '#1ce890', textDecoration: 'none', fontStyle: 'italic', fontWeight: '600', letterSpacing: '1.2' }}>ShoeBox</Link>
           </Logo>
         </Center>
         <Right>

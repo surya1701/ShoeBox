@@ -112,11 +112,9 @@ const Footer = () => {
         <List>
           <ListItem><Link to="/" style={{ color: 'black', textDecoration: 'none' }}>Home</Link></ListItem>
           <ListItem><Link to="/cart" style={{ color: 'black', textDecoration: 'none' }}>Cart</Link></ListItem>
-          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Men's Fashion</Link></ListItem>
-          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Women's Fashion</Link></ListItem>
-          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>My Account</Link></ListItem>
-          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Order Tracking</Link></ListItem>
-          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Follow</Link></ListItem>
+          <ListItem><Link to="/brand/Men" style={{ color: 'black', textDecoration: 'none' }}>Men's Fashion</Link></ListItem>
+          <ListItem><Link to="/brand/Women" style={{ color: 'black', textDecoration: 'none' }}>Women's Fashion</Link></ListItem>
+          <ListItem><Link to="/profile" style={{ color: 'black', textDecoration: 'none' }}>My Account</Link></ListItem>
           <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Wishlist</Link></ListItem>
           <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Terms</Link></ListItem>
         </List>
