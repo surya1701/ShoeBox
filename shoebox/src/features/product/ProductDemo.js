@@ -115,7 +115,8 @@ const ProductDemo = ({ shoesValue, user }) => {
                     : <p></p>}
                   </Title>
                   <Desc>
-                    <strong><i>{item.brand}</i></strong><br />
+                    <strong><i>{item.brand}</i>: {item.type}</strong><br />
+                    <h4>For {item.gender}</h4>
                     A shoe is an item of footwear intended to protect and comfort the human foot.
                     Shoes are also used as an item of decoration and fashion. The design of shoes has varied enormously
                     through time and from culture to culture, with form originally being tied to function.
