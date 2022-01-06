@@ -14,10 +14,10 @@ const initialState = {
 
 const ExploreReducer = (state = initialState, action)=>{
     const sort = (items, by) => {
-        if (by === "priceASC") items.sort((a,b) => (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0));
-        else if (by === "priceDESC") items.sort((a,b) => (a.price < b.price) ? 1 : ((b.price < a.price) ? -1 : 0));
-        else if (by === "viewsASC") items.sort((a,b) => (a.views > b.views) ? 1 : ((b.views > a.views) ? -1 : 0));
-        else if (by === "viewsDESC") items.sort((a,b) => (a.views < b.views) ? 1 : ((b.views < a.views) ? -1 : 0));
+        if (by === "priceASC") items.sort((a,b) => (parseInt(a.price) > parseInt(b.price)) ? 1 : ((parseInt(b.price) > parseInt(a.price)) ? -1 : 0));
+        else if (by === "priceDESC") items.sort((a,b) => (parseInt(a.price) < parseInt(b.price)) ? 1 : ((parseInt(b.price) < parseInt(a.price)) ? -1 : 0));
+        else if (by === "viewsASC") items.sort((a,b) => (parseInt(a.views) > parseInt(b.views)) ? 1 : ((b.views > a.views) ? -1 : 0));
+        else if (by === "viewsDESC") items.sort((a,b) => (parseInt(a.views) < parseInt(b.views)) ? 1 : ((parseInt(b.views) < parseInt(a.views)) ? -1 : 0));
         return items;
     }
     var temp = null;
