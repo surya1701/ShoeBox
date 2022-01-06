@@ -57,9 +57,11 @@ width:100vw;
 padding:5vw 10vw 5vw 10vw;
 .gif {
     display: none;
+    width: 90%;
 }
 .image {
     display:block;
+    width: 90%;
 }
     &:hover {
         .gif {
