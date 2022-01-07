@@ -32,29 +32,61 @@ const ExploreReducer = (state = initialState, action)=>{
             }
         case actionTypes.ADD_BY_BRAND:
             temp = [...state.brands, action.payload.brand]
-            return {...state, brands: temp, items: sort(state.ShoesData.filter((item) => temp.includes(item.brand) && item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
+            return {...state, brands: temp,
+                items: sort(state.ShoesData.filter((item) => 
+                temp.includes(item.brand) &&
+                state.types.includes(item.type) &&
+                state.genders.includes(item.gender) &&
+                item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
         case actionTypes.REMOVE_BY_BRAND:
             temp = state.brands.filter((b) => b !== action.payload.brand);
-            return {...state, brands: temp, items: sort(state.ShoesData.filter((item) => temp.includes(item.brand) && item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
+            return {...state, brands: temp,
+                items: sort(state.ShoesData.filter((item) => 
+                temp.includes(item.brand) &&
+                state.types.includes(item.type) &&
+                state.genders.includes(item.gender) &&
+                item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
         case actionTypes.ADD_BY_GENDER:
             temp = [...state.genders, action.payload.gender]
-            return {...state, genders: temp, items: sort(state.ShoesData.filter((item) => temp.includes(item.gender) && item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
+            return {...state, genders: temp,
+                items: sort(state.ShoesData.filter((item) =>
+                temp.includes(item.gender) &&
+                state.types.includes(item.type) &&
+                state.brands.includes(item.brand) &&
+                item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
         case actionTypes.REMOVE_BY_GENDER:
             temp = state.genders.filter((b) => b !== action.payload.gender);
-            return {...state, genders: temp, items: sort(state.ShoesData.filter((item) => temp.includes(item.gender) && item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
+            return {...state, genders: temp,
+                items: sort(state.ShoesData.filter((item) =>
+                temp.includes(item.gender) &&
+                state.types.includes(item.type) &&
+                state.brands.includes(item.brand) &&
+                item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
         case actionTypes.SINGLE_GENDER:
             return {...state, genders: [action.payload.gender], items: sort(state.ShoesData.filter((item) => item.gender === action.payload.gender), state.sortBy)}
         case actionTypes.ADD_BY_TYPE:
             temp = [...state.types, action.payload.type]
-            return {...state, types: temp, items: sort(state.ShoesData.filter((item) => temp.includes(item.type) && item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
+            return {...state, types: temp,
+                items: sort(state.ShoesData.filter((item) =>
+                temp.includes(item.type) &&
+                state.brands.includes(item.brand) &&
+                state.genders.includes(item.gender) &&
+                item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
         case actionTypes.REMOVE_BY_TYPE:
             temp = state.types.filter((b) => b !== action.payload.type);
-            return {...state, types: temp, items: sort(state.ShoesData.filter((item) => temp.includes(item.type) && item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
+            return {...state, types: temp,
+                items: sort(state.ShoesData.filter((item) =>
+                temp.includes(item.type) &&
+                state.brands.includes(item.brand) &&
+                state.genders.includes(item.gender) &&
+                item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
         case actionTypes.SEARCH:
             if (action.payload.text.length < state.text.length || state.text.length === 1) {
-                temp = [...state.brands, action.payload.brand]
-                var oldList = state.ShoesData.filter((item) => temp.includes(item.brand));
-                console.log(temp);
+                var oldList = state.ShoesData.filter((item) =>
+                state.brands.includes(item.brand) &&
+                state.types.includes(item.type) &&
+                state.genders.includes(item.gender)
+                );
                 return {...state, text:action.payload.text, items: sort(oldList.filter((item) => item.name.toLowerCase().startsWith(action.payload.text.toLowerCase())), state.sortBy)}
             } else {
                 return {...state, text:action.payload.text, items: sort(state.items.filter((item) => item.name.toLowerCase().startsWith(action.payload.text.toLowerCase())), state.sortBy)}
