@@ -23,16 +23,9 @@ const ProductDemo = ({ shoesValue, user }) => {
   const [item, setItem] = useState(null);
   const [addedToCart, setaddedToCart] = useState(false);
   const [like, setLike] = useState(false);
-    if(!like && user !== null && item !== null)
-    fetch("http://localhost:3001/users/"+user.givenName)
-    .then(res => res.json())
-    .then(result => {
-        if(result) {
-            setLike(result.liked.includes(item.id));
-    }})
   const handleLike = (event) => {
     if (event.target.checked) {
-        fetch("http://localhost:3001/users/"+user.givenName, {
+        fetch("http://localhost:3001/users/"+user.email, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json"
@@ -46,7 +39,7 @@ const ProductDemo = ({ shoesValue, user }) => {
         store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: [...user.liked, item.id]}}});
         setLike(true);
     } else {
-        fetch("http://localhost:3001/users/"+user.givenName, {
+        fetch("http://localhost:3001/users/"+user.email, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -66,9 +59,16 @@ const ProductDemo = ({ shoesValue, user }) => {
     shoesValue.forEach(element => {
       if (parseInt(element.id) === parseInt(key)) {
         setItem({ ...element, views: parseInt(element.views+1) });
+        if(user !== null)
+        fetch("http://localhost:3001/users/"+user.email)
+        .then(res => res.json())
+        .then(result => {
+            if(result) {
+                setLike(result.liked.includes(element.id));
+        }})
       }
     });
-  }, [shoesValue, location]);
+  }, [user, shoesValue, location]);
 
   const addToCart = (data) => {
     setaddedToCart(true);

@@ -87,6 +87,11 @@ const Profile = ({user, ShoesData}) => {
                                         </Content>
                                         </Container>
                                     </Tab>
+                                    <Tab eventKey="orders" title="Orders">
+                                        {(user) ? user.orders.map((o) => {
+                                            return o.cart.map((item)=><h4>{o.date} {item.name}: Size {item.size} x{item.qty}</h4>)
+                                        }):<p></p>}
+                                    </Tab>
                                 </Tabs>
                             </div>
                         </div>

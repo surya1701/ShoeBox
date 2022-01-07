@@ -1,16 +1,7 @@
 {
-  "users": [
-    {
-      "googleId": "114905377469731631540",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgV_ej9ofgiu7UtvoXqSTZEA4lVlqeF44NrnoOe7w=s96-c",
-      "email": "kumarpiyushsingh9311@gmail.com",
-      "name": "Piyush Kumar",
-      "givenName": "Piyush",
-      "familyName": "Kumar",
-      "id": "Piyush",
-      "liked": [1,2],
-      "followed": []
-    }
+  "users": [],
+  "coupons": [
+    "abc123"
   ],
   "brands": [
     {
@@ -89,7 +80,7 @@
       "type": "Sneakers",
       "rating": "5.0",
       "gender": "Men",
-      "views": 1
+      "views": 3
     },
     {
       "id": 3,
@@ -818,7 +809,7 @@
       "type": "Sports",
       "rating": "4.7",
       "gender": "Men",
-      "views": 0
+      "views": 1
     },
     {
       "id": 39,
@@ -898,7 +889,7 @@
       "type": "Casual",
       "rating": "4.3",
       "gender": "Men",
-      "views": 0
+      "views": 1
     },
     {
       "id": 43,
@@ -937,7 +928,7 @@
       "type": "Casual",
       "rating": "4.0",
       "gender": "Women",
-      "views": 0
+      "views": 1
     },
     {
       "id": 45,
@@ -957,7 +948,7 @@
       "type": "Sneakers",
       "rating": "3.8",
       "gender": "Men",
-      "views": 0
+      "views": 1
     },
     {
       "id": 46,
@@ -976,7 +967,7 @@
       "type": "Sneakers",
       "rating": "3.7",
       "gender": "Men",
-      "views": 0
+      "views": 1
     },
     {
       "id": 47,
@@ -995,7 +986,7 @@
       "type": "Sneakers",
       "rating": "3.8",
       "gender": "Women",
-      "views": 0
+      "views": 1
     },
     {
       "id": 48,
@@ -1035,7 +1026,7 @@
       "type": "Sneakers",
       "rating": "3.9",
       "gender": "Men",
-      "views": 0
+      "views": 1
     },
     {
       "id": 50,
@@ -1056,7 +1047,7 @@
       "type": "Sneakers",
       "rating": "4.0",
       "gender": "Men",
-      "views": 0
+      "views": 1
     },
     {
       "id": 51,
@@ -1077,7 +1068,7 @@
       "type": "Sneakers",
       "rating": "4.2",
       "gender": "Men",
-      "views": 0
+      "views": 1
     },
     {
       "id": 52,
@@ -1099,7 +1090,7 @@
       "type": "Sneakers",
       "rating": "4.4",
       "gender": "Men",
-      "views": 0
+      "views": 1
     },
     {
       "id": 53,
@@ -1120,7 +1111,7 @@
       "type": "Sneakers",
       "rating": "4.8",
       "gender": "Men",
-      "views": 0
+      "views": 1
     },
     {
       "id": 54,
@@ -1142,7 +1133,7 @@
       "type": "Sneakers",
       "rating": "4.1",
       "gender": "Men",
-      "views": 0
+      "views": 1
     },
     {
       "id": 55,

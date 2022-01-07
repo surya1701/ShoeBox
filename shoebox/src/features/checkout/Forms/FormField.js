@@ -13,7 +13,7 @@ const FormInput = ({ name, label, size, type, fill }) => {
             field: {onChange},
           }) => (
             (fill)? 
-            <TextField label={label} type={type} value={fill} required fullWidth onChange={onChange}/>:
+            <TextField label={label} type={type} value={fill} readonly required fullWidth onChange={onChange}/>:
             <TextField label={label} type={type} required fullWidth onChange={onChange}/>
         )}
         />

@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import { Button, Form } from "react-bootstrap";
 import Header from "../../components/Header";
 import CartView from "./cartView";
 
@@ -18,6 +19,17 @@ const Cart =({cartValue, user})=>{
      setTotalPrice(price);
      setTotalItems(items);
     },[cartValue,totalPrice,totalItems ])
+
+    const handleCoupon = (event) => {
+        console.log(event.target);
+        event.preventDefault();
+        // fetch("http://localhost:3001/coupons")
+        //     .then(res => res.json())
+        //     .then(result => {
+        //       if(result) {
+        //         if (result.includes())
+        //     }})
+    }
     return (
         <div>
             <Header/>
@@ -48,8 +60,26 @@ const Cart =({cartValue, user})=>{
                             <div className="card card-body">
                                 <p className="mb-1">Total Items</p>
                                 <h4 className=" mb-3">{totalItems}</h4>
+                                <Form onSubmit={handleCoupon}>
+                                <div className="row g-0">
+                                    <div className="col-8">
+                                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                                            <Form.Control type="text" placeholder="Enter Coupon Code" required />
+                                        </Form.Group>
+                                    </div>
+                                    <div className="col-4">
+                                        <Button variant="primary" type="submit">
+                                            Submit
+                                        </Button>
+                                        </div>
+                                    </div>
+                                </Form>
                                 <p className="mb-1">Total Payment</p>
-                                <h3 className="m-0">&#8377; {totalPrice}</h3>
+                                <h3 className="m-0">
+                                    &#8377;
+                                    <del style={{color: "red"}}>{totalPrice}</del>
+                                    {totalPrice}
+                                    </h3>
                                 <hr className="my-4"/>
                                 <div className="text-center">
                                 {(user) ?

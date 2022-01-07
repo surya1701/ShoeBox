@@ -35,10 +35,9 @@ const Checkout = ({ cartValue, user }) => {
   };
 
   const Confirmation = () => {
-    setShippingData({"data": shippingData, "cart": [...cartValue]});
+    setShippingData({"data": {...shippingData, email: user.email}, "cart": [...cartValue]});
     store.dispatch({type:'ORDER_CONFIRMED'});
     if(toRedirect === 1) {setToRedirect(2)}
-    console.log(shippingData);
     return <p>{JSON.stringify(shippingData)}</p>;
   }
 
