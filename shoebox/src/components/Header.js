@@ -18,6 +18,7 @@ function Header({ cartValue, user }) {
     setTotalItems(items);
   }, [cartValue, totalItems])
   window.onscroll = () => {
+    if (document.getElementById("nav-header"))
     if (document.documentElement.scrollTop === 0)
       document.getElementById("nav-header").classList.remove("scroll-nav");
     else
