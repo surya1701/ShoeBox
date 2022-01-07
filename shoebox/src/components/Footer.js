@@ -89,7 +89,9 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>SHOEBOX</Logo>
+        <Logo>
+          <Link to="/" style={{ color: '#1ce890', textDecoration: 'none', fontStyle: 'italic', fontWeight: '600', letterSpacing: '1.2' }}>ShoeBox</Link>
+        </Logo>
         <Desc>
           Welcome to the world of shoes.Choose the best from the list for comfort of your legs.
         </Desc>
