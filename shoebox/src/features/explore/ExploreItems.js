@@ -7,17 +7,18 @@ import { Card, Image } from 'react-bootstrap'
 import { Link } from "react-router-dom"
 import BrandPage from '../../components/BrandPage';
 import { store } from "../../app/store";
-
+import "../../App.css"
 function ExploreItems({ item, brands, user }) {
     const [show, setShow] = useState(false);
     const [like, setLike] = useState(false);
-    if(!like && user !== null)
-    fetch("http://localhost:3001/users/"+user.givenName)
-    .then(res => res.json())
-    .then(result => {
-        if(result) {
-            setLike(result.liked.includes(item.id));
-        }})
+    if (!like && user !== null)
+        fetch("http://localhost:3001/users/" + user.givenName)
+            .then(res => res.json())
+            .then(result => {
+                if (result) {
+                    setLike(result.liked.includes(item.id));
+                }
+            })
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleLike = (event) => {
@@ -25,15 +26,16 @@ function ExploreItems({ item, brands, user }) {
             fetch("http://localhost:3001/users/" + user.givenName, {
                 method: "PUT",
                 headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(
-                {
-                    ...user,
-                    "liked": [...user.liked, item.id]
-                }
-            )});
-            store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: [...user.liked, item.id]}}});
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(
+                    {
+                        ...user,
+                        "liked": [...user.liked, item.id]
+                    }
+                )
+            });
+            store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: [...user.liked, item.id] } } });
             setLike(true);
         } else {
             fetch("http://localhost:3001/users/" + user.givenName, {
@@ -46,8 +48,9 @@ function ExploreItems({ item, brands, user }) {
                         ...user,
                         "liked": user.liked.filter((i) => i !== item.id)
                     }
-                    )});
-            store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: user.liked.filter((i) => i !== item.id)}}});
+                )
+            });
+            store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: user.liked.filter((i) => i !== item.id) } } });
             setLike(false);
         }
     }
@@ -67,18 +70,19 @@ function ExploreItems({ item, brands, user }) {
                         : <p></p>}
                 </Card.ImgOverlay>
                 <Card.Img variant="top" style={{ height: "60vh", objectFit: "contain" }} src={item.image[0]} />
-                <Card.Body style={{ zIndex: "2", height: "30vh"}}>
+                <Card.Body style={{ zIndex: "2", height: "30vh" }}>
                     <div>
-                    <Card.Title className='display-6' style={{ display: "inline" }}>
-                        <Link to={{ pathname: "/product", search: "?key=" + item.id }}
-                            style={{ color: "black", fontSize: "28px", fontWeight: '300', fontFamily: 'sans-serif', textDecoration: 'none', padding: '5px', borderRadius: '5px' }}>
-                            {item.name}
-                        </Link>
-                    </Card.Title>
+                        <Card.Title className='display-6' style={{ display: "inline" }}>
+                            <Link to={{ pathname: "/product", search: "?key=" + item.id }}
+                                className="pbtn"
+                                style={{ fontSize: "28px", fontWeight: '300', fontFamily: 'sans-serif', textDecoration: 'none', padding: '5px', borderRadius: '5px' }}>
+                                {item.name}
+                            </Link>
+                        </Card.Title>
                     </div>
                     <div>
-                    <Card.Text style={{ float: "right" }}>&#8377; {item.price}</Card.Text>
-                    <Card.Text style={{ float: "left" }}>{item.views} Views</Card.Text>
+                        <Card.Text style={{ float: "right" }}>&#8377; {item.price}</Card.Text>
+                        <Card.Text style={{ float: "left" }}>{item.views} Views</Card.Text>
                     </div>
                 </Card.Body>
             </Card>
