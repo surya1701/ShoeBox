@@ -62,8 +62,24 @@ const ExploreReducer = (state = initialState, action)=>{
                 state.types.includes(item.type) &&
                 state.brands.includes(item.brand) &&
                 item.name.toLowerCase().startsWith(state.text.toLowerCase())), state.sortBy)}
+        case actionTypes.SINGLE_BRAND:
+            return {...state, brands: [action.payload.brand], text: "",
+                items: sort(state.ShoesData.filter((item) =>
+                item.brand === action.payload.brand &&
+                state.types.includes(item.type) &&
+                state.genders.includes(item.gender)), state.sortBy)}
         case actionTypes.SINGLE_GENDER:
-            return {...state, genders: [action.payload.gender], items: sort(state.ShoesData.filter((item) => item.gender === action.payload.gender), state.sortBy)}
+            return {...state, genders: [action.payload.gender], text: "",
+                items: sort(state.ShoesData.filter((item) =>
+                item.gender === action.payload.gender &&
+                state.types.includes(item.type) &&
+                state.brands.includes(item.brand)), state.sortBy)}
+        case actionTypes.SINGLE_TYPE:
+            return {...state, types: [action.payload.type], text: "",
+                items: sort(state.ShoesData.filter((item) =>
+                item.type === action.payload.type &&
+                state.genders.includes(item.gender) &&
+                state.brands.includes(item.brand)), state.sortBy)}
         case actionTypes.ADD_BY_TYPE:
             temp = [...state.types, action.payload.type]
             return {...state, types: temp,

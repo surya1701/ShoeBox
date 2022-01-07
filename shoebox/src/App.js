@@ -40,7 +40,7 @@ function App() {
           <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/product" element={<ProductDemo />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/brand/:value" element={<ExploreByName brands={brands}/>} />
+          <Route path="/brand/:value" element={<ExploreByName brands={brands.map((b)=>b.name)}/>} />
         </Routes>
       </Router> : <p></p>
     }

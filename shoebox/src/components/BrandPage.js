@@ -3,9 +3,9 @@ import {Offcanvas} from "react-bootstrap"
 import { store } from "../app/store";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 import {Button, Image} from "react-bootstrap"
-import Check from '@material-ui/icons/Check';
-import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt';
+import {Check, ArrowRightAlt} from '@material-ui/icons';
 
 const BrandPage = ({brand, brands, show, handleClose, user}) => {
     const [follow, setFollow] = useState(false);
@@ -74,7 +74,7 @@ const BrandPage = ({brand, brands, show, handleClose, user}) => {
                         Follow
                     </Button> : <p></p>
                     }
-                    <Button variant="primary" href={"/brand/"+brand.name}>
+                    <Button as={Link} variant="primary" to={"/brand/"+brand.name}>
                         Explore Products <ArrowRightAlt/>
                     </Button>
                 </div>

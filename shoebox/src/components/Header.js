@@ -1,7 +1,7 @@
 import { Badge } from "@material-ui/core";
 import { ShoppingCartOutlined, PersonOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { NavDropdown, Navbar, Nav, Container } from "react-bootstrap";
 import React from "react";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -31,17 +31,25 @@ function Header({ cartValue, user }) {
     <Navbar.Brand><Link to="/" style={{ color: '#1ce890', textDecoration: 'none', fontStyle: 'italic', fontWeight: '600', letterSpacing: '1.2' }}>ShoeBox</Link></Navbar.Brand>
     <Navbar.Toggle className="ms-auto" aria-controls="basic-navbar-nav" style={{backgroundColor: "#39C0ED"}}/>
     <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mx-auto">
-      <Nav.Link><Link to="/" style={{ color: '#265db5', textDecoration: 'none' }}>Home</Link></Nav.Link>
-      <Nav.Link><Link to="/explore" style={{ color: '#265db5', textDecoration: 'none' }}>Explore</Link></Nav.Link>
-      {(user) ?
-      <Nav.Link><Link to="/profile" style={{ color: '#265db5', textDecoration: 'none' }}>Profile <PersonOutline/></Link></Nav.Link> : <p></p>}
+    <Nav className="ms-auto">
       <Nav.Link>
-      <div className="g-signin">
-        <Login />
-      </div>
+        <div className="g-signin">
+          <Login />
+        </div>
       </Nav.Link>
+      <Nav.Link as={Link} to="/" style={{ color: '#265db5', textDecoration: 'none' }}>Home</Nav.Link>
+      <Nav.Link as={Link} to="/explore" style={{ color: '#265db5', textDecoration: 'none' }}>Explore</Nav.Link>
+      {(user) ?
+      <Nav.Link as={Link} to="/profile" style={{ color: '#265db5', textDecoration: 'none' }}>Profile <PersonOutline/></Nav.Link> : <p></p>}
     </Nav>
+    <NavDropdown title="Types" menuVariant="dark" style={{ color: '#265db5', textDecoration: 'none' }}>
+        <NavDropdown.Item as={Link} to="/brand/Sneakers">Sneakers</NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/brand/Sports">Sports</NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/brand/Casual">Casual</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item as={Link} to="/brand/Men">Men</NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/brand/Women">Women</NavDropdown.Item>
+    </NavDropdown>
     </Navbar.Collapse>
     <Nav className="ml-2">
       <Nav.Link>

@@ -13,9 +13,9 @@ import ExploreFilter from './ExploreFilter';
 import ReactPaginate from 'react-paginate';
 
 
-function Explore({ user, shoesValue, items, filterBrands, filterGenders, filterTypes, brands }) {
+function Explore({ user, shoesValue, items, filtersortBy, filterBrands, filterGenders, filterTypes, brands }) {
     const itemsPerPage = 8;
-    const [sortBy, setSortBy] = useState("viewsDESC");
+    const [sortBy, setSortBy] = useState(filtersortBy);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -65,7 +65,6 @@ function Explore({ user, shoesValue, items, filterBrands, filterGenders, filterT
     }
     const sorting = (event) => {
         setSortBy(event.target.value);
-        console.log(event.target.value);
         store.dispatch({ type: 'Sort', payload: { by: event.target.value } });
     }
 
@@ -159,6 +158,7 @@ const mapStateToProps = (state) => {
         user: state.auth.googleUser,
         shoesValue: state.explore.ShoesData,
         items: state.explore.items,
+        filtersortBy: state.explore.sortBy,
         filterBrands: state.explore.brands,
         filterGenders: state.explore.genders,
         filterTypes: state.explore.types

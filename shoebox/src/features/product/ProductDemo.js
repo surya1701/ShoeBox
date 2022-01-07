@@ -1,4 +1,4 @@
-import { Divider } from "@material-ui/core";
+import { Divider, FormControlLabel } from "@material-ui/core";
 import { store } from "../../app/store";
 import styled from "styled-components";
 import Header from "../../components/Header";
@@ -10,10 +10,8 @@ import { connect } from "react-redux";
 import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Favorite from '@material-ui/icons/Favorite';
-import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+import {Favorite, FavoriteBorder} from '@material-ui/icons/Favorite';
 import ProductCarousel from "../../components/ProductCarousel";
 const queryString = require('query-string');
 
@@ -133,7 +131,7 @@ const ProductDemo = ({ shoesValue, user }) => {
                         addToCart({ ...data })
                       )}
                     >
-                      <FormInputRadio name={"size"} control={methods.control} />
+                      <FormInputRadio name={"size"} sizes={item.size} control={methods.control} />
                       <br />
                       <Button type="submit" variant="success" className="mb-2">
                         Add To Cart
