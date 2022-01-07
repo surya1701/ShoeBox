@@ -11,7 +11,7 @@ import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import Checkbox from '@material-ui/core/Checkbox';
-import {Favorite, FavoriteBorder} from '@material-ui/icons/Favorite';
+import {Favorite, FavoriteBorder} from '@material-ui/icons';
 import ProductCarousel from "../../components/ProductCarousel";
 const queryString = require('query-string');
 
