@@ -1,32 +1,33 @@
-import styled from 'styled-components'
-import ImgSlider from '../../components/ImgSlider'
-import Brand from './Brand'
-import Header from '../../components/Header'
-import MostViewed from './MostViewed'
-import Random from './Random'
-import LargeCategories from './LargeCategories'
-import Footer from '../../components/Footer'
+import styled from 'styled-components';
+import ImgSlider from '../../components/ImgSlider';
+import Brand from './Brand';
+import Header from '../../components/Header';
+import MostViewed from './MostViewed';
+import Random from './Random';
+import LargeCategories from './LargeCategories';
+import Footer from '../../components/Footer';
 
-function Home({brands}) {
-    
+function Home({ brands }) {
+
     return (
         <div>
             <Header />
             <Container>
                 <ImgSlider />
                 <WrapContainer>
-                {brands.map((b) => <Brand key={b.id} brand={b} brands={brands}/>)}
+                    {brands.map((b) => <Brand key={b.id} brand={b} brands={brands} />)}
                 </WrapContainer>
                 {/* <Brand /> */}
                 <MostViewed />
                 <Random />
                 <br />
                 <Advert>
-                    <img className='gif' src='/images/adidas-ad.gif' alt="img-ad-1"/>
-                    <img className='image' src='/images/adidas-ad-image.jpg' alt="img-ad-2"/>
+                    <img className='gif' src='/images/adidas-ad.gif' alt="img-ad-1" />
+                    <img className='image' src='/images/adidas-ad-image.jpg' alt="img-ad-2" />
                 </Advert>
 
                 <LargeCategories />
+                <hr />
                 <Footer />
             </Container>
         </div>
