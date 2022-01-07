@@ -9,7 +9,8 @@ import {
 } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import "../App.css";
 
 const Container = styled.div`
     display: flex;
@@ -110,13 +111,13 @@ const Footer = () => {
       <Center>
         <Title>Useful Links</Title>
         <List>
-          <ListItem><Link to="/" style={{ color: 'black', textDecoration: 'none' }}>Home</Link></ListItem>
-          <ListItem><Link to="/cart" style={{ color: 'black', textDecoration: 'none' }}>Cart</Link></ListItem>
-          <ListItem><Link to="/brand/Men" style={{ color: 'black', textDecoration: 'none' }}>Men's Fashion</Link></ListItem>
-          <ListItem><Link to="/brand/Women" style={{ color: 'black', textDecoration: 'none' }}>Women's Fashion</Link></ListItem>
-          <ListItem><Link to="/profile" style={{ color: 'black', textDecoration: 'none' }}>My Account</Link></ListItem>
-          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Wishlist</Link></ListItem>
-          <ListItem><Link to="" style={{ color: 'black', textDecoration: 'none' }}>Terms</Link></ListItem>
+          <ListItem><Link to="/" style={{ textDecoration: 'none' }} className="pbtn">Home</Link></ListItem>
+          <ListItem><Link to="/cart" style={{ textDecoration: 'none' }} className="pbtn">Cart</Link></ListItem>
+          <ListItem><Link to="/brand/Men" style={{ textDecoration: 'none' }} className="pbtn">Men's Fashion</Link></ListItem>
+          <ListItem><Link to="/brand/Women" style={{ textDecoration: 'none' }} className="pbtn">Women's Fashion</Link></ListItem>
+          <ListItem><Link to="/profile" style={{ textDecoration: 'none' }} className="pbtn">My Account</Link></ListItem>
+          <ListItem><Link to="" style={{ textDecoration: 'none' }} className="pbtn">Wishlist</Link></ListItem>
+          <ListItem><Link to="" style={{ textDecoration: 'none' }} className="pbtn">Terms</Link></ListItem>
         </List>
       </Center>
       <Right>
