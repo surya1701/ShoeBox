@@ -66,7 +66,7 @@ function Login() {
                     clientId={clientId}
                     buttonText="Log In"
                     render={renderProps => (
-                        <Button variant="outline-primary" onClick={renderProps.onClick}>Log In</Button>
+                        <Button variant="outline-primary" size="sm" onClick={renderProps.onClick}>Log In</Button>
                       )}
                     onSuccess={onLoginSuccess}
                     onFailure={onLoginFailure}
@@ -79,7 +79,7 @@ function Login() {
                     clientId={clientId}
                     buttonText="Sign Out"
                     render={renderProps => (
-                        <Button variant="outline-danger" onClick={renderProps.onClick}>Sign Out</Button>
+                        <Button variant="outline-danger" size="sm" onClick={renderProps.onClick}>Sign Out</Button>
                     )}
                     onLogoutSuccess={onSignoutSuccess}
                 >

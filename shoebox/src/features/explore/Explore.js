@@ -74,7 +74,7 @@ function Explore({ user, shoesValue, items, filterBrands, filterGenders, filterT
             <Header />
             <ExploreFilter show={show} handleClose={handleClose} filtering={filtering} brands={brands} filterBrands={filterBrands} filterGenders={filterGenders} filterTypes={filterTypes} />
             <div className='row g-0 mb-5'>
-                <div className='col-md-8 col-12 p-2 text-center'>
+                <div className='col-lg-8 col-12 p-2 text-center'>
                     <div className='row g-0'>
                         <div className='col-4'>
                         <Box sx={{ minWidth: 120 }}>
@@ -104,7 +104,7 @@ function Explore({ user, shoesValue, items, filterBrands, filterGenders, filterT
                         </div>
                     </div>
                     <div className='row g-0'>
-                        <div className='col-md-6 col-12 p-2'>
+                        <div className='col-lg-6 col-12 p-2'>
                             {(currentItems && currentItems.length >= 1) ? <ExploreItems key={currentItems[0].id} item={currentItems[0]} brands={brands} user={user} /> :<p></p>}
                             {(currentItems && currentItems.length >= 3) ? <ExploreItems key={currentItems[2].id} item={currentItems[2]} brands={brands} user={user} /> :<p></p>}
                             {(currentItems && currentItems.length >= 5) ? <ExploreItems key={currentItems[4].id} item={currentItems[4]} brands={brands} user={user} /> :<p></p>}
