@@ -1,13 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { Typography, Button, Divider, List, ListItem, ListItemText } from "@material-ui/core";
 
-const PaymentForm = ({
-  nextStep,
-  backStep,
-  shippingData,
-  cartValue
-}) => {
+const PaymentForm = ({nextStep, backStep, shippingData, cartValue, discounted }) => {
     const [totalPrice, setTotalPrice]= useState(0);
+    const [oldPrice, setOldPrice]= useState(0);
     const [totalItems, setTotalItems]= useState(0);
     
     useEffect(()=>{
@@ -17,9 +13,12 @@ const PaymentForm = ({
          items += item.qty;
          price += item.qty * item.price;
      });
-     setTotalPrice(price);
+     if (discounted) {
+      setOldPrice(price);
+      setTotalPrice(discounted);
+  } else setTotalPrice(price);
      setTotalItems(items);
-    },[cartValue,totalPrice,totalItems ])
+    },[cartValue,discounted,totalPrice,totalItems ])
 
   const handleSubmit = () => {
     nextStep();
@@ -41,7 +40,10 @@ const PaymentForm = ({
         <ListItem style={{ padding: "10px 0" }}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" style={{ fontWeight: 700 }}>
-            &#8377; {totalPrice}
+            &#8377;
+            {(discounted) ?
+              <del style={{color: "red"}}>{oldPrice}</del>: <del></del>}
+            &nbsp;{totalPrice}
           </Typography>
         </ListItem>
       </List>

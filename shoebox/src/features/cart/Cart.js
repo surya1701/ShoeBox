@@ -1,13 +1,30 @@
 import {connect} from "react-redux";
 import {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
-import { Button, Form } from "react-bootstrap";
+import {Link, Navigate} from "react-router-dom";
 import Header from "../../components/Header";
 import CartView from "./cartView";
+import Coupon from "./Coupon";
+import {store} from "../../app/store";
 
-const Cart =({cartValue, user})=>{
+const Cart =({cartValue, discounted, user})=>{
     const [totalPrice, setTotalPrice]= useState(0);
+    const [oldPrice, setOldPrice]= useState(0);
     const [totalItems, setTotalItems]= useState(0);
+
+  const handleCoupon = (data) => {
+    if (data.coupon === "abc123") {
+        if(discounted === null) store.dispatch({type:'DISCOUNT', payload: {price: totalPrice, discount: 10}});
+    } else {
+        store.dispatch({type:'DISCOUNT', payload: {price: totalPrice, discount: 0}});
+    }
+  };
+
+  const CouponField = () => {
+      return (<Coupon
+        handleCoupon={handleCoupon}
+        user={user}
+      />)
+    };
     
     useEffect(()=>{
      let items= 0;
@@ -16,20 +33,13 @@ const Cart =({cartValue, user})=>{
          items += item.qty;
          price += item.qty * item.price;
      });
-     setTotalPrice(price);
+     if (discounted) {
+         setOldPrice(price);
+         setTotalPrice(discounted);
+     } else setTotalPrice(price);
      setTotalItems(items);
-    },[cartValue,totalPrice,totalItems ])
+    },[cartValue,discounted,totalPrice,totalItems ])
 
-    const handleCoupon = (event) => {
-        console.log(event.target);
-        event.preventDefault();
-        // fetch("http://localhost:3001/coupons")
-        //     .then(res => res.json())
-        //     .then(result => {
-        //       if(result) {
-        //         if (result.includes())
-        //     }})
-    }
     return (
         <div>
             <Header/>
@@ -60,26 +70,14 @@ const Cart =({cartValue, user})=>{
                             <div className="card card-body">
                                 <p className="mb-1">Total Items</p>
                                 <h4 className=" mb-3">{totalItems}</h4>
-                                <Form onSubmit={handleCoupon}>
-                                <div className="row g-0">
-                                    <div className="col-8">
-                                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                                            <Form.Control type="text" placeholder="Enter Coupon Code" required />
-                                        </Form.Group>
-                                    </div>
-                                    <div className="col-4">
-                                        <Button variant="primary" type="submit">
-                                            Submit
-                                        </Button>
-                                        </div>
-                                    </div>
-                                </Form>
                                 <p className="mb-1">Total Payment</p>
+                                <CouponField/>
                                 <h3 className="m-0">
-                                    &#8377;
-                                    <del style={{color: "red"}}>{totalPrice}</del>
-                                    {totalPrice}
-                                    </h3>
+                                &#8377;
+                                {(discounted) ?
+                                    <del style={{color: "red"}}>{oldPrice}</del>: <del></del>}
+                                    &nbsp;{totalPrice}
+                                </h3>
                                 <hr className="my-4"/>
                                 <div className="text-center">
                                 {(user) ?
@@ -99,6 +97,7 @@ const Cart =({cartValue, user})=>{
 const mapStateToProps=(state)=>{
     return {
         cartValue: state.cart.cart,
+        discounted: state.cart.discounted,
         user: state.auth.googleUser
     }
 }

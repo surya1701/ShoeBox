@@ -10,7 +10,7 @@ import PaymentForm from './Forms/PaymentForm';
 
 const steps = ["Shipping Address", "Payment Details"];
 
-const Checkout = ({ cartValue, user }) => {
+const Checkout = ({ cartValue, discounted, user }) => {
   // toRedirect = 0 (no items), 1 (has items), 2 (order confirmed)
   const [toRedirect, setToRedirect] = useState(1);
   const [activeStep, setActiveStep] = useState(0);
@@ -35,7 +35,7 @@ const Checkout = ({ cartValue, user }) => {
   };
 
   const Confirmation = () => {
-    setShippingData({"data": {...shippingData, email: user.email}, "cart": [...cartValue]});
+    setShippingData({"data": {...shippingData, email: user.email}, "cart": [...cartValue], "amount": discounted});
     store.dispatch({type:'ORDER_CONFIRMED'});
     if(toRedirect === 1) {setToRedirect(2)}
     return <p>{JSON.stringify(shippingData)}</p>;
@@ -55,6 +55,7 @@ const Checkout = ({ cartValue, user }) => {
         backStep={backStep}
         shippingData={shippingData}
         cartValue={cartValue}
+        discounted={discounted}
         user={user}
       />
     );
@@ -92,6 +93,7 @@ const Checkout = ({ cartValue, user }) => {
 const mapStateToProps=(state)=>{
     return {
         cartValue: state.cart.cart,
+        discounted: state.cart.discounted,
         user: state.auth.googleUser
     }
 }

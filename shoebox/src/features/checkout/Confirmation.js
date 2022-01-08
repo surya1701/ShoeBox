@@ -13,7 +13,7 @@ const Confirmation = () => {
             .then(result => {
             let all_orders = [];
             if (result.orders)
-            all_orders = [...result.orders, {cart:[...data.cart], date:date}];
+            all_orders = [...result.orders, {cart:[...data.cart], date:date, amount:data.amount}];
             else
             all_orders = [{cart:[...data.cart], date:date}];
             console.log(result);
@@ -41,6 +41,7 @@ const Confirmation = () => {
         <p>Name: {data.data["firstName"]} {data.data["lastName"]}</p>
         <p>Address: {data.data["address"]}</p>
         <p>Email: {data.data["email"]}</p>
+        <p>Final Amount: &#8377; {data.amount}</p>
         <ul>
         {data.cart.map((item) => <li key={item.id}>{item["name"]}: Size {item["size"]} x {item["qty"]}</li>)}
         </ul>
