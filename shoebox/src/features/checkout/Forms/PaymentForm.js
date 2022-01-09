@@ -11,7 +11,7 @@ const PaymentForm = ({next, backStep, shippingData, cartValue, discounted, user 
     const handlePayment = (price) => {
       const options = {
         key: "rzp_test_GsYLne4Fqnrf4m",
-        amount: price,
+        amount: price*100,
         currency: "INR",
         name: "ShoeBox",
         description: "Test Transaction",
