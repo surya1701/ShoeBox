@@ -1,15 +1,6 @@
 {
   "users": [
     {
-<<<<<<< HEAD
-      "googleId": "114905377469731631540",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgV_ej9ofgiu7UtvoXqSTZEA4lVlqeF44NrnoOe7w=s96-c",
-      "email": "kumarpiyushsingh9311@gmail.com",
-      "name": "Piyush Kumar",
-      "givenName": "Piyush",
-      "familyName": "Kumar",
-      "id": "kumarpiyushsingh9311@gmail.com",
-=======
       "googleId": "115139332044016416063",
       "imageUrl": "https://lh3.googleusercontent.com/a/AATXAJwopbm0QM1RtZ0_hfzmP4jbpxSGw7tThlAPNxXn=s96-c",
       "email": "suryavardan.s19@iiits.in",
@@ -17,7 +8,19 @@
       "givenName": "SURYAVARDAN",
       "familyName": "S",
       "id": "suryavardan.s19@iiits.in",
->>>>>>> 361b000b18223e75e65abc132c85d3a6d50ce562
+      "since": "9/1/2022",
+      "liked": [],
+      "followed": [],
+      "orders": []
+    },
+    {
+      "googleId": "114905377469731631540",
+      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgV_ej9ofgiu7UtvoXqSTZEA4lVlqeF44NrnoOe7w=s96-c",
+      "email": "kumarpiyushsingh9311@gmail.com",
+      "name": "Piyush Kumar",
+      "givenName": "Piyush",
+      "familyName": "Kumar",
+      "id": "kumarpiyushsingh9311@gmail.com",
       "since": "9/1/2022",
       "liked": [],
       "followed": [],
