@@ -12,11 +12,20 @@ const Cart =({cartValue, discounted, user})=>{
     const [totalItems, setTotalItems]= useState(0);
 
   const handleCoupon = (data) => {
-    if (data.coupon === "abc123") {
-        if(discounted === null) store.dispatch({type:'DISCOUNT', payload: {price: totalPrice, discount: 10}});
-    } else {
-        store.dispatch({type:'DISCOUNT', payload: {price: totalPrice, discount: 0}});
-    }
+    fetch("http://localhost:3001/coupons")
+    .then(res => res.json())
+    .then(result => {
+      if(result) {
+        if (Object.keys(result).includes(data.coupon)) {
+            if(discounted === null) store.dispatch({type:'DISCOUNT', payload: {price: totalPrice, discount: result[data.coupon]}});
+            else {
+                store.dispatch({type:'DISCOUNT', payload: {price: totalPrice, discount: 0}});
+                store.dispatch({type:'DISCOUNT', payload: {price: oldPrice, discount: result[data.coupon]}});
+            }
+        } else {
+            store.dispatch({type:'DISCOUNT', payload: {price: totalPrice, discount: 0}});
+        }
+    }})
   };
 
   const CouponField = () => {

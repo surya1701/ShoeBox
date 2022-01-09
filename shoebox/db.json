@@ -39,9 +39,10 @@
       ]
     }
   ],
-  "coupons": [
-    "abc123"
-  ],
+  "coupons": {
+    "abc10": 10,
+    "abc15": 15
+  },
   "brands": [
     {
       "id": 1,
@@ -1259,7 +1260,7 @@
       "rating": "4.6",
       "gender": "Men",
       "description": "Inspired by track spikes, the UA Blur is one of the fastest cleats on the field. It's unique build and flexible design helps you find that extra gear, so you can dominate every inch of the field.",
-      "views": 0
+      "views": 1
     },
     {
       "id": 58,
