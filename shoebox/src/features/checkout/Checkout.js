@@ -15,6 +15,7 @@ const Checkout = ({ cartValue, discounted, user }) => {
   const [toRedirect, setToRedirect] = useState(1);
   const [activeStep, setActiveStep] = useState(0);
   const [shippingData, setShippingData] = useState({});
+  const [paymentId, setPaymentId] = useState(null);
 
   const classes = useStyles();
 
@@ -29,13 +30,17 @@ const Checkout = ({ cartValue, discounted, user }) => {
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
   const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
 
-  const next = (data) => {
+  const nextAddress = (data) => {
     setShippingData(data);
     nextStep();
   };
+  const nextPayment = (id) => {
+    setPaymentId(id);
+    nextStep();
+  }
 
   const Confirmation = () => {
-    setShippingData({"data": {...shippingData, email: user.email}, "cart": [...cartValue], "amount": discounted});
+    setShippingData({"data": {...shippingData, email: user.email, paymentId: paymentId}, "cart": [...cartValue], "amount": discounted});
     store.dispatch({type:'ORDER_CONFIRMED'});
     if(toRedirect === 1) {setToRedirect(2)}
     return <p>{JSON.stringify(shippingData)}</p>;
@@ -44,14 +49,14 @@ const Checkout = ({ cartValue, discounted, user }) => {
   const Form = () =>
     activeStep === 0 ? (
       <AddressForm
-        next={next}
+        next={nextAddress}
         nextStep={nextStep}
         setShippingData={setShippingData}
         user={user}
       />
     ) : (
       <PaymentForm
-        nextStep={nextStep}
+        next={nextPayment}
         backStep={backStep}
         shippingData={shippingData}
         cartValue={cartValue}

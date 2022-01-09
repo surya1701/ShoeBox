@@ -1,10 +1,39 @@
 import React, {useEffect, useState} from "react";
+import useRazorpay from "react-razorpay";
 import { Typography, Button, Divider, List, ListItem, ListItemText } from "@material-ui/core";
 
-const PaymentForm = ({nextStep, backStep, shippingData, cartValue, discounted }) => {
+const PaymentForm = ({next, backStep, shippingData, cartValue, discounted, user }) => {
     const [totalPrice, setTotalPrice]= useState(0);
     const [oldPrice, setOldPrice]= useState(0);
     const [totalItems, setTotalItems]= useState(0);
+    const Razorpay = useRazorpay();
+
+    const handlePayment = (price) => {
+      const options = {
+        key: "rzp_test_GsYLne4Fqnrf4m",
+        amount: price,
+        currency: "INR",
+        name: "ShoeBox",
+        description: "Test Transaction",
+        image: "https://cdn.productreview.com.au/resize/listing-picture/d16cb598-6f4d-3c9c-b824-53b05f6e7aeb?width=1200&height=630&v=2",
+        handler: (res) => {
+          next(res.razorpay_payment_id);
+        },
+        prefill: {
+          name: user.name,
+          email: user.email
+        },
+        notes: {
+          address: "Razorpay Corporate Office",
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      };
+
+      const rzpay = new Razorpay(options);
+      rzpay.open();
+    };
     
     useEffect(()=>{
      let items= 0;
@@ -21,7 +50,8 @@ const PaymentForm = ({nextStep, backStep, shippingData, cartValue, discounted })
     },[cartValue,discounted,totalPrice,totalItems ])
 
   const handleSubmit = () => {
-    nextStep();
+    handlePayment(totalPrice);
+    // nextStep();
   };
   return (
     <>

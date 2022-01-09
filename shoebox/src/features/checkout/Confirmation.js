@@ -1,22 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, useLocation } from 'react-router-dom'
 import {store} from "../../app/store";
 
 const Confirmation = () => {
     const data = useLocation().state;
+    const [amount, setAmount] = useState(data.amount)
     useEffect(()=>{
         const today = new Date();
         const date = today.getDate() + "/" + (today.getMonth()+1) +  "/"+ today.getFullYear()
                     + " " +today.getHours() + ":"+today.getMinutes() +":"+ today.getSeconds();
+        if (! amount) {
+            let price = 0;
+            data.cart.forEach(item => {
+                price += item.qty * item.price;
+            });
+            setAmount(price);
+        }
         fetch("http://localhost:3001/users/"+data.data.email)
             .then(res => res.json())
             .then(result => {
             let all_orders = [];
             if (result.orders)
-            all_orders = [...result.orders, {cart:[...data.cart], date:date, amount:data.amount}];
+            all_orders = [...result.orders, {cart:[...data.cart], date:date, amount:amount, details: data.data}];
             else
-            all_orders = [{cart:[...data.cart], date:date}];
-            console.log(result);
+            all_orders = [{cart:[...data.cart], date:date, amount:amount, details: data.data}];
             fetch("http://localhost:3001/users/" + data.data.email, {
                     method: "PUT",
                     headers: {
@@ -30,7 +37,7 @@ const Confirmation = () => {
                     )
                 });
             store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...result, orders: [...all_orders]} } });
-    })})
+    })}, [data, amount, setAmount])
     return (
         (data === null) ?
         <Navigate to="/" /> :
@@ -41,7 +48,7 @@ const Confirmation = () => {
         <p>Name: {data.data["firstName"]} {data.data["lastName"]}</p>
         <p>Address: {data.data["address"]}</p>
         <p>Email: {data.data["email"]}</p>
-        <p>Final Amount: &#8377; {data.amount}</p>
+        <p>Final Amount: &#8377; {amount}</p>
         <ul>
         {data.cart.map((item) => <li key={item.id}>{item["name"]}: Size {item["size"]} x {item["qty"]}</li>)}
         </ul>
