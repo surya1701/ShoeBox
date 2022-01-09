@@ -73,7 +73,7 @@ const ProductDemo = ({ shoesValue, user }) => {
         }
       )
     })
-      .then(store.dispatch({ type: 'COMMENT', payload: { key: item.id, email: user.email, image: user.imageUrl,comment: data['comment'] } }))
+      .then(store.dispatch({ type: 'COMMENT', payload: { key: item.id, email: user.email, image: user.imageUrl, comment: data['comment'] } }))
   }
   useEffect(() => {
     const { key } = queryString.parse(location.search);
@@ -148,16 +148,16 @@ const ProductDemo = ({ shoesValue, user }) => {
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Comments</Accordion.Header>
                 <Accordion.Body>
-                <div className="text-justify" style={{height: "20vw", wordWrap: "break-word", overflowY: "scroll"}}>
-                  {item.comments.map((c) => 
-                    <div className="flex">
-                      <p>
-                        <img className={"rounded-circle"} width={"15px"} src={c.byImage} alt={"user-profile"}/>
-                        &nbsp;<b>{c.by}</b>&nbsp;{c.text}
-                      </p>
-                    </div>)}
-                </div>
-                  {(user) ? <CommentField/> :<p></p>}
+                  <div className="text-justify" style={{ height: "20vw", wordWrap: "break-word", overflowY: "scroll" }}>
+                    {item.comments.map((c) =>
+                      <div className="flex">
+                        <p>
+                          <img className={"rounded-circle"} width={"15px"} src={c.byImage} alt={"user-profile"} />
+                          &nbsp;<b>{c.by}</b>&nbsp;{c.text}
+                        </p>
+                      </div>)}
+                  </div>
+                  {(user) ? <CommentField /> : <p></p>}
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
