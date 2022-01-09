@@ -172,7 +172,7 @@ const ProductDemo = ({ shoesValue, user }) => {
                       <FormInputRadio name={"size"} sizes={item.size} control={methods.control} />
                       <br />
                       <Button type="submit" variant="success" className="mb-2">
-                        Send
+                        Add To Cart
                       </Button>
                     </form>
                   </FormProvider>
