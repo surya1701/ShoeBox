@@ -7,7 +7,7 @@ import Header from "../../components/Header";
 import ItemDisplay from '../../components/ItemDisplay';
 import './style.css';
 import styled from 'styled-components'
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 const Profile = ({user, ShoesData}) => {
     const [brands, setBrands] = useState(null);
@@ -89,7 +89,7 @@ const Profile = ({user, ShoesData}) => {
                                     </Tab>
                                     <Tab eventKey="orders" title="Orders">
                                         {(user) ? user.orders.map((o) => {
-                                            return o.cart.map((item)=><h4>{o.date} {item.name}: Size {item.size} x{item.qty}</h4>)
+                                            return o.cart.map((item)=><p><h6>{o.date}</h6> <h4><Link to={{ pathname: "/product", search: "?key=" + item.id }}>{item.name}: Size {item.size} x{item.qty}</Link></h4></p>)
                                         }):<p></p>}
                                     </Tab>
                                 </Tabs>
