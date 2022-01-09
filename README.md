@@ -21,8 +21,6 @@ This application has been designed by GROUP 21, as a semester project for the Fu
     <li><a href="#introduction">Introduction</a></li>
     <li><a href="#installation">Installation</a>
     </li>
-    <li><a href="#code-snippets">Code Snippets</a></li>
-    <!-- <li><a href="#screenshots">Screenshots</a></li> -->
     <li><a href="#contributors">Contributors</a></li>
     <li><a href="#deployed-website">Deployed Website</a></li>
     <li><a href="#tech-stack">Tech Stack</a></li>
@@ -47,57 +45,21 @@ foo@bar:~$ json-server --watch db.json --port 3001
 ```
 Website launches at https://localhost:3000/
 
-## Code Snippets
-The Home Page contains a carousel component and several item display components. Each item display, on click, opens a sidebar where all images of the shoes can be viewed. Here the images can be zoomed into and after choosing the size, one can add it to cart. Other compenents for different filtered views of shoes (eg. gender, brand) are also in the home page.
+The json-server runs at https://localhost:3001/
 
-The Cart icon and the item counter in the navbar is accompanied by the logo and a search bar. The icon leads to the cart page, which displays all added items with sizes and buttons to increase count, decrease count or remove item from cart. A part of this page shows the number of items and the total cost of the cart.
+### Razorpay Test Card and Test UPI
 
-The checkout buttons redirects users to the payment page. Here the delivery information and payment details are to be provided. Once the form is submitted, the application returns a payment confirmation page.
+| Card Network |Card Network | CVV |Expiry Date |
+|------|---------|------|------------|
+|Mastercard| 5267 3181 8797 5449 | Random CVV |Any future date|
+|Visa | 4111 1111 1111 1111 |Random CVV |Any future date|
 
-## Future Work
+**TEST UPI** - ``` success@razorpay ```
 
-Week 3 - Item Review, Additional social media Functions
-Week 4 - Google Auth Login, Pagination, Order Module
-Week 5 - Likes, Follow, Brand Pages, Filtering
-Week 6 - Customization, Track order, Customer Service Page
+Use the above test card and test upi details to check payment using razorpay api. 
 
-## Wireframes
 
-<p float="left">
-<img src="ecommerce-wireframe-1.png" width="45%">
-<img src="ecommerce-wireframe-2.jpg" width="45%">
-</p>
-<p float="left">
-<img src="ecommerce-wireframe-3.jpeg" width="45%">
-<img src="ecommerce-wireframe-4.jpeg" width="45%">
-</p>
 
-<!-- 
-## Screenshots
-<br>
-<p float="left">
-<img src="static/images/screenshots/WAD1.PNG" width="45%">
-<img src="static/images/screenshots/WAD3.PNG" width="45%">
-</p>
-<p float="left">
-<img src="static/images/screenshots/WAD9.PNG" width="45%">
-<img src="static/images/screenshots/WAD10.PNG" width="45%">
-</p>
-<p float="left">
-<img src="static/images/screenshots/WAD6.jpg" width="45%">
-<img src="static/images/screenshots/WAD13.PNG" width="45%">
-</p>
-<img src="static/images/screenshots/WAD11.PNG" width="90%">
-<p float="left">
-<img src="static/images/screenshots/WAD15.PNG" width="45%">
-<img src="static/images/screenshots/WAD12.PNG" width="45%">
-</p>
-<p float="left">
-<img src="static/images/screenshots/WAD14.PNG" width="45%">
-<img src="static/images/screenshots/WAD8.PNG" width="45%">
-</p>
-<br>
-<img src="static/images/screenshots/WAD7.PNG" width="90%"> -->
 
 ## Contributors
 [Piyush Kumar](https://github.com/piyush9311)<br>
