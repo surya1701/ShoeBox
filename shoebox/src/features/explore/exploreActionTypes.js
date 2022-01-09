@@ -13,3 +13,4 @@ export const LATEST = "LATEST";
 export const SEARCH = "search";
 export const CLEAR_ALL = "clearAll";
 export const SORT = "Sort";
+export const COMMENT = "COMMENT";

@@ -13,6 +13,7 @@ import { useForm, FormProvider } from "react-hook-form";
 import Checkbox from '@material-ui/core/Checkbox';
 import { Favorite, FavoriteBorder } from '@material-ui/icons';
 import ProductCarousel from "../../components/ProductCarousel";
+import Comment from "./Comment";
 const queryString = require('query-string');
 
 const ProductDemo = ({ shoesValue, user }) => {
@@ -53,6 +54,26 @@ const ProductDemo = ({ shoesValue, user }) => {
       store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: user.liked.filter((i) => i !== item.id) } } });
       setLike(false);
     }
+  }
+  const CommentField = () => {
+    return (<Comment
+      handleComment={handleComment}
+      user={user}
+    />)
+  };
+  const handleComment = (data) => {
+    fetch("http://localhost:3001/shoes/" + item.id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(
+        {
+          ...item
+        }
+      )
+    })
+      .then(store.dispatch({ type: 'COMMENT', payload: { key: item.id, email: user.email, comment: data['comment'] } }))
   }
   useEffect(() => {
     const { key } = queryString.parse(location.search);
@@ -125,6 +146,15 @@ const ProductDemo = ({ shoesValue, user }) => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
+                <Accordion.Header>Comments</Accordion.Header>
+                <Accordion.Body>
+                <div className="text-justify" style={{height: "20vw", wordWrap: "break-word", overflowY: "scroll"}}>
+                  {item.comments.map((c) => <p>{c.by}: {c.text}</p>)}
+                </div>
+                  {(user) ? <CommentField/> :<p></p>}
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="2">
                 <Accordion.Header>Take Away</Accordion.Header>
                 <Accordion.Body>
                   <FormProvider {...methods}>
@@ -136,7 +166,7 @@ const ProductDemo = ({ shoesValue, user }) => {
                       <FormInputRadio name={"size"} sizes={item.size} control={methods.control} />
                       <br />
                       <Button type="submit" variant="success" className="mb-2">
-                        Add To Cart
+                        Send
                       </Button>
                     </form>
                   </FormProvider>
