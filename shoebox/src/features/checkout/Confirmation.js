@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useLocation } from 'react-router-dom'
 import {store} from "../../app/store";
+import emailjs from '@emailjs/browser';
 
 const Confirmation = () => {
     const data = useLocation().state;
@@ -35,7 +36,24 @@ const Confirmation = () => {
                             "orders": [...all_orders]
                         }
                     )
-                });
+            })
+            .then(res => {
+                if (amount) {
+                    var templateParams = {
+                        email: data.data.email,
+                        cart: data.cart.map((i)=>i.name + " : Size " +  i.size + " x " + i.qty),
+                        amount: amount,
+                        date: data.date,
+                        paymentId: data.data.paymentId
+                    };
+                    emailjs.send('service_b5ua1p9','template_oz8htss', templateParams, "user_IBylxEhLb5UbSS4J8iyTk")
+                        .then(function(response) {
+                        console.log('Order Confirmation Sent !', response.status, response.text);
+                        }, function(err) {
+                        console.log('Email Error', err);
+                        });
+                }
+            });
             store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...result, orders: [...all_orders]} } });
     })}, [data, amount, setAmount])
     return (
