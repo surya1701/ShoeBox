@@ -85,6 +85,7 @@ function Explore({ user, shoesValue, items, filtersortBy, filterBrands, filterGe
                                 label="Sort By"
                                 onChange={sorting}
                                 >
+                                <MenuItem value={"LATEST"}>Latest: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
                                 <MenuItem value={"priceDESC"}>Price: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
                                 <MenuItem value={"priceASC"}>Price: Lower to Higher <ArrowUpwardOutlined/></MenuItem>
                                 <MenuItem value={"viewsDESC"}>Views: Higher to Lower <ArrowDownwardOutlined/></MenuItem>

@@ -16,8 +16,9 @@ const ExploreReducer = (state = initialState, action)=>{
     const sort = (items, by) => {
         if (by === "priceASC") items.sort((a,b) => (parseInt(a.price) > parseInt(b.price)) ? 1 : ((parseInt(b.price) > parseInt(a.price)) ? -1 : 0));
         else if (by === "priceDESC") items.sort((a,b) => (parseInt(a.price) < parseInt(b.price)) ? 1 : ((parseInt(b.price) < parseInt(a.price)) ? -1 : 0));
-        else if (by === "viewsASC") items.sort((a,b) => (parseInt(a.views) > parseInt(b.views)) ? 1 : ((b.views > a.views) ? -1 : 0));
+        else if (by === "viewsASC") items.sort((a,b) => (parseInt(a.views) > parseInt(b.views)) ? 1 : ((parseInt(b.views) > parseInt(a.views)) ? -1 : 0));
         else if (by === "viewsDESC") items.sort((a,b) => (parseInt(a.views) < parseInt(b.views)) ? 1 : ((parseInt(b.views) < parseInt(a.views)) ? -1 : 0));
+        else if (by === "LATEST") items.sort((a,b) => (Date.parse(a.date) < Date.parse(b.date)) ? 1 : ((Date.parse(b.date) < Date.parse(a.date)) ? -1 : 0));
         return items;
     }
     var temp = null;

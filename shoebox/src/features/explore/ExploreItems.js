@@ -70,9 +70,9 @@ function ExploreItems({ item, brands, user }) {
                         : <p></p>}
                 </Card.ImgOverlay>
                 <Card.Img variant="top" style={{ height: "60vh", objectFit: "contain" }} src={item.image[0]} />
-                <Card.Body style={{ zIndex: "2", height: "30vh" }}>
+                <Card.Body style={{ zIndex: "2", height: "25vh" }}>
                     <div>
-                        <Card.Title className='display-6' style={{ display: "inline" }}>
+                        <Card.Title className='display-6'>
                             <Link to={{ pathname: "/product", search: "?key=" + item.id }}
                                 className="pbtn"
                                 style={{ fontSize: "28px", fontWeight: '300', fontFamily: 'sans-serif', textDecoration: 'none', padding: '5px', borderRadius: '5px' }}>
@@ -82,6 +82,7 @@ function ExploreItems({ item, brands, user }) {
                     </div>
                     <div>
                         <Card.Text style={{ float: "right" }}>&#8377; {item.price}</Card.Text>
+                        <Card.Text style={{ display: "inline" }}>{item.date}</Card.Text>
                         <Card.Text style={{ float: "left" }}>{item.views} Views</Card.Text>
                     </div>
                 </Card.Body>
