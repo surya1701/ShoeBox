@@ -148,10 +148,10 @@ const ProductDemo = ({ shoesValue, user }) => {
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Comments</Accordion.Header>
                 <Accordion.Body>
-                <div className="text-justify" style={{height: "20vw", wordWrap: "break-word", overflowY: "scroll"}}>
-                  {item.comments.map((c) => <p>{c.by}: {c.text}</p>)}
-                </div>
-                  {(user) ? <CommentField/> :<p></p>}
+                  <div className="text-justify" style={{ height: "10vw", wordWrap: "break-word", overflowY: "scroll" }}>
+                    {item.comments.map((c) => <p>{c.by}: {c.text}</p>)}
+                  </div>
+                  {(user) ? <CommentField /> : <p></p>}
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
