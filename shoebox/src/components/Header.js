@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import Login from "../Login";
 
 function Header({ cartValue, user }) {
-  const [totalItems, setTotalItems] = useState(0);
+  const [totalItems, setTotalItems] = useState(0); // useState() hook to update state of cart
   useEffect(() => {
     let items = 0;
     cartValue.forEach(item => {
@@ -17,7 +17,7 @@ function Header({ cartValue, user }) {
     });
     setTotalItems(items);
   }, [cartValue, totalItems])
-  window.onscroll = () => {
+  window.onscroll = () => {  /* onscroll event to change header color while scrolling */
     if (document.getElementById("nav-header"))
       if (document.documentElement.scrollTop === 0)
         document.getElementById("nav-header").classList.remove("scroll-nav");
@@ -80,6 +80,7 @@ const CartCount = styled.span`
   text-align: center;
 `;
 
+//Mapping State to Props using mapStateToprops method
 const mapStateToProps = (state) => {
   return {
     cartValue: state.cart.cart,
