@@ -11,7 +11,7 @@ import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import Checkbox from '@material-ui/core/Checkbox';
-import {Favorite, FavoriteBorder} from '@material-ui/icons';
+import { Favorite, FavoriteBorder } from '@material-ui/icons';
 import ProductCarousel from "../../components/ProductCarousel";
 const queryString = require('query-string');
 
@@ -23,47 +23,50 @@ const ProductDemo = ({ shoesValue, user }) => {
   const [like, setLike] = useState(false);
   const handleLike = (event) => {
     if (event.target.checked) {
-        fetch("http://localhost:3001/users/"+user.email, {
-            method: "PUT",
-            headers: {
-            "Content-Type": "application/json"
+      fetch("http://localhost:3001/users/" + user.email, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(
-            {
-                ...user,
-                "liked": [...user.liked, item.id]
-            }
-        )});
-        store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: [...user.liked, item.id]}}});
-        setLike(true);
+          {
+            ...user,
+            "liked": [...user.liked, item.id]
+          }
+        )
+      });
+      store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: [...user.liked, item.id] } } });
+      setLike(true);
     } else {
-        fetch("http://localhost:3001/users/"+user.email, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(
-                {
-                    ...user,
-                    "liked": user.liked.filter((i) => i !== item.id)
-                }
-                )});
-        store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, liked: user.liked.filter((i) => i !== item.id)}}});
-        setLike(false);
+      fetch("http://localhost:3001/users/" + user.email, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(
+          {
+            ...user,
+            "liked": user.liked.filter((i) => i !== item.id)
+          }
+        )
+      });
+      store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: user.liked.filter((i) => i !== item.id) } } });
+      setLike(false);
     }
   }
   useEffect(() => {
     const { key } = queryString.parse(location.search);
     shoesValue.forEach(element => {
       if (parseInt(element.id) === parseInt(key)) {
-        setItem({ ...element, views: parseInt(element.views+1) });
-        if(user !== null)
-        fetch("http://localhost:3001/users/"+user.email)
-        .then(res => res.json())
-        .then(result => {
-            if(result) {
+        setItem({ ...element, views: parseInt(element.views + 1) });
+        if (user !== null)
+          fetch("http://localhost:3001/users/" + user.email)
+            .then(res => res.json())
+            .then(result => {
+              if (result) {
                 setLike(result.liked.includes(element.id));
-        }})
+              }
+            })
       }
     });
   }, [user, shoesValue, location]);
@@ -73,17 +76,18 @@ const ProductDemo = ({ shoesValue, user }) => {
     setTimeout(() => {
       setaddedToCart(false);
     }, 3000);
-    fetch("http://localhost:3001/shoes/"+item.id, {
-                method: "PUT",
-                headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(
-                {
-                    ...item
-                }
-    )})
-    .then(store.dispatch({type:'INCREMENT_VIEWS', payload: {key: item.id}}))
+    fetch("http://localhost:3001/shoes/" + item.id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(
+        {
+          ...item
+        }
+      )
+    })
+      .then(store.dispatch({ type: 'INCREMENT_VIEWS', payload: { key: item.id } }))
     store.dispatch({ type: 'ADD_TO_CART', payload: { id: item.id, size: data['size'] } });
   }
 
@@ -91,10 +95,10 @@ const ProductDemo = ({ shoesValue, user }) => {
     (item) ?
       <div>
         <Header />
-        <Modal show={addedToCart} onHide={()=>setaddedToCart(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Added To Cart</Modal.Title>
-        </Modal.Header>
+        <Modal show={addedToCart} onHide={() => setaddedToCart(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Added To Cart</Modal.Title>
+          </Modal.Header>
         </Modal>
         <div className="row g-0 p-1 mt-20">
           <div className="col-md-6 col-12 p-1 text-center" >
@@ -108,16 +112,14 @@ const ProductDemo = ({ shoesValue, user }) => {
                   <Title>
                     {item.name}
                     {(user) ?
-                    <FormControlLabel control={<Checkbox checked={like} onClick={handleLike} icon={<FavoriteBorder />}
-                    checkedIcon={<Favorite />} name="checkedH" />} style={{ float: "right" }} />
-                    : <p></p>}
+                      <FormControlLabel control={<Checkbox checked={like} onClick={handleLike} icon={<FavoriteBorder />}
+                        checkedIcon={<Favorite />} name="checkedH" />} style={{ float: "right" }} />
+                      : <p></p>}
                   </Title>
-                    <strong><i>{item.brand}</i>: {item.type}</strong><br />
-                    <h4>For {item.gender}</h4>
+                  <strong><i>{item.brand}</i>: {item.type}</strong><br />
+                  <h4>For {item.gender}</h4>
                   <Desc>
-                    A shoe is an item of footwear intended to protect and comfort the human foot.
-                    Shoes are also used as an item of decoration and fashion. The design of shoes has varied enormously
-                    through time and from culture to culture, with form originally being tied to function.
+                    {item.description}
                   </Desc>
                   <Price>&#8377; {item.price}</Price>
                 </Accordion.Body>
