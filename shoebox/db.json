@@ -101,7 +101,8 @@
       "rating": "4.0",
       "gender": "Men",
       "description": "With design elements inspired by the movement and motion of city life, the Wild Rider Layers Unisex Sneakers brings a fresh new dimension to the iconic Rider family. We've layered a rich mix of premium leather, suede and hairy suede onto a nylon upper to create texture and a raw edgy look that is pure street. The IMEVA midsole and rubber outsole ensure combined lightweight comfort and great traction to take you forward, further and faster through your day and beyond.",
-      "views": 2
+      "views": 2,
+      "date": "2022-01-02"
     },
     {
       "id": 2,
@@ -122,7 +123,8 @@
       "rating": "5.0",
       "gender": "Men",
       "description": "Keep the game going in the shoe that launched a movement, our Future Rider Play On Unisex Sneakers. This shoe is dedicated to pared-down performance, featuring a super-light nylon, suede and leather upper and our famous shock-absorbing Federbein outsole to keep you pounding the pavement in style.",
-      "views": 1
+      "views": 4,
+      "date": "2022-01-05"
     },
     {
       "id": 3,
@@ -143,7 +145,8 @@
       "rating": "3.0",
       "gender": "Women",
       "description": "The Cruise Rider is here to disrupt and interrupt. With a stacked sole, pops of neon colour and a trailblazing 360-degree lace detail with a chunky back toggle, this shoe breaks new design ground – all while retaining the classic PUMA quality and comfort you know and love, with a full leather upper and a lightweight IMEVA midsole.",
-      "views": 1
+      "views": 5,
+      "date": "2022-01-02"
     },
     {
       "id": 4,
@@ -165,7 +168,8 @@
       "rating": "4.0",
       "gender": "Women",
       "description": "Enjoy sleek, everyday style in our Mayze line. This statement shoe is a love letter to classic Californian skate and surf culture, featuring a stacked sole and crisp, pared-back details. One step in these transports you to the heyday of Dogtown. Our Mayze Glow Trainers incorporate a premium leather upper matched with a pearlised iridescent PUMA Formstrip for visual impact.",
-      "views": 1
+      "views": 7,
+      "date": "2022-01-02"
     },
     {
       "id": 5,
@@ -187,7 +191,8 @@
       "rating": "4.0",
       "gender": "Men",
       "description": "With features and functions designed to withstand long hours out on the pitch, these PUMA 19 FH Rubber shoes have been engineered to offer comfort to cricketers. Supreme cushioning comes courtesy of the EVA midsole, while an internal support structure and reinforced toe cap deliver stability and durability. The multi-studded rubber outsole provides solid grip on both grass and hard natural surfaces.",
-      "views": 1
+      "views": 3,
+      "date": "2022-01-03"
     },
     {
       "id": 6,
@@ -208,7 +213,8 @@
       "rating": "4.0",
       "gender": "Men",
       "description": "The Disc Rebirth marks the 30th anniversary of the PUMA Disc System. We've grabbed design details from the original and combined it with modern performance technology to bring the disc back on court in a bigger and better way. Rest assured, you'll be shooting hoops in pure PUMA style.",
-      "views": 1
+      "views": 23,
+      "date": "2022-01-03"
     },
     {
       "id": 7,
@@ -230,7 +236,8 @@
       "rating": "3.0",
       "gender": "Women",
       "description": "The Tenaz is a versatile indoor shoe for teamsport athletes. The non-marking rubber outsole provides the necessary grip and stability for indoor sports, while the upper fuses comfort and breathability with durability.",
-      "views": 0
+      "views": 13,
+      "date": "2022-01-04"
     },
     {
       "id": 8,
@@ -252,7 +259,8 @@
       "rating": "5.0",
       "gender": "Women",
       "description": "Speed is king on the court. Show off yours with the Accelerate Pro, our newest handball shoe designed for wingers and attackers, taking lightweight and support to new heights. It features new high-rebound ProFoam technology for high energy return and cushioning, so you'll be ready for even the fiercest competition. A new moulded sockliner provides awesome arch support, while PUMAGRIP maximises multidirectional traction, making you unstoppable on the court.",
-      "views": 1
+      "views": 43,
+      "date": "2022-01-05"
     },
     {
       "id": 9,
@@ -273,7 +281,8 @@
       "rating": "4.0",
       "gender": "Men",
       "description": "Featuring mesh upper and comfortable sole, the PUMA Claw Men's Shoes will keep you up and active throughout the day. The minimalistic design, elevated by bold and striking PUMA branding makes this pair a must-have.",
-      "views": 1
+      "views": 11,
+      "date": "2022-01-07"
     },
     {
       "id": 10,
@@ -295,7 +304,8 @@
       "rating": "4.0",
       "gender": "Men",
       "description": "Grab all the attention with the Flex Fire V1 Men's Shoes perfect for leisure and slaying around.",
-      "views": 1
+      "views": 17,
+      "date": "2022-01-07"
     },
     {
       "id": 11,
@@ -317,7 +327,8 @@
       "rating": "3.0",
       "gender": "Women",
       "description": "Featuring a breathable knit upper along with an EVA midsole, the PUMA Claw Women's Shoes takes your love for running as much as you. While the sole provides optimum cushioning, the rubber outsole offers ample traction and skid resistance.",
-      "views": 1
+      "views": 14,
+      "date": "2022-01-05"
     },
     {
       "id": 12,
@@ -338,7 +349,8 @@
       "rating": "4.0",
       "gender": "Women",
       "description": "The Royce Star Women's Shoes is for all those who are looking for some post-modern performance. The simple and clean design is elevated by the comfortable and snug fit that keeps you on your toes all day.",
-      "views": 1
+      "views": 20,
+      "date": "2022-01-06"
     },
     {
       "id": 13,
@@ -359,7 +371,9 @@
       "type": "Sneakers",
       "rating": "5.0",
       "gender": "Men",
-      "description": "FloatRide Energy Foam: provides lightweight cushioning and a more responsive ride than original Floatride FoamEVA Midsole and Full Rubber Outsole: EVA Midsole provides lightweight cushioning. Rubber outsole provides traction and durability"
+      "description": "FloatRide Energy Foam: provides lightweight cushioning and a more responsive ride than original Floatride FoamEVA Midsole and Full Rubber Outsole: EVA Midsole provides lightweight cushioning. Rubber outsole provides traction and durability",
+      "views": 23,
+      "date": "2022-01-06"
     },
     {
       "id": 14,
@@ -379,7 +393,9 @@
       "type": "Sneakers",
       "rating": "4.0",
       "gender": "Men",
-      "description": "Connect to comfort. These men's Reebok shoes help you feel grounded through an active day. The silhouette draws inspiration from running shoes, and the zigzag midsole makes a statement. A Zig Energy Shell surrounds the foam midsole, returning the kinetic energy of your stride."
+      "description": "Connect to comfort. These men's Reebok shoes help you feel grounded through an active day. The silhouette draws inspiration from running shoes, and the zigzag midsole makes a statement. A Zig Energy Shell surrounds the foam midsole, returning the kinetic energy of your stride.",
+      "views": 5,
+      "date": "2021-12-29"
     },
     {
       "id": 15,
@@ -400,7 +416,9 @@
       "type": "Sneakers",
       "rating": "3.0",
       "gender": "Women",
-      "description": "Heritage cushion. A sleek upper. That timeless Union Jack logo. Savor the subtle style of this classic women's shoe."
+      "description": "Heritage cushion. A sleek upper. That timeless Union Jack logo. Savor the subtle style of this classic women's shoe.",
+      "views": 27,
+      "date": "2021-12-29"
     },
     {
       "id": 16,
@@ -420,7 +438,9 @@
       "type": "Sneakers",
       "rating": "4.0",
       "gender": "Women",
-      "description": "They say the future is female. You've got a head start on what's next in these women's shoes from Reebok. Inspired by progressive running design, they have a responsive FuelFoam midsole with a bold geometric shape. The innovative outsole returns energy to your stride and propels you forward."
+      "description": "They say the future is female. You've got a head start on what's next in these women's shoes from Reebok. Inspired by progressive running design, they have a responsive FuelFoam midsole with a bold geometric shape. The innovative outsole returns energy to your stride and propels you forward.",
+      "views": 32,
+      "date": "2021-12-27"
     },
     {
       "id": 17,
@@ -440,7 +460,9 @@
       "type": "Sports",
       "rating": "4.0",
       "gender": "Men",
-      "description": "Swish, swish boom. Your look is nothing but net in these men's Reebok Pump Omni Zone II Shoes. Make your haters drool over every single detail, from the curvy TPU cage to the mid-cut profile. Never compromise on comfort with Hexalite cushioning in the midsole. We could keep going. But why?"
+      "description": "Swish, swish boom. Your look is nothing but net in these men's Reebok Pump Omni Zone II Shoes. Make your haters drool over every single detail, from the curvy TPU cage to the mid-cut profile. Never compromise on comfort with Hexalite cushioning in the midsole. We could keep going. But why?",
+      "views": 9,
+      "date": "2021-12-27"
     },
     {
       "id": 18,
@@ -461,7 +483,9 @@
       "type": "Sports",
       "rating": "5.0",
       "gender": "Men",
-      "description": "Don't sit on the sidelines. Get into the game and score major style points when you lace up these men's Question Mid shoes. Iconic colors and a retro-style mid cut show off a true throwback design. Clearly, these kicks pretty much speak for themselves."
+      "description": "Don't sit on the sidelines. Get into the game and score major style points when you lace up these men's Question Mid shoes. Iconic colors and a retro-style mid cut show off a true throwback design. Clearly, these kicks pretty much speak for themselves.",
+      "views": 7,
+      "date": "2021-12-29"
     },
     {
       "id": 19,
@@ -481,7 +505,9 @@
       "type": "Sports",
       "rating": "4.0",
       "gender": "Women",
-      "description": "Move from strength work to cardio without missing a beat, or changing your shoes. These Reebok training shoes are made for versatility in the gym. A breathable mesh upper rides on a Floatride Energy Foam midsole for optimal comfort. A medial wedge provides stability for lifts, and a speed chassis offers midfoot support."
+      "description": "Move from strength work to cardio without missing a beat, or changing your shoes. These Reebok training shoes are made for versatility in the gym. A breathable mesh upper rides on a Floatride Energy Foam midsole for optimal comfort. A medial wedge provides stability for lifts, and a speed chassis offers midfoot support.",
+      "views": 6,
+      "date": "2021-12-26"
     },
     {
       "id": 20,
@@ -501,7 +527,9 @@
       "type": "Sports",
       "rating": "5.0",
       "gender": "Women",
-      "description": "Consistency is the key to building strength and endurance. These women's Reebok running shoes help you make steady progress with Floatride Energy Foam cushioning that provides a lightweight feel and a smooth, responsive ride. The mesh upper is comfortable and breathable."
+      "description": "Consistency is the key to building strength and endurance. These women's Reebok running shoes help you make steady progress with Floatride Energy Foam cushioning that provides a lightweight feel and a smooth, responsive ride. The mesh upper is comfortable and breathable.",
+      "views": 19,
+      "date": "2021-12-26"
     },
     {
       "id": 21,
@@ -521,7 +549,9 @@
       "type": "Casual",
       "rating": "4.0",
       "gender": "Men",
-      "description": "Pure Cardi. All Reebok. Every detail on these junior girls' leather shoes takes design cues from her personality. Transparent details show off her realness. Bold, fierce color evokes her personality. An asymmetrical design nods to her different hustles. The stacked midsole and aggressive lugs on the outsole display her different dimensions. Over the top but also chic, these kicks give you legit Cardi B style."
+      "description": "Pure Cardi. All Reebok. Every detail on these junior girls' leather shoes takes design cues from her personality. Transparent details show off her realness. Bold, fierce color evokes her personality. An asymmetrical design nods to her different hustles. The stacked midsole and aggressive lugs on the outsole display her different dimensions. Over the top but also chic, these kicks give you legit Cardi B style.",
+      "views": 22,
+      "date": "2021-12-26"
     },
     {
       "id": 22,
@@ -542,7 +572,9 @@
       "type": "Casual",
       "rating": "3.0",
       "gender": "Men",
-      "description": "Smooth is how you roll. Now, you have the kicks to match. Slip on these Club C 85 sneakers and hit the scene. A simple style means these supple leather shoes pair up with anything. Because sometimes you don't have to say anything to make a statement."
+      "description": "Smooth is how you roll. Now, you have the kicks to match. Slip on these Club C 85 sneakers and hit the scene. A simple style means these supple leather shoes pair up with anything. Because sometimes you don't have to say anything to make a statement.",
+      "views": 29,
+      "date": "2021-12-25"
     },
     {
       "id": 23,
@@ -562,7 +594,9 @@
       "type": "Casual",
       "rating": "4.0",
       "gender": "Women",
-      "description": "Pure Cardi. All Reebok. Every detail on these women's shoes takes design cues from her personality. Transparent details show off her down-to-earth attitude. Bold, fierce color evokes her personality. An asymmetrical design nods to her different hustles. The stacked midsole and aggressive lugs on the outsole display her different dimensions. Over the top but also chic, these kicks give you legit Cardi B style."
+      "description": "Pure Cardi. All Reebok. Every detail on these women's shoes takes design cues from her personality. Transparent details show off her down-to-earth attitude. Bold, fierce color evokes her personality. An asymmetrical design nods to her different hustles. The stacked midsole and aggressive lugs on the outsole display her different dimensions. Over the top but also chic, these kicks give you legit Cardi B style.",
+      "views": 11,
+      "date": "2021-12-25"
     },
     {
       "id": 24,
@@ -582,7 +616,9 @@
       "type": "Casual",
       "rating": "4.0",
       "gender": "Women",
-      "description": "The next best thing to finding a deadstock box at the thrift store. These Reebok Victory G shoes do not sacrifice a single thing. Pay homage to the original with authentic design elements pulled right from the archives. Like that heel cradle in thick suede. Or the die-cut midsole. Throwback for the win."
+      "description": "The next best thing to finding a deadstock box at the thrift store. These Reebok Victory G shoes do not sacrifice a single thing. Pay homage to the original with authentic design elements pulled right from the archives. Like that heel cradle in thick suede. Or the die-cut midsole. Throwback for the win.",
+      "views": 25,
+      "date": "2021-12-25"
     },
     {
       "id": 25,
@@ -602,7 +638,9 @@
       "type": "Sports",
       "rating": "4.2",
       "gender": "Men",
-      "description": "Archive-inspired running shoes made in part with recycled materials. ... These shoes revive two of the greatest hits: the Supernova from '98 and the Ultraboost from '15. BOOST cushioning and adidas PRIMEKNIT bring ultimate comfort to every single step you take. Disrupted 3-Stripes add a little blast from our running past"
+      "description": "Archive-inspired running shoes made in part with recycled materials. ... These shoes revive two of the greatest hits: the Supernova from '98 and the Ultraboost from '15. BOOST cushioning and adidas PRIMEKNIT bring ultimate comfort to every single step you take. Disrupted 3-Stripes add a little blast from our running past.",
+      "views": 28,
+      "date": "2021-12-23"
     },
     {
       "id": 26,
@@ -622,7 +660,9 @@
       "type": "Sports",
       "rating": "4",
       "gender": "Women",
-      "description": "Made for all-day comfort, these adidas sneakers have a Cloudfoam midsole that is ultra-soft. Their look is inspired by classic running design with timeless 3-Stripes drawing attention right away. They have a streetwear vibe that makes them easy to mix and match with your everyday wear."
+      "description": "Made for all-day comfort, these adidas sneakers have a Cloudfoam midsole that is ultra-soft. Their look is inspired by classic running design with timeless 3-Stripes drawing attention right away. They have a streetwear vibe that makes them easy to mix and match with your everyday wear.",
+      "views": 31,
+      "date": "2021-12-23"
     },
     {
       "id": 27,
@@ -643,7 +683,9 @@
       "type": "Sports",
       "rating": "4.5",
       "gender": "Women",
-      "description": "Made for all-day comfort, these adidas sneakers have a Cloudfoam midsole that is ultra-soft. Their look is inspired by classic running design with timeless 3-Stripes drawing attention right away. They have a streetwear vibe that makes them easy to mix and match with your everyday wear."
+      "description": "Made for all-day comfort, these adidas sneakers have a Cloudfoam midsole that is ultra-soft. Their look is inspired by classic running design with timeless 3-Stripes drawing attention right away. They have a streetwear vibe that makes them easy to mix and match with your everyday wear.",
+      "views": 41,
+      "date": "2021-12-22"
     },
     {
       "id": 28,
@@ -663,7 +705,9 @@
       "type": "Sports",
       "rating": "4.2",
       "gender": "Men",
-      "description": "These men's shoes deliver lightweight comfort for mid-distance runs. Bounce in the midsole gives a springy feel. Jetboost in the heel brings a new dimension to energy return with increased stability. The outsole gives you multidirectional traction through different conditions and terrain."
+      "description": "These men's shoes deliver lightweight comfort for mid-distance runs. Bounce in the midsole gives a springy feel. Jetboost in the heel brings a new dimension to energy return with increased stability. The outsole gives you multidirectional traction through different conditions and terrain.",
+      "views": 44,
+      "date": "2021-12-24"
     },
     {
       "id": 29,
@@ -683,7 +727,9 @@
       "type": "Casual",
       "rating": "3.2",
       "gender": "Men",
-      "description": "Timeless court-inspired shoes made with recycled materials. Crisp and classic, they're a match for anything and everything you have on your daily agenda. Whatever you're wearing, they polish it up with clean-cut, retro charm. ... This product is made with Primegreen, a series of high-performance recycled materials."
+      "description": "Timeless court-inspired shoes made with recycled materials. Crisp and classic, they're a match for anything and everything you have on your daily agenda. Whatever you're wearing, they polish it up with clean-cut, retro charm. ... This product is made with Primegreen, a series of high-performance recycled materials.",
+      "views": 39,
+      "date": "2021-12-24"
     },
     {
       "id": 30,
@@ -703,7 +749,9 @@
       "type": "Casual",
       "rating": "3.1",
       "gender": "Women",
-      "description": " Keep your look chill, but change it up with the standout style of these adidas Multix Shoes. A sporty mesh upper keeps your feet comfy as you take on whatever the day holds."
+      "description": " Keep your look chill, but change it up with the standout style of these adidas Multix Shoes. A sporty mesh upper keeps your feet comfy as you take on whatever the day holds.",
+      "views": 3,
+      "date": "2021-12-23"
     },
     {
       "id": 31,
@@ -723,7 +771,9 @@
       "type": "Casual",
       "rating": "3.4",
       "gender": "Men",
-      "description": "Combining skate-friendly design with a clean, classic profile, these shoes are in their element on or off the board. Their highly versatile style is rider-friendly, with a reinforced canvas upper and an ultra-flexible Geoflex outsole that moves naturally with your foot and has great board feel."
+      "description": "Combining skate-friendly design with a clean, classic profile, these shoes are in their element on or off the board. Their highly versatile style is rider-friendly, with a reinforced canvas upper and an ultra-flexible Geoflex outsole that moves naturally with your foot and has great board feel.",
+      "views": 10,
+      "date": "2021-12-22"
     },
     {
       "id": 32,
@@ -743,7 +793,9 @@
       "type": "Casual",
       "rating": "3.9",
       "gender": "Women",
-      "description": "Sporty shoes that are ready to go and then go some more. Running-inspired but built for life in the city, they have a lightweight mesh upper and supportive, snug fit. An EVA midsole cushions every step of your journey."
+      "description": "Sporty shoes that are ready to go and then go some more. Running-inspired but built for life in the city, they have a lightweight mesh upper and supportive, snug fit. An EVA midsole cushions every step of your journey.",
+      "views": 14,
+      "date": "2021-12-31"
     },
     {
       "id": 33,
@@ -763,7 +815,9 @@
       "type": "Sneakers",
       "rating": "4.1",
       "gender": "Men",
-      "description": "These men's running shoes keep you comfortable so you stay focused on your training goals. They feature a textile upper and a supportive cage that wraps around the midfoot to give you stability where you need it most. Upper : AIR MESH: breathable upper mesh for maximum ventilation."
+      "description": "These men's running shoes keep you comfortable so you stay focused on your training goals. They feature a textile upper and a supportive cage that wraps around the midfoot to give you stability where you need it most. Upper : AIR MESH: breathable upper mesh for maximum ventilation.",
+      "views": 42,
+      "date": "2021-12-30"
     },
     {
       "id": 34,
@@ -783,7 +837,9 @@
       "type": "Sneakers",
       "rating": "4.3",
       "gender": "Men",
-      "description": "Mesh shoes for lightweight comfort. Minimalist style meets maximum functionality in these running shoes for men. The lightweight mesh upper offers breathable comfort. The Cloudfoam midsole offers ample cushioning for everyday runs while the rubber panels in key areas provide durability and traction."
+      "description": "Mesh shoes for lightweight comfort. Minimalist style meets maximum functionality in these running shoes for men. The lightweight mesh upper offers breathable comfort. The Cloudfoam midsole offers ample cushioning for everyday runs while the rubber panels in key areas provide durability and traction.",
+      "views": 46,
+      "date": "2021-12-30"
     },
     {
       "id": 35,
@@ -802,7 +858,9 @@
       "type": "Sneakers",
       "rating": "4.0",
       "gender": "Women",
-      "description": "The shoe, usually made with a white leather upper and laces, has a simple design. Unlike most Adidas shoes, it does not have the external three stripes. Instead there are three rows of perforations (or punched ventilation holes) on both sides of each shoe's leather upper."
+      "description": "The shoe, usually made with a white leather upper and laces, has a simple design. Unlike most Adidas shoes, it does not have the external three stripes. Instead there are three rows of perforations (or punched ventilation holes) on both sides of each shoe's leather upper.",
+      "views": 28,
+      "date": "2021-12-31"
     },
     {
       "id": 36,
@@ -821,7 +879,9 @@
       "type": "Sneakers",
       "rating": "3.6",
       "gender": "Women",
-      "description": "Combining skate-friendly design with a clean, classic profile, these shoes are in their element on or off the board. Their highly versatile style is rider-friendly, with a reinforced canvas upper and an ultra-flexible Geoflex outsole that moves naturally with your foot and has great board feel."
+      "description": "Combining skate-friendly design with a clean, classic profile, these shoes are in their element on or off the board. Their highly versatile style is rider-friendly, with a reinforced canvas upper and an ultra-flexible Geoflex outsole that moves naturally with your foot and has great board feel.",
+      "views": 29,
+      "date": "2021-12-28"
     },
     {
       "id": 37,
@@ -841,7 +901,9 @@
       "type": "Sports",
       "rating": "4.2",
       "gender": "Men",
-      "description": "The Nike React Infinity Run Flyknit 2 continues to help keep you running. A refreshed upper combines Flyknit and Flywire technology for support and breathability where you need it. A wider forefoot provides stability to prevent rolling, while the high foam heights provide soft responsiveness and long-lasting comfort."
+      "description": "The Nike React Infinity Run Flyknit 2 continues to help keep you running. A refreshed upper combines Flyknit and Flywire technology for support and breathability where you need it. A wider forefoot provides stability to prevent rolling, while the high foam heights provide soft responsiveness and long-lasting comfort.",
+      "views": 21,
+      "date": "2021-12-20"
     },
     {
       "id": 38,
@@ -861,7 +923,9 @@
       "type": "Sports",
       "rating": "4.7",
       "gender": "Men",
-      "description": "THE FASTEST MARATHON SHOE JUST GOT FASTER. The Nike ZoomX Vaporfly NEXT% clears your path to record-breaking speed with a lighter design and faster feel than before. With more cushioning underfoot and reduced weight up top, the result is unprecedented energy return and comfort."
+      "description": "THE FASTEST MARATHON SHOE JUST GOT FASTER. The Nike ZoomX Vaporfly NEXT% clears your path to record-breaking speed with a lighter design and faster feel than before. With more cushioning underfoot and reduced weight up top, the result is unprecedented energy return and comfort.",
+      "views": 33,
+      "date": "2021-12-20"
     },
     {
       "id": 39,
@@ -881,7 +945,9 @@
       "type": "Sports",
       "rating": "4.0",
       "gender": "Women",
-      "description": "The Nike Pegasus 38 is a plush daily trainer with a stable midsole and a peppy ride. This shoe can be your slow day shoe, your tempo shoe, and your gym shoe, it can basically do it all."
+      "description": "The Nike Pegasus 38 is a plush daily trainer with a stable midsole and a peppy ride. This shoe can be your slow day shoe, your tempo shoe, and your gym shoe, it can basically do it all.",
+      "views": 49,
+      "date": "2021-12-30"
     },
     {
       "id": 40,
@@ -901,7 +967,9 @@
       "type": "Sports",
       "rating": "4.0",
       "gender": "Women",
-      "description": "The Nike Free RN 5.0 2020 is a lightweight, firm-riding and stable trainer. It has a highly flexible forefoot and is suitable for distances up to 10km. It has a firmer midsole compared to previous Free RN 5.0 versions which results in better stability and excellent ground-feel."
+      "description": "The Nike Free RN 5.0 2020 is a lightweight, firm-riding and stable trainer. It has a highly flexible forefoot and is suitable for distances up to 10km. It has a firmer midsole compared to previous Free RN 5.0 versions which results in better stability and excellent ground-feel.",
+      "views": 30,
+      "date": "2021-12-30"
     },
     {
       "id": 41,
@@ -921,7 +989,9 @@
       "type": "Casual",
       "rating": "4.2",
       "gender": "Men",
-      "description": "The legendary hiking design gives you the advantage of comfy Air underfoot, supportive Huarache technology around the heel and a speckled midsole to deliver unmistakable comfort and style. Soft nubuck leather in the upper adds durability while the stretchy collar personalises the fit."
+      "description": "The legendary hiking design gives you the advantage of comfy Air underfoot, supportive Huarache technology around the heel and a speckled midsole to deliver unmistakable comfort and style. Soft nubuck leather in the upper adds durability while the stretchy collar personalises the fit.",
+      "views": 53,
+      "date": "2021-12-20"
     },
     {
       "id": 42,
@@ -941,7 +1011,9 @@
       "type": "Casual",
       "rating": "4.3",
       "gender": "Men",
-      "description": "From the streets to the trails to anywhere in between, the Nike Free Terra Vista makes everything common ground. Made with at least 20% recycled content by weight, this pair will be your go-to for all your wild adventures. Its rugged upper features mesh, webbing and other durable textiles for an outdoorsy vibe."
+      "description": "From the streets to the trails to anywhere in between, the Nike Free Terra Vista makes everything common ground. Made with at least 20% recycled content by weight, this pair will be your go-to for all your wild adventures. Its rugged upper features mesh, webbing and other durable textiles for an outdoorsy vibe.",
+      "views": 41,
+      "date": "2021-12-30"
     },
     {
       "id": 43,
@@ -961,7 +1033,9 @@
       "type": "Casual",
       "rating": "3.9",
       "gender": "Women",
-      "description": "The Nike Air Force 1 Shadow puts a playful twist on a classic b-ball design.Using a layered approach, doubling the branding and exaggerating the midsole, it highlights AF-1 DNA with a bold, new look. With 2 eyestays, 2 mudguards, 2 back tabs and 2 Swoosh designs, you get a layered look with double the branding."
+      "description": "The Nike Air Force 1 Shadow puts a playful twist on a classic b-ball design.Using a layered approach, doubling the branding and exaggerating the midsole, it highlights AF-1 DNA with a bold, new look. With 2 eyestays, 2 mudguards, 2 back tabs and 2 Swoosh designs, you get a layered look with double the branding.",
+      "views": 51,
+      "date": "2021-12-21"
     },
     {
       "id": 44,
@@ -980,7 +1054,9 @@
       "type": "Casual",
       "rating": "4.0",
       "gender": "Women",
-      "description": "The Nike Air Huarache debuted in 1991 with a minimal yet polarizing design. Its comfort was undeniable, thanks to a sock-like, neoprene upper that “hugged” the foot."
+      "description": "The Nike Air Huarache debuted in 1991 with a minimal yet polarizing design. Its comfort was undeniable, thanks to a sock-like, neoprene upper that “hugged” the foot.",
+      "views": 38,
+      "date": "2021-12-21"
     },
     {
       "id": 45,
@@ -1000,7 +1076,9 @@
       "type": "Sneakers",
       "rating": "3.8",
       "gender": "Men",
-      "description": "Rooted to athletics DNA, the Air Max Dawn is made from at least 20% recycled material by weight. Synthetic suede and other materials blend vintage running vibes with fresh details. Nike Air cushioning delivers a feel-good forecast for the day."
+      "description": "Rooted to athletics DNA, the Air Max Dawn is made from at least 20% recycled material by weight. Synthetic suede and other materials blend vintage running vibes with fresh details. Nike Air cushioning delivers a feel-good forecast for the day.",
+      "views": 36,
+      "date": "2021-12-31"
     },
     {
       "id": 46,
@@ -1019,7 +1097,9 @@
       "type": "Sneakers",
       "rating": "3.7",
       "gender": "Men",
-      "description": "The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of greatness. Fresh colour trims the clean, classic materials, injecting some newness into the familiar design. An Air-Sole unit provides lightweight cushioning."
+      "description": "The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of greatness. Fresh colour trims the clean, classic materials, injecting some newness into the familiar design. An Air-Sole unit provides lightweight cushioning.",
+      "views": 57,
+      "date": "2021-12-19"
     },
     {
       "id": 47,
@@ -1038,7 +1118,9 @@
       "type": "Sneakers",
       "rating": "3.8",
       "gender": "Women",
-      "description": "Honouring a history rooted in tennis culture, the Nike Court Legacy Next Nature brings you a time-tested staple in a design that's made from at least 20% recycled materials by weight. Its pebbled leather and retro design let you blend sport and fashion. Do good by looking good."
+      "description": "Honouring a history rooted in tennis culture, the Nike Court Legacy Next Nature brings you a time-tested staple in a design that's made from at least 20% recycled materials by weight. Its pebbled leather and retro design let you blend sport and fashion. Do good by looking good.",
+      "views": 40,
+      "date": "2021-12-19"
     },
     {
       "id": 48,
@@ -1058,7 +1140,9 @@
       "type": "Sneakers",
       "rating": "3.9",
       "gender": "Women",
-      "description": "Rebuilt using insights from Grant Taylor, the Nike SB Zoom Blazer Low Pro GT is a fresh take on a favourite skate shoe. The updated design has higher taping to give you more durability. Suede creates a classic look that's built to last."
+      "description": "Rebuilt using insights from Grant Taylor, the Nike SB Zoom Blazer Low Pro GT is a fresh take on a favourite skate shoe. The updated design has higher taping to give you more durability. Suede creates a classic look that's built to last.",
+      "views": 55,
+      "date": "2021-12-18"
     },
     {
       "id": 49,
@@ -1079,7 +1163,8 @@
       "rating": "3.9",
       "gender": "Men",
       "description": "The Cruise Rider is here to disrupt and interrupt. With a stacked sole, pops of neon colour and a trailblazing 360-degree lace detail with a chunky back toggle, this shoe breaks new design ground – all while retaining the classic PUMA quality and comfort you know and love, with a full leather upper and a lightweight IMEVA midsole.",
-      "views": 1
+      "views": 61,
+      "date": "2021-12-18"
     },
     {
       "id": 50,
@@ -1101,7 +1186,8 @@
       "rating": "4.0",
       "gender": "Men",
       "description": "The Cruise Rider is here to disrupt and interrupt. With a stacked sole, pops of neon colour and a trailblazing 360-degree lace detail with a chunky back toggle, this shoe breaks new design ground – all while retaining the classic PUMA quality and comfort you know and love, with a full leather upper and a lightweight IMEVA midsole.",
-      "views": 1
+      "views": 59,
+      "date": "2021-12-21"
     },
     {
       "id": 51,
@@ -1123,7 +1209,8 @@
       "rating": "4.2",
       "gender": "Men",
       "description": "The Cruise Rider is here to disrupt and interrupt. With a stacked sole, pops of neon colour and a trailblazing 360-degree lace detail with a chunky back toggle, this shoe breaks new design ground – all while retaining the classic PUMA quality and comfort you know and love, with a full leather upper and a lightweight IMEVA midsole.",
-      "views": 1
+      "views": 42,
+      "date": "2021-12-15"
     },
     {
       "id": 52,
@@ -1146,7 +1233,8 @@
       "rating": "4.4",
       "gender": "Men",
       "description": "The Cruise Rider is here to disrupt and interrupt. With a stacked sole, pops of neon colour and a trailblazing 360-degree lace detail with a chunky back toggle, this shoe breaks new design ground – all while retaining the classic PUMA quality and comfort you know and love, with a full leather upper and a lightweight IMEVA midsole.",
-      "views": 1
+      "views": 54,
+      "date": "2021-12-14"
     },
     {
       "id": 53,
@@ -1168,7 +1256,8 @@
       "rating": "4.8",
       "gender": "Men",
       "description": "The Cruise Rider is here to disrupt and interrupt. With a stacked sole, pops of neon colour and a trailblazing 360-degree lace detail with a chunky back toggle, this shoe breaks new design ground – all while retaining the classic PUMA quality and comfort you know and love, with a full leather upper and a lightweight IMEVA midsole.",
-      "views": 1
+      "views": 19,
+      "date": "2021-12-12"
     },
     {
       "id": 54,
@@ -1191,7 +1280,8 @@
       "rating": "4.1",
       "gender": "Men",
       "description": "The Cruise Rider is here to disrupt and interrupt. With a stacked sole, pops of neon colour and a trailblazing 360-degree lace detail with a chunky back toggle, this shoe breaks new design ground – all while retaining the classic PUMA quality and comfort you know and love, with a full leather upper and a lightweight IMEVA midsole.",
-      "views": 1
+      "views": 31,
+      "date": "2021-12-12"
     },
     {
       "id": 55,
@@ -1214,7 +1304,8 @@
       "rating": "4.6",
       "gender": "Women",
       "description": "The Cruise Rider is here to disrupt and interrupt. With a stacked sole, pops of neon colour and a trailblazing 360-degree lace detail with a chunky back toggle, this shoe breaks new design ground – all while retaining the classic PUMA quality and comfort you know and love, with a full leather upper and a lightweight IMEVA midsole.",
-      "views": 0
+      "views": 60,
+      "date": "2021-12-11"
     },
     {
       "id": 56,
@@ -1237,7 +1328,8 @@
       "rating": "4.6",
       "gender": "Men",
       "description": "Built for the hardest-working player in baseball, the Harper 6 has a supportive, stable, transparent upper for more lock-down power.",
-      "views": 0
+      "views": 58,
+      "date": "2021-12-11"
     },
     {
       "id": 57,
@@ -1260,7 +1352,8 @@
       "rating": "4.6",
       "gender": "Men",
       "description": "Inspired by track spikes, the UA Blur is one of the fastest cleats on the field. It's unique build and flexible design helps you find that extra gear, so you can dominate every inch of the field.",
-      "views": 1
+      "views": 37,
+      "date": "2021-12-14"
     },
     {
       "id": 58,
@@ -1283,7 +1376,8 @@
       "rating": "4.6",
       "gender": "Men",
       "description": "Built specifically for going all out in the 400 and the 800, with a light, locked in fit, super-responsive toe-offs, and the UA HOVR™ cushioning you need to protect your feet from the qualifying rounds to the finals.",
-      "views": 0
+      "views": 40,
+      "date": "2021-12-13"
     },
     {
       "id": 59,
@@ -1306,7 +1400,8 @@
       "rating": "4.6",
       "gender": "Women",
       "description": "Pole vaulters and triple jumpers need the 3-point mid-foot stabilization we engineered into these spikes, with UA HOVR cushioning, so you're as good on your winning jump as you are when you're setting your marks.",
-      "views": 0
+      "views": 63,
+      "date": "2021-12-14"
     },
     {
       "id": 60,
@@ -1317,7 +1412,7 @@
         "https://underarmour.scene7.com/is/image/Underarmour/3021864-101_PAIR?rp=standard-30pad|pdpZoomDesktop&scl=0.50&fmt=jpg&qlt=85&resMode=sharp2&cache=on,on&bgc=f0f0f0&wid=1836&hei=1950&size=850,850",
         "https://underarmour.scene7.com/is/image/Underarmour/3021864-101_SOLE?rp=standard-30pad|pdpZoomDesktop&scl=0.50&fmt=jpg&qlt=85&resMode=sharp2&cache=on,on&bgc=f0f0f0&wid=1836&hei=1950&size=850,850"
       ],
-      "price": "17999",
+      "price": "10999",
       "size": [
         "6",
         "7",
@@ -1329,7 +1424,8 @@
       "rating": "4.6",
       "gender": "Women",
       "description": "Pole vaulters and triple jumpers need the 3-point mid-foot stabilization we engineered into these spikes, with UA HOVR cushioning, so you're as good on your winning jump as you are when you're setting your marks.",
-      "views": 0
+      "views": 6,
+      "date": "2021-12-17"
     }
   ]
 }
