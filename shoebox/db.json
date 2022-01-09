@@ -1,5 +1,18 @@
 {
   "users": [
+    {
+      "googleId": "115139332044016416063",
+      "imageUrl": "https://lh3.googleusercontent.com/a/AATXAJwopbm0QM1RtZ0_hfzmP4jbpxSGw7tThlAPNxXn=s96-c",
+      "email": "suryavardan.s19@iiits.in",
+      "name": "SURYAVARDAN S",
+      "givenName": "SURYAVARDAN",
+      "familyName": "S",
+      "id": "suryavardan.s19@iiits.in",
+      "since": "9/1/2022",
+      "liked": [],
+      "followed": [],
+      "orders": []
+    }
   ],
   "coupons": {
     "abc10": 10,
@@ -1170,11 +1183,22 @@
         "8"
       ],
       "type": "Sneakers",
-      "comments": [],
+      "comments": [
+        {
+          "by": "suryavardan.s19@iiits.in",
+          "byImage": "https://lh3.googleusercontent.com/a/AATXAJwopbm0QM1RtZ0_hfzmP4jbpxSGw7tThlAPNxXn=s96-c",
+          "text": "Great shoe"
+        },
+        {
+          "by": "suryavardan.s19@iiits.in",
+          "byImage": "https://lh3.googleusercontent.com/a/AATXAJwopbm0QM1RtZ0_hfzmP4jbpxSGw7tThlAPNxXn=s96-c",
+          "text": "Loved it"
+        }
+      ],
       "rating": "3.9",
       "gender": "Men",
       "description": "The Cruise Rider is here to disrupt and interrupt. With a stacked sole, pops of neon colour and a trailblazing 360-degree lace detail with a chunky back toggle, this shoe breaks new design ground – all while retaining the classic PUMA quality and comfort you know and love, with a full leather upper and a lightweight IMEVA midsole.",
-      "views": 62,
+      "views": 65,
       "date": "2021-12-18"
     },
     {
