@@ -69,7 +69,8 @@ const ProductDemo = ({ shoesValue, user }) => {
       },
       body: JSON.stringify(
         {
-          ...item
+          ...item,
+          "comments": [...item.comments, { by: user.email, byImage: user.imageUrl, text: data['comment'] }]
         }
       )
     })
