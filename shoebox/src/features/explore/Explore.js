@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { store } from '../../app/store';
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import ExploreItems from "./ExploreItems";
 import { Box, FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
 import ArrowDownwardOutlined from '@material-ui/icons/ArrowDownwardOutlined';
@@ -12,9 +11,8 @@ import { Button } from "react-bootstrap"
 import ExploreFilter from './ExploreFilter';
 import ReactPaginate from 'react-paginate';
 
-
 function Explore({ user, shoesValue, items, filtersortBy, filterBrands, filterGenders, filterTypes, brands }) {
-    const itemsPerPage = 8;
+    const itemsPerPage = 16;
     const [sortBy, setSortBy] = useState(filtersortBy);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -71,84 +69,56 @@ function Explore({ user, shoesValue, items, filtersortBy, filterBrands, filterGe
     return (
         <div>
             <Header />
-            <ExploreFilter show={show} handleClose={handleClose} filtering={filtering} brands={brands} filterBrands={filterBrands} filterGenders={filterGenders} filterTypes={filterTypes} />
-            <div className='row g-0 mb-5'>
-                <div className='col-lg-8 col-12 p-2 text-center'>
-                    <div className='row g-0'>
-                        <div className='col-4'>
-                        <Box sx={{ minWidth: 120 }}>
-                            <FormControl fullWidth>
-                                <InputLabel htmlFor="grouped-select">Sort By</InputLabel>
-                                <Select
-                                id="grouped-select"
-                                value={sortBy}
-                                label="Sort By"
-                                onChange={sorting}
-                                >
-                                <MenuItem value={"LATEST"}>Latest: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
-                                <MenuItem value={"priceDESC"}>Price: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
-                                <MenuItem value={"priceASC"}>Price: Lower to Higher <ArrowUpwardOutlined/></MenuItem>
-                                <MenuItem value={"viewsDESC"}>Views: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
-                                <MenuItem value={"viewsASC"}>Views: Lower to Higher <ArrowUpwardOutlined/></MenuItem>
-                                </Select>
-                            </FormControl>
-                            </Box>
-                        </div>
-                        <div className='col-8 p-1'>
-                            {/* <div className="d-grid gap-2 mb-3"> */}
-                            <Button variant="info" size="lg" className='float-right' onClick={handleShow}
-                                style={{ color: 'white', fontWeight: '200', fontFamily: 'sans-serif' }}>
-                                Filters
-                            </Button>
-                            {/* </div> */}
-                        </div>
-                    </div>
-                    <div className='row g-0'>
-                        <div className='col-lg-6 col-12 p-2'>
-                            {(currentItems && currentItems.length >= 1) ? <ExploreItems key={currentItems[0].id} item={currentItems[0]} brands={brands} user={user} /> :<p></p>}
-                            {(currentItems && currentItems.length >= 3) ? <ExploreItems key={currentItems[2].id} item={currentItems[2]} brands={brands} user={user} /> :<p></p>}
-                            {(currentItems && currentItems.length >= 5) ? <ExploreItems key={currentItems[4].id} item={currentItems[4]} brands={brands} user={user} /> :<p></p>}
-                            {(currentItems && currentItems.length >= 7) ? <ExploreItems key={currentItems[6].id} item={currentItems[6]} brands={brands} user={user} /> :<p></p>}
-                        </div>
-                        <div className='col-md-6 col-12 p-2'>
-                            {(currentItems && currentItems.length >= 2) ? <ExploreItems key={currentItems[1].id} item={currentItems[1]} brands={brands} user={user} /> :<p></p>}
-                            {(currentItems && currentItems.length >= 4) ? <ExploreItems key={currentItems[3].id} item={currentItems[3]} brands={brands} user={user} /> :<p></p>}
-                            {(currentItems && currentItems.length >= 6) ? <ExploreItems key={currentItems[5].id} item={currentItems[5]} brands={brands} user={user} /> :<p></p>}
-                            {(currentItems && currentItems.length >= 8) ? <ExploreItems key={currentItems[7].id} item={currentItems[7]} brands={brands} user={user} /> :<p></p>}
-                        </div>
-                    </div>
-                </div>
-                <div className='col-md-4 col-12 p-2'>
-                    <ReactPaginate
-                        nextLabel=">>"
-                        onPageChange={handlePageClick}
-                        pageRangeDisplayed={3}
-                        marginPagesDisplayed={2}
-                        pageCount={pageCount}
-                        previousLabel="<<"
-                        pageClassName="page-item"
-                        pageLinkClassName="page-link"
-                        previousClassName="page-item"
-                        previousLinkClassName="page-link"
-                        nextClassName="page-item"
-                        nextLinkClassName="page-link"
-                        breakLabel="..."
-                        breakClassName="page-item"
-                        breakLinkClassName="page-link"
-                        containerClassName="pagination"
-                        activeClassName="active"
-                        renderOnZeroPageCount={null}
-                    />
-                    <TwitterTimelineEmbed
-                        sourceType="profile"
-                        screenName="shoesdotcom"
-                        theme="dark"
-                        options={{ height: "100vw" }}
-
-                    />
-                </div>
+            <div className='d-flex justify-content-center'>
+                <h4 className='display-4'>Explore</h4>
             </div>
-
+            <ExploreFilter show={show} handleClose={handleClose} filtering={filtering} brands={brands} filterBrands={filterBrands} filterGenders={filterGenders} filterTypes={filterTypes} />
+            <div className='d-flex m-3 flex-wrap justify-content-around'>
+                <Box className='mr-3' sx={{ minWidth: 120 }}>
+                <FormControl fullWidth>
+                    <InputLabel htmlFor="grouped-select">Sort By</InputLabel>
+                    <Select
+                    id="grouped-select"
+                    value={sortBy}
+                    label="Sort By"
+                    onChange={sorting}
+                    >
+                    <MenuItem value={"LATEST"}>Latest: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
+                    <MenuItem value={"priceDESC"}>Price: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
+                    <MenuItem value={"priceASC"}>Price: Lower to Higher <ArrowUpwardOutlined/></MenuItem>
+                    <MenuItem value={"viewsDESC"}>Views: Higher to Lower <ArrowDownwardOutlined/></MenuItem>
+                    <MenuItem value={"viewsASC"}>Views: Lower to Higher <ArrowUpwardOutlined/></MenuItem>
+                    </Select>
+                </FormControl>
+                </Box>
+                <ReactPaginate
+                    nextLabel="Next"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={2}
+                    pageCount={pageCount}
+                    previousLabel="Previous"
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    nextLinkClassName="page-link"
+                    breakLabel="..."
+                    breakClassName="page-item"
+                    breakLinkClassName="page-link"
+                    containerClassName="pagination h5"
+                    activeClassName="active"
+                    renderOnZeroPageCount={null}
+                />
+                <Button variant="info" className='h5' onClick={handleShow}
+                    style={{ color: 'white'}}>
+                    Filters
+                </Button>
+            </div>
+            <div className='d-flex flex-wrap justify-content-center'>
+                    {(currentItems) ? currentItems.map((item) => <ExploreItems key={item.id} item={item} brands={brands} user={user} />) :<p></p>}
+            </div>
             <Footer />
         </div >
     )

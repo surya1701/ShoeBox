@@ -39,6 +39,7 @@ function Header({ cartValue, user }) {
             </Nav.Link>
             <Nav.Link as={Link} to="/" style={{ color: '#265db5', textDecoration: 'none' }}>Home</Nav.Link>
             <Nav.Link as={Link} to="/explore" style={{ color: '#265db5', textDecoration: 'none' }}>Explore</Nav.Link>
+            <Nav.Link as={Link} to="/posts" style={{ color: '#265db5', textDecoration: 'none' }}>Posts</Nav.Link>
             {(user) ?
               <Nav.Link as={Link} to="/profile" style={{ color: '#265db5', textDecoration: 'none' }}>Profile <PersonOutline /></Nav.Link> : <p></p>}
           </Nav>
