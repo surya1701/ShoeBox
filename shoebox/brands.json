@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Adidas",
+        "Followers": 1,
+        "Posts": 12,
+        "logo": "https://greepx.com/wp-content/uploads/2020/02/adidas-wallpapers.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Nike",
+        "Followers": 2,
+        "Posts": 12,
+        "logo": "https://wallpaperaccess.com/full/135853.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Puma",
+        "Followers": 3,
+        "Posts": 12,
+        "logo": "https://logodix.com/logo/487483.png"
+    },
+    {
+        "id": 4,
+        "name": "Reebok",
+        "Followers": 4,
+        "Posts": 12,
+        "logo": "https://wallpaperaccess.com/full/1174929.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Under Armour",
+        "Followers": 5,
+        "Posts": 7,
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Under_armour_logo.svg/800px-Under_armour_logo.svg.png"
+    }
+]
