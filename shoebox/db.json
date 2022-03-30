@@ -22,11 +22,14 @@
       "name": "Piyush Kumar",
       "givenName": "Piyush",
       "familyName": "Kumar",
-      "id": "kumarpiyushsingh9311@gmail.com",
       "since": "9/1/2022",
       "liked": [],
-      "followed": [],
-      "orders": []
+      "orders": [],
+      "followed": [
+        "Adidas",
+        "Nike"
+      ],
+      "id": "kumarpiyushsingh9311@gmail.com"
     }
   ],
   "coupons": {

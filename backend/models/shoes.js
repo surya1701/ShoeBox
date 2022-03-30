@@ -16,53 +16,54 @@ const shoesSchema = new mongoose.Schema({
     //     "views": 2,
     //     "date": "2022-01-02"
     //   }
-    name:{
+    name: {
         type: String,
         required: true
     },
-    brand:{
+    brand: {
         type: String,
         required: true
     },
-    image:{
-        type: [String],
+    image: {
+        type: Array,
         required: true
     },
-    size:{
-        type: [String],
+    size: {
+        type: Array,
         required: true
     },
-    comments:{
-        type: [String],
+    comments: {
+        type: Array,
         required: true
     },
-    price:{
+    price: {
         type: Number,
         required: true
     },
-    type:{
+    type: {
         type: String,
         required: true
     },
-    rating:{
+    rating: {
         type: Number,
         required: true
     },
-    gender:{
+    gender: {
         type: String,
         required: true
     },
-    description:{
+    description: {
         type: String,
         required: true
     },
-    views:{
+    views: {
         type: Number,
         required: true
     },
-    date:{
-        type: String,
-        required: true
+    date: {
+        type: Date,
+        required: true,
+        default: Date.now()
     }
 
 })
