@@ -12,6 +12,7 @@ import Profile from './features/Profile/Profile'
 import { store } from "./app/store";
 
 import ExploreByName from './features/explore/ExploreByName';
+import UserProfile from './features/Profile/UserProfile';
 
 /*App.js - App component is the main component rendered in index.html using index.js 
 All the route links are rendered in app component, using Route component of react-router-dom library*/
@@ -46,6 +47,7 @@ function App() {
             <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/product" element={<ProductDemo />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/user" element={<UserProfile />} />
             <Route path="/brand/:value" element={<ExploreByName brands={brands.map((b) => b.name)} />} />
           </Routes>
         </Router> : <p></p>

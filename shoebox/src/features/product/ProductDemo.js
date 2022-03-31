@@ -7,7 +7,7 @@ import ItemDisplay from "../../components/ItemDisplay";
 import FormInputRadio from "../../components/SizeForm";
 import { Accordion, Button, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import Checkbox from '@material-ui/core/Checkbox';
@@ -70,11 +70,11 @@ const ProductDemo = ({ shoesValue, user }) => {
       body: JSON.stringify(
         {
           ...item,
-          "comments": [...item.comments, { by: user.email, byImage: user.imageUrl, text: data['comment'] }]
+          "comments": [...item.comments, { by: user.givenName, byImage: user.imageUrl, text: data['comment'] }]
         }
       )
     })
-      .then(store.dispatch({ type: 'COMMENT', payload: { key: item._id, email: user.email, image: user.imageUrl, comment: data['comment'] } }))
+      .then(store.dispatch({ type: 'COMMENT', payload: { key: item._id, email: user.givenName, image: user.imageUrl, comment: data['comment'] } }))
   }
   useEffect(() => {
     const { key } = queryString.parse(location.search);
@@ -154,7 +154,11 @@ const ProductDemo = ({ shoesValue, user }) => {
                       <div className="flex">
                         <p>
                           <img className={"rounded-circle"} width={"15px"} src={c.byImage} alt={"user-profile"} />
-                          &nbsp;<b>{c.by}</b>&nbsp;{c.text}
+                          &nbsp;
+                          <Link to={{ pathname: "/user", search: "?username="+c.by }} style={{textDecoration: "none", color: "black"}}>
+                            <b>{c.by}</b>    
+                          </Link>
+                          &nbsp;{c.text}
                         </p>
                       </div>)}
                   </div>
