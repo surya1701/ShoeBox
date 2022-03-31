@@ -14,18 +14,18 @@ function ExploreItems({ item, brands, user }) {
     const [show, setShow] = useState(false);
     const [like, setLike] = useState(false);
     if (!like && user !== null)
-        fetch("http://localhost:3001/users/" + user.email)
+        fetch("http://localhost:3001/users/" + user.givenName)
             .then(res => res.json())
             .then(result => {
                 if (result) {
-                    setLike(result.liked.includes(item.id));
+                    setLike(result.liked.includes(item._id));
                 }
             })
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleLike = (event) => {
         if (event.target.checked) {
-            fetch("http://localhost:3001/users/" + user.email, {
+            fetch("http://localhost:3001/users/" + user.givenName, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -33,14 +33,14 @@ function ExploreItems({ item, brands, user }) {
                 body: JSON.stringify(
                     {
                         ...user,
-                        "liked": [...user.liked, item.id]
+                        "liked": [...user.liked, item._id]
                     }
                 )
             });
-            store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: [...user.liked, item.id] } } });
+            store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: [...user.liked, item._id] } } });
             setLike(true);
         } else {
-            fetch("http://localhost:3001/users/" + user.email, {
+            fetch("http://localhost:3001/users/" + user.givenName, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -48,11 +48,11 @@ function ExploreItems({ item, brands, user }) {
                 body: JSON.stringify(
                     {
                         ...user,
-                        "liked": user.liked.filter((i) => i !== item.id)
+                        "liked": user.liked.filter((i) => i !== item._id)
                     }
                 )
             });
-            store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: user.liked.filter((i) => i !== item.id) } } });
+            store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: user.liked.filter((i) => i !== item._id) } } });
             setLike(false);
         }
     }
@@ -77,7 +77,7 @@ function ExploreItems({ item, brands, user }) {
                 <div className="card__info card__info-hover">
                     <span className="card__category" onClick={handleShow} style={{"cursor":"pointer"}}>{item.brand}</span>
                     <div>
-                    <Link to={{ pathname: "/product", search: "?key=" + item.id }} style={{textDecoration: 'none'}}>
+                    <Link to={{ pathname: "/product", search: "?key=" + item._id }} style={{textDecoration: 'none'}}>
                         <h3 className="card__title">{item.name}</h3>
                     </Link>
                     </div>

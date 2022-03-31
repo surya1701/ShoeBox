@@ -24,7 +24,7 @@ const ProductDemo = ({ shoesValue, user }) => {
   const [like, setLike] = useState(false);
   const handleLike = (event) => {
     if (event.target.checked) {
-      fetch("http://localhost:3001/users/" + user.email, {
+      fetch("http://localhost:3001/users/" + user.givenName, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -32,14 +32,14 @@ const ProductDemo = ({ shoesValue, user }) => {
         body: JSON.stringify(
           {
             ...user,
-            "liked": [...user.liked, item.id]
+            "liked": [...user.liked, item._id]
           }
         )
       });
-      store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: [...user.liked, item.id] } } });
+      store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: [...user.liked, item._id] } } });
       setLike(true);
     } else {
-      fetch("http://localhost:3001/users/" + user.email, {
+      fetch("http://localhost:3001/users/" + user.givenName, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -47,11 +47,11 @@ const ProductDemo = ({ shoesValue, user }) => {
         body: JSON.stringify(
           {
             ...user,
-            "liked": user.liked.filter((i) => i !== item.id)
+            "liked": user.liked.filter((i) => i !== item._id)
           }
         )
       });
-      store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: user.liked.filter((i) => i !== item.id) } } });
+      store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: user.liked.filter((i) => i !== item._id) } } });
       setLike(false);
     }
   }
@@ -62,7 +62,7 @@ const ProductDemo = ({ shoesValue, user }) => {
     />)
   };
   const handleComment = (data) => {
-    fetch("http://localhost:3001/shoes/" + item.id, {
+    fetch("http://localhost:3001/shoes/" + item._id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -74,19 +74,19 @@ const ProductDemo = ({ shoesValue, user }) => {
         }
       )
     })
-      .then(store.dispatch({ type: 'COMMENT', payload: { key: item.id, email: user.email, image: user.imageUrl, comment: data['comment'] } }))
+      .then(store.dispatch({ type: 'COMMENT', payload: { key: item._id, email: user.email, image: user.imageUrl, comment: data['comment'] } }))
   }
   useEffect(() => {
     const { key } = queryString.parse(location.search);
     shoesValue.forEach(element => {
-      if (parseInt(element.id) === parseInt(key)) {
+      if (element._id === key) {
         setItem({ ...element, views: parseInt(element.views + 1) });
         if (user !== null)
-          fetch("http://localhost:3001/users/" + user.email)
+          fetch("http://localhost:3001/users/" + user.givenName)
             .then(res => res.json())
             .then(result => {
               if (result) {
-                setLike(result.liked.includes(element.id));
+                setLike(result.liked.includes(element._id));
               }
             })
       }
@@ -98,7 +98,7 @@ const ProductDemo = ({ shoesValue, user }) => {
     setTimeout(() => {
       setaddedToCart(false);
     }, 3000);
-    fetch("http://localhost:3001/shoes/" + item.id, {
+    fetch("http://localhost:3001/shoes/" + item._id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -109,8 +109,8 @@ const ProductDemo = ({ shoesValue, user }) => {
         }
       )
     })
-      .then(store.dispatch({ type: 'INCREMENT_VIEWS', payload: { key: item.id } }))
-    store.dispatch({ type: 'ADD_TO_CART', payload: { id: item.id, size: data['size'] } });
+      .then(store.dispatch({ type: 'INCREMENT_VIEWS', payload: { key: item._id } }))
+    store.dispatch({ type: 'ADD_TO_CART', payload: { id: item._id, size: data['size'] } });
   }
 
   return (
@@ -185,7 +185,7 @@ const ProductDemo = ({ shoesValue, user }) => {
         <Container>
           <h4 className="ml-3">Others in {item.brand}</h4>
           <Content>
-            {shoesValue.filter((i) => (i.brand === item.brand && i.name !== item.name)).slice(-4).map((i) => <ItemDisplay key={i.id} item={{ ...i }} />)}
+            {shoesValue.filter((i) => (i.brand === item.brand && i.name !== item.name)).slice(-4).map((i) => <ItemDisplay key={i._id} item={{ ...i }} />)}
           </Content>
         </Container>
         <Divider />
@@ -200,7 +200,7 @@ const ProductDemo = ({ shoesValue, user }) => {
         <Container>
           <h4 className="ml-3">Other Products</h4>
           <Content>
-            {shoesValue.slice(-4).map((i) => <ItemDisplay key={i.id} item={{ ...i }} />)}
+            {shoesValue.slice(-4).map((i) => <ItemDisplay key={i._id} item={{ ...i }} />)}
           </Content>
         </Container>
         <Divider />

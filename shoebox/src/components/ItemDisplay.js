@@ -10,14 +10,14 @@ const ItemDisplay = ({item}) => {
     (typeof product.image === 'string') ?
     <>
         <Wrap>
-        <Link to={{ pathname: "/product", search: "?key="+product.id }}>
+        <Link to={{ pathname: "/product", search: "?key="+product._id }}>
             <img src={product.image} alt={"product-image-"+product.id}/>
         </Link>
         </Wrap>
     </> :
     <> 
         <Wrap>
-        <Link to={{ pathname: "/product", search: "?key="+product.id }}>
+        <Link to={{ pathname: "/product", search: "?key="+product._id }}>
             <img src={product.image[0]} alt={"product-image-"+product.id}/>
         </Link>
         </Wrap>

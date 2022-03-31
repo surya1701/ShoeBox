@@ -7,10 +7,14 @@ import Header from "../../components/Header";
 import ItemDisplay from '../../components/ItemDisplay';
 import './style.css';
 import styled from 'styled-components'
+import { Edit } from '@material-ui/icons';
+import { Modal } from "react-bootstrap";
 import { Link, Navigate } from 'react-router-dom';
 
 const Profile = ({user, ShoesData}) => {
     const [brands, setBrands] = useState(null);
+  const [changeImage, setChangeImage] = useState(false);
+
     if (! brands)
     fetch("http://localhost:3001/brands")
     .then(res => res.json())
@@ -22,6 +26,12 @@ const Profile = ({user, ShoesData}) => {
         <>
         <Header/>
         {(user) ?
+        <>
+        <Modal show={changeImage} onHide={() => setChangeImage(false)}>
+            <Modal.Header closeButton>
+            <Modal.Title>Image input form</Modal.Title>
+            </Modal.Header>
+        </Modal>
         <div className="row g-0">
             <div className="col-12">
                 <div className="card">
@@ -39,8 +49,9 @@ const Profile = ({user, ShoesData}) => {
                                             height: 150,
                                             objectFit: 'cover',
                                         }}
-                                        className="img-thumbnail"
+                                        className="img-thumbnail mr-2"
                                     />
+                                    <div style={{cursor: "pointer", display: 'inline'}} onClick={(e) => setChangeImage(true)}><Edit/></div>
                                 </div>
                             </div>
                         </div>
@@ -83,13 +94,13 @@ const Profile = ({user, ShoesData}) => {
                                     <Tab eventKey="likedShoes" title="Liked">
                                         <Container>
                                         <Content>
-                                        {(user) ? ShoesData.filter((item) => user.liked.includes(item.id)).map((item) => <ItemDisplay key={item.id} item={{...item}}/>):<p>No Liked Shoes</p>}
+                                        {(user) ? ShoesData.filter((item) => user.liked.includes(item._id)).map((item) => <ItemDisplay key={item._id} item={{...item}}/>):<p>No Liked Shoes</p>}
                                         </Content>
                                         </Container>
                                     </Tab>
                                     <Tab eventKey="orders" title="Orders">
                                         {(user) ? user.orders.map((o) => {
-                                            return o.cart.map((item)=><p><h6>{o.date}</h6> <h4><Link to={{ pathname: "/product", search: "?key=" + item.id }}>{item.name}: Size {item.size} x{item.qty}</Link></h4></p>)
+                                            return o.cart.map((item)=><p><h6>{o.date}</h6> <h4><Link to={{ pathname: "/product", search: "?key=" + item._id }}>{item.name}: Size {item.size} x{item.qty}</Link></h4></p>)
                                         }):<p></p>}
                                     </Tab>
                                 </Tabs>
@@ -98,7 +109,8 @@ const Profile = ({user, ShoesData}) => {
                     </div>
                 </div>
             </div>
-        </div> : <Navigate to="/"/>}
+        </div>
+        </> : <Navigate to="/"/>}
         </>
     );
 };

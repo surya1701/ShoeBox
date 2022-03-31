@@ -68,7 +68,7 @@ const Confirmation = () => {
         <p>Email: {data.data["email"]}</p>
         <p>Final Amount: &#8377; {amount}</p>
         <ul>
-        {data.cart.map((item) => <li key={item.id}>{item["name"]}: Size {item["size"]} x {item["qty"]}</li>)}
+        {data.cart.map((item) => <li key={item._id}>{item["name"]}: Size {item["size"]} x {item["qty"]}</li>)}
         </ul>
         <p className="lead">
             <a href="/" >Home</a>

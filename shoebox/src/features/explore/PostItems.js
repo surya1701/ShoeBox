@@ -18,7 +18,7 @@ function PostItems({ item, brands, user }) {
                         onClick={handleShow} role={"button"} />
                     <Card.Text className='h5' style={{float: "right"}}>{item.views} Views</Card.Text>
                 </Card.ImgOverlay>
-                <Link to={{ pathname: "/product", search: "?key=" + item.id }} style={{textDecoration: 'none'}}>
+                <Link to={{ pathname: "/product", search: "?key=" + item._id }} style={{textDecoration: 'none'}}>
                     <Card.Img variant="top" style={{ height: "60vh", objectFit: "cover" }} src={"https://pbs.twimg.com/media/ERZaFQ9W4AAyzEo.jpg"}/>
                 </Link>
                 <Card.Body style={{ zIndex: "2", height: "15vh" }}>

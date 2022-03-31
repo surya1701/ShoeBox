@@ -11,7 +11,7 @@ const BrandPage = ({brand, brands, show, handleClose, user}) => {
     const [follow, setFollow] = useState(false);
 
     if(!follow && user !== null)
-    fetch("http://localhost:3001/users/"+user.email)
+    fetch("http://localhost:3001/users/"+user.givenName)
     .then(res => res.json())
     .then(result => {
         if(result) {
@@ -19,7 +19,7 @@ const BrandPage = ({brand, brands, show, handleClose, user}) => {
         }})
     const followBrand = (event, type) => {
         if (type === "add") {
-            fetch("http://localhost:3001/users/"+user.email, {
+            fetch("http://localhost:3001/users/"+user.givenName, {
                 method: "PUT",
                 headers: {
                 "Content-Type": "application/json"
@@ -33,7 +33,7 @@ const BrandPage = ({brand, brands, show, handleClose, user}) => {
             store.dispatch({type:'GOOGLE_AUTH_SUCCESS', payload: {user: {...user, followed: [...user.followed, brand.name]}}});
             setFollow(true);
         } else {
-            fetch("http://localhost:3001/users/"+user.email, {
+            fetch("http://localhost:3001/users/"+user.givenName, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"

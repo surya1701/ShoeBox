@@ -117,7 +117,7 @@ function Explore({ user, shoesValue, items, filtersortBy, filterBrands, filterGe
                 </Button>
             </div>
             <div className='d-flex flex-wrap justify-content-center'>
-                    {(currentItems) ? currentItems.map((item) => <ExploreItems key={item.id} item={item} brands={brands} user={user} />) :<p></p>}
+                    {(currentItems) ? currentItems.map((item) => <ExploreItems key={item._id} item={item} brands={brands} user={user} />) :<p></p>}
             </div>
             <Footer />
         </div >

@@ -5,6 +5,10 @@ const usersSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    givenName: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true
@@ -13,16 +17,23 @@ const usersSchema = new mongoose.Schema({
         type: String,
 
     },
-    address: {
+    liked: {
         type: Array,
-        required: true
+        required: true,
+        default: []
     },
-    contact: {
-        type: Number,
-        required: true
+    followed: {
+        type: Array,
+        required: true,
+        default: []
     },
-    pin: {
-        type: Number,
+    orders: {
+        type: Array,
+        required: true,
+        default: []
+    },
+    since: {
+        type: String,
         required: true
     }
 })

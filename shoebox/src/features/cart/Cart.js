@@ -13,19 +13,20 @@ const Cart = ({ cartValue, discounted, user }) => {
     const [totalItems, setTotalItems] = useState(0);
     // function to apply coupouns
     const handleCoupon = (data) => {
-        fetch("http://localhost:3001/coupons")
-            .then(res => res.json())
+        fetch("http://localhost:3001/coupons/"+ data.coupon)
             .then(result => {
-                if (result) {
-                    if (Object.keys(result).includes(data.coupon)) {
-                        if (discounted === null) store.dispatch({ type: 'DISCOUNT', payload: { price: totalPrice, discount: result[data.coupon] } });
+                if (result.status === 200) {
+                    result.json()
+                    .then(result => {
+                        console.log(result.discount);
+                        if (discounted === null) store.dispatch({ type: 'DISCOUNT', payload: { price: totalPrice, discount: result.discount } });
                         else {
                             store.dispatch({ type: 'DISCOUNT', payload: { price: totalPrice, discount: 0 } });
-                            store.dispatch({ type: 'DISCOUNT', payload: { price: oldPrice, discount: result[data.coupon] } });
+                            store.dispatch({ type: 'DISCOUNT', payload: { price: oldPrice, discount: result.discount } });
                         }
-                    } else {
-                        store.dispatch({ type: 'DISCOUNT', payload: { price: totalPrice, discount: 0 } });
-                    }
+                    })
+                } else {
+                    store.dispatch({ type: 'DISCOUNT', payload: { price: totalPrice, discount: 0 } });
                 }
             })
     };
@@ -65,7 +66,7 @@ const Cart = ({ cartValue, discounted, user }) => {
                             totalItems > 0 ?
                                 <div className={"container"}>
                                     <div className="card card-body border-0">
-                                        {cartValue.map(product => <CartView key={product.id} product={product} />)}
+                                        {cartValue.map(product => <CartView key={product._id} product={product} />)}
                                     </div>
                                 </div>
                                 :

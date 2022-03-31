@@ -5,11 +5,11 @@ const coupounsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    amount: {
+    discount: {
         type: Number,
         required: true
     },
-    expirey: {
+    expiry: {
         type: Date,
         required: true,
         default: Date.now()

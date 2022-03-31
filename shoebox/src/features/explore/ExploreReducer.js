@@ -114,12 +114,12 @@ const ExploreReducer = (state = initialState, action)=>{
             return {...state, sortBy: action.payload.by, items: sort([...state.items], action.payload.by)}
         case actionTypes.INCREMENT_VIEWS:
             return {...state,
-                ShoesData: state.ShoesData.map((i) => (i.id === action.payload.key)? {...i, views: i.views+1}: i),
-                items: state.items.map((i) => (i.id === action.payload.key)? {...i, views: i.views+1}: i)}
+                ShoesData: state.ShoesData.map((i) => (i._id === action.payload.key)? {...i, views: i.views+1}: i),
+                items: state.items.map((i) => (i._id === action.payload.key)? {...i, views: i.views+1}: i)}
         case actionTypes.COMMENT:
             return {...state,
-                ShoesData: state.ShoesData.map((i) => (i.id === action.payload.key)? {...i, comments: [...i.comments, {by: action.payload.email, byImage: action.payload.image, text: action.payload.comment}]}: i),
-                items: state.items.map((i) => (i.id === action.payload.key)? {...i, comments: [...i.comments, {by: action.payload.email, byImage: action.payload.image, text: action.payload.comment}]}: i)}
+                ShoesData: state.ShoesData.map((i) => (i._id === action.payload.key)? {...i, comments: [...i.comments, {by: action.payload.email, byImage: action.payload.image, text: action.payload.comment}]}: i),
+                items: state.items.map((i) => (i._id === action.payload.key)? {...i, comments: [...i.comments, {by: action.payload.email, byImage: action.payload.image, text: action.payload.comment}]}: i)}
         default: return state
     }
 }

@@ -17,7 +17,7 @@ function Posts({ user, shoesValue, items, filtersortBy, filterBrands, filterGend
                     <div className='row g-0'>
                         {(items) ? items.map((item) =>
                         <div className='col-lg-6 col-12 p-2'>
-                            <PostItems key={item.id} item={item} brands={brands} user={user} />
+                            <PostItems key={item._id} item={item} brands={brands} user={user} />
                         </div>
                         ) :<p></p>}
                     </div>

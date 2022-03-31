@@ -20,7 +20,7 @@ const CartView = ({ product }) => {
     return (
         <div className="row no-gutters py-2">
             <div className="col-sm-2 p-2">
-                <Link to={{ pathname: "/product", search: "?key=" + product.id }}>
+                <Link to={{ pathname: "/product", search: "?key=" + product._id }}>
                     <img
                         alt={product.name}
                         style={{ margin: "0 auto", maxHeight: "200px" }}
@@ -39,7 +39,7 @@ const CartView = ({ product }) => {
             </div>
             <div className="col-sm-4 p-2 text-right">
                 <button
-                    onClick={() => addToCart(product.id, product.size)}
+                    onClick={() => addToCart(product._id, product.size)}
                     className="btn btn-primary btn-sm mr-2 mb-1">
                     <PlusCircleIcon width={"20px"} />
                 </button>
@@ -47,14 +47,14 @@ const CartView = ({ product }) => {
                 {
                     product.qty > 1 &&
                     <button
-                        onClick={() => reduceQuantity(product.id, product.size)}
+                        onClick={() => reduceQuantity(product._id, product.size)}
                         className="btn btn-danger btn-sm mb-1">
                         <MinusCircleIcon width={"20px"} />
                     </button>
                 }
 
                 <button
-                    onClick={() => removeFromCart(product.id, product.size)}
+                    onClick={() => removeFromCart(product._id, product.size)}
                     className="btn btn-danger btn-sm mb-1">
                     <TrashIcon width={"20px"} />
                 </button>

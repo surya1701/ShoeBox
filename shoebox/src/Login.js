@@ -21,45 +21,45 @@ function Login() {
     const [showlogoutButton, setShowlogoutButton] = useState(false);
     const onLoginSuccess = (res) => {
         // console.log('Login Success:', res.profileObj);
-        fetch("http://localhost:3001/users/" + res.profileObj.email)
-            .then(res => res.json())
+        fetch("http://localhost:3001/users/" + res.profileObj.givenName)
+        .then((response) => {
+            if(response.status === 400) {
+                const today = new Date();
+                const date = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
+                fetch("http://localhost:3001/users", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(
+                        {
+                            ...res.profileObj,
+                            "since": date,
+                            "liked": [],
+                            "followed": [],
+                            "orders": []
+                        }
+                    )
+                });
+            }
+        })
+        .then((response) => {
+            fetch("http://localhost:3001/users/" + res.profileObj.givenName)
+            .then(result => result.json())
             .then(result => {
-                if (!result.name) {
-                    const today = new Date();
-                    const date = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
-                    fetch("http://localhost:3001/users", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(
-                            {
-                                ...res.profileObj,
-                                "id": res.profileObj.email,
-                                "since": date,
-                                "liked": [],
-                                "followed": [],
-                                "orders": []
-                            }
-                        )
-                    });
-                }
-                fetch("http://localhost:3001/users/" + res.profileObj.email)
-                    .then(res => res.json())
-                    .then(result => {
-                        if (result) store.dispatch({
-                            type: 'GOOGLE_AUTH_SUCCESS', payload:
-                            {
-                                user: {
-                                    ...res.profileObj, since: result.since,
-                                    liked: (result.liked) ? result.liked : [],
-                                    orders: (result.orders) ? result.orders : [],
-                                    followed: (result.followed) ? result.followed : []
-                                }
-                            }
-                        })
-                    })
+                if (result) store.dispatch({
+                    type: 'GOOGLE_AUTH_SUCCESS', payload:
+                    {
+                        user: {
+                            ...res.profileObj, since: result.since,
+                            liked: (result.liked) ? result.liked : [],
+                            orders: (result.orders) ? result.orders : [],
+                            followed: (result.followed) ? result.followed : []
+                        }
+                    }
+                })
             })
+        })
         setShowloginButton(false);
         setShowlogoutButton(true);
     };
