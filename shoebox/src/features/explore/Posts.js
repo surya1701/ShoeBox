@@ -4,7 +4,7 @@ import Footer from '../../components/Footer'
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import PostItems from "./PostItems";
 
-function Posts({ user, shoesValue, items, filtersortBy, filterBrands, filterGenders, filterTypes, brands }) {
+function Posts({ user, posts, brands }) {
 
     return (
         <div>
@@ -15,9 +15,9 @@ function Posts({ user, shoesValue, items, filtersortBy, filterBrands, filterGend
             <div className='row g-0 mb-5'>
                 <div className='col-lg-8 col-12 p-2 text-center'>
                     <div className='row g-0'>
-                        {(items) ? items.map((item) =>
+                        {(posts) ? posts.map((post) =>
                         <div className='col-lg-6 col-12 p-2'>
-                            <PostItems key={item._id} item={item} brands={brands} user={user} />
+                            <PostItems key={post.shoe_ID} post={post} brands={brands} user={user} />
                         </div>
                         ) :<p></p>}
                     </div>
@@ -40,12 +40,7 @@ function Posts({ user, shoesValue, items, filtersortBy, filterBrands, filterGend
 const mapStateToProps = (state) => {
     return {
         user: state.auth.googleUser,
-        shoesValue: state.explore.ShoesData,
-        items: state.explore.items,
-        filtersortBy: state.explore.sortBy,
-        filterBrands: state.explore.brands,
-        filterGenders: state.explore.genders,
-        filterTypes: state.explore.types
+        posts: state.explore.posts
     }
 }
 export default connect(mapStateToProps)(Posts);

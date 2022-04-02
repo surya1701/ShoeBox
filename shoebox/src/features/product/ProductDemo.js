@@ -24,7 +24,7 @@ const ProductDemo = ({ shoesValue, user }) => {
   const [like, setLike] = useState(false);
   const handleLike = (event) => {
     if (event.target.checked) {
-      fetch("http://localhost:3001/users/" + user.givenName, {
+      fetch("http://localhost:3001/users/" + user.googleId, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -39,7 +39,7 @@ const ProductDemo = ({ shoesValue, user }) => {
       store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: [...user.liked, item._id] } } });
       setLike(true);
     } else {
-      fetch("http://localhost:3001/users/" + user.givenName, {
+      fetch("http://localhost:3001/users/" + user.googleId, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -70,11 +70,11 @@ const ProductDemo = ({ shoesValue, user }) => {
       body: JSON.stringify(
         {
           ...item,
-          "comments": [...item.comments, { by: user.givenName, byImage: user.imageUrl, text: data['comment'] }]
+          "comments": [...item.comments, { by: user.givenName, byID: user.googleId, byImage: user.imageUrl, text: data['comment'] }]
         }
       )
     })
-      .then(store.dispatch({ type: 'COMMENT', payload: { key: item._id, email: user.givenName, image: user.imageUrl, comment: data['comment'] } }))
+      .then(store.dispatch({ type: 'COMMENT', payload: { key: item._id, email: user.givenName, byID: user.googleId, image: user.imageUrl, comment: data['comment'] } }))
   }
   useEffect(() => {
     const { key } = queryString.parse(location.search);
@@ -82,7 +82,7 @@ const ProductDemo = ({ shoesValue, user }) => {
       if (element._id === key) {
         setItem({ ...element, views: parseInt(element.views + 1) });
         if (user !== null)
-          fetch("http://localhost:3001/users/" + user.givenName)
+          fetch("http://localhost:3001/users/" + user.googleId)
             .then(res => res.json())
             .then(result => {
               if (result) {
@@ -155,8 +155,8 @@ const ProductDemo = ({ shoesValue, user }) => {
                         <p>
                           <img className={"rounded-circle"} width={"15px"} src={c.byImage} alt={"user-profile"} />
                           &nbsp;
-                          <Link to={{ pathname: "/user", search: "?username="+c.by }} style={{textDecoration: "none", color: "black"}}>
-                            <b>{c.by}</b>    
+                          <Link to={{ pathname: "/user", search: "?id="+c.byID }} style={{textDecoration: "none", color: "black"}}>
+                            <b>{c.by}</b>
                           </Link>
                           &nbsp;{c.text}
                         </p>

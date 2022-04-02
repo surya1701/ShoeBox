@@ -5,6 +5,10 @@ const usersSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    googleId: {
+        type: String,
+        required: true
+    },
     givenName: {
         type: String,
         required: true

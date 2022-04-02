@@ -14,7 +14,7 @@ function ExploreItems({ item, brands, user }) {
     const [show, setShow] = useState(false);
     const [like, setLike] = useState(false);
     if (!like && user !== null)
-        fetch("http://localhost:3001/users/" + user.givenName)
+        fetch("http://localhost:3001/users/" + user.googleId)
             .then(res => res.json())
             .then(result => {
                 if (result) {
@@ -25,7 +25,7 @@ function ExploreItems({ item, brands, user }) {
     const handleShow = () => setShow(true);
     const handleLike = (event) => {
         if (event.target.checked) {
-            fetch("http://localhost:3001/users/" + user.givenName, {
+            fetch("http://localhost:3001/users/" + user.googleId, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -40,7 +40,7 @@ function ExploreItems({ item, brands, user }) {
             store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: [...user.liked, item._id] } } });
             setLike(true);
         } else {
-            fetch("http://localhost:3001/users/" + user.givenName, {
+            fetch("http://localhost:3001/users/" + user.googleId, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"

@@ -21,7 +21,7 @@ function Login() {
     const [showlogoutButton, setShowlogoutButton] = useState(false);
     const onLoginSuccess = (res) => {
         // console.log('Login Success:', res.profileObj);
-        fetch("http://localhost:3001/users/" + res.profileObj.givenName)
+        fetch("http://localhost:3001/users/" + res.profileObj.googleId)
         .then((response) => {
             if(response.status === 400) {
                 const today = new Date();
@@ -44,7 +44,7 @@ function Login() {
             }
         })
         .then((response) => {
-            fetch("http://localhost:3001/users/" + res.profileObj.givenName)
+            fetch("http://localhost:3001/users/" + res.profileObj.googleId)
             .then(result => result.json())
             .then(result => {
                 if (result) store.dispatch({

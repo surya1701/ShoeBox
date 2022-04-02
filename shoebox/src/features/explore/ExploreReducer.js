@@ -8,6 +8,7 @@ const initialState = {
     text: "",
     ShoesData: [],
     sortBy: "viewsDESC",
+    posts: [],
     items: [] // {id, name, brand, image url, price}
 }
 
@@ -31,6 +32,8 @@ const ExploreReducer = (state = initialState, action)=>{
                 genders: action.payload.shoes.map((item) => item.gender),
                 types: action.payload.shoes.map((item) => item.type),
             }
+        case actionTypes.LOAD_POSTS:
+            return {...state, posts: action.payload.posts}
         case actionTypes.ADD_BY_BRAND:
             temp = [...state.brands, action.payload.brand]
             return {...state, brands: temp,
@@ -118,8 +121,8 @@ const ExploreReducer = (state = initialState, action)=>{
                 items: state.items.map((i) => (i._id === action.payload.key)? {...i, views: i.views+1}: i)}
         case actionTypes.COMMENT:
             return {...state,
-                ShoesData: state.ShoesData.map((i) => (i._id === action.payload.key)? {...i, comments: [...i.comments, {by: action.payload.email, byImage: action.payload.image, text: action.payload.comment}]}: i),
-                items: state.items.map((i) => (i._id === action.payload.key)? {...i, comments: [...i.comments, {by: action.payload.email, byImage: action.payload.image, text: action.payload.comment}]}: i)}
+                ShoesData: state.ShoesData.map((i) => (i._id === action.payload.key)? {...i, comments: [...i.comments, {by: action.payload.email, byID: action.payload.byID, byImage: action.payload.image, text: action.payload.comment}]}: i),
+                items: state.items.map((i) => (i._id === action.payload.key)? {...i, comments: [...i.comments, {by: action.payload.email, byID: action.payload.byID, byImage: action.payload.image, text: action.payload.comment}]}: i)}
         default: return state
     }
 }

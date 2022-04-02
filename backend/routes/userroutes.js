@@ -31,14 +31,15 @@ router.post("/", async (req, res) =>{
         res.status(400).json({message: error.message})
     }
 })
-router.get("/:name", getUser, (req, res) =>{
+router.get("/:id", getUser, (req, res) =>{
     res.status(200).json(res.user)
 })
 
-router.put("/:name", async (req, res) =>{
+router.put("/:id", async (req, res) =>{
     // console.log(req.body);
     const update = {
         name: req.body.name,
+        googleId: req.body.googleId,
         givenName: req.body.givenName,
         email: req.body.email,
         profileImg: req.body.imageUrl,
@@ -48,7 +49,7 @@ router.put("/:name", async (req, res) =>{
         since: req.body.since
     }
     try {
-        const updatedUser = await User.findOneAndUpdate({"givenName": req.params.name},
+        const updatedUser = await User.findOneAndUpdate({"googleId": req.params.id},
         update, {new: true});
         res.status(200).json("User Data Updated !!")
     } catch (error) {
@@ -59,7 +60,7 @@ router.put("/:name", async (req, res) =>{
 async function getUser(req,res,nxt) {
     let user
     try {
-        user = await User.findOne({"givenName": req.params.name})
+        user = await User.findOne({"googleId": req.params.id})
         if(! user){
             return res.status(400).json({message: "User does not exist"})
         }

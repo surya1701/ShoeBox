@@ -34,6 +34,9 @@ app.use('/brands', BrandsRouter)
 const ShoesRouter = require('./routes/shoesroutes')
 app.use('/shoes', ShoesRouter)
 
+const PostsRouter = require('./routes/postsroutes')
+app.use('/posts', PostsRouter)
+
 const CouponRouter = require('./routes/couponroutes')
 app.use('/coupons', CouponRouter)
 

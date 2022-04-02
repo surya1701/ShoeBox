@@ -16,8 +16,8 @@ const UserProfile = ({ ShoesData}) => {
     const location = useLocation()
 
     useEffect(() => {
-        const { username } = queryString.parse(location.search);
-        fetch("http://localhost:3001/users/" + username)
+        const { id } = queryString.parse(location.search);
+        fetch("http://localhost:3001/users/" + id)
         .then(res => res.json())
         .then(result => {
             if (result) {

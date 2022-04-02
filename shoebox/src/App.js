@@ -30,6 +30,13 @@ function App() {
           store.dispatch({ type: 'LOAD_DATA_EXPLORE', payload: { shoes: [...result] } }) // changing state of explore items
         }
       })
+      fetch("http://localhost:3001/posts")
+      .then(res => res.json())
+      .then(result => {
+        if (result) {
+          store.dispatch({ type: 'LOAD_DATA_POSTS', payload: { posts: [...result] } }) // changing state of explore items
+        }
+      })
     fetch(url)
       .then(resp => resp.json())
       .then(data => { setBrands(data) })
