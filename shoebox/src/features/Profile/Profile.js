@@ -8,12 +8,22 @@ import ItemDisplay from '../../components/ItemDisplay';
 import './style.css';
 import styled from 'styled-components'
 import { Edit } from '@material-ui/icons';
-import { Modal } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
+import Form from 'react-bootstrap/Form'
 import { Link, Navigate } from 'react-router-dom';
+import axios from 'axios'
 
 const Profile = ({user, ShoesData}) => {
     const [brands, setBrands] = useState(null);
-  const [changeImage, setChangeImage] = useState(false);
+    const onFileChange = (e) => {
+        const formData = new FormData()
+        formData.append('id', user.googleId)
+        formData.append('image', e.target.files[0])
+        axios.patch("http://localhost:3001/users/profileImg", formData, {
+        }).then(res => {
+            console.log(res);
+        })
+    }
 
     if (! brands)
     fetch("http://localhost:3001/brands")
@@ -27,11 +37,6 @@ const Profile = ({user, ShoesData}) => {
         <Header/>
         {(user) ?
         <>
-        <Modal show={changeImage} onHide={() => setChangeImage(false)}>
-            <Modal.Header closeButton>
-            <Modal.Title>Image input form</Modal.Title>
-            </Modal.Header>
-        </Modal>
         <div className="row g-0">
             <div className="col-12">
                 <div className="card">
@@ -40,7 +45,7 @@ const Profile = ({user, ShoesData}) => {
                             <div className="d-flex justify-content-center">
                                 <div className="image-container">
                                     <img
-                                        src={user.imageUrl}
+                                        src={user.profileImg}
 
                                         alt='user-profile'
 
@@ -51,7 +56,12 @@ const Profile = ({user, ShoesData}) => {
                                         }}
                                         className="img-thumbnail mr-2"
                                     />
-                                    <div style={{cursor: "pointer", display: 'inline'}} onClick={(e) => setChangeImage(true)}><Edit/></div>
+                                    <div style={{cursor: "pointer", display: 'inline'}}>
+                                            <Form.Group size="lg" className="m-3">
+                                                <Form.Label for="profileImg"><Edit/></Form.Label>
+                                                <Form.Control id="profileImg" type="file" accept="image/*" onChange={onFileChange} name="image" style={{visibility: "hidden", width: "0px", height: "0px"}} />
+                                            </Form.Group>
+                                    </div>
                                 </div>
                             </div>
                         </div>

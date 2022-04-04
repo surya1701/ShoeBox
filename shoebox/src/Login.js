@@ -51,10 +51,7 @@ function Login() {
                     type: 'GOOGLE_AUTH_SUCCESS', payload:
                     {
                         user: {
-                            ...res.profileObj, since: result.since,
-                            liked: (result.liked) ? result.liked : [],
-                            orders: (result.orders) ? result.orders : [],
-                            followed: (result.followed) ? result.followed : []
+                            ...result
                         }
                     }
                 })

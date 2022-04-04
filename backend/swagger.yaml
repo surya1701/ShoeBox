@@ -1,0 +1,369 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Shoebox API
+  description: API's for shoebox 
+
+servers:
+  - url: http://localhost:3000/
+
+tags:
+  - name: Shoebox
+    description: API to manage the shoes, users, brands on 'the shoebox'.
+
+paths:
+  /brands:
+    get:
+      summary: Lists all brands
+      tags: [Brands]
+      responses:
+        "200":
+          description: The list of brands.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+  /shoes:
+    get:
+      summary: Lists all shoes
+      tags: [Shoes]
+      responses:
+        "200":
+          description: The list of shoes.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shoes'
+  /shoes/{shoeid}:
+    get:
+      summary: Particular Shoe Details
+      tags: [Shoes]
+      responses:
+        "200":
+          description: Details of particular shoe.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shoes'
+  /shoes/{shoeid}:
+    put:
+      summary: To update details of a shoe
+      tags: [Shoes]
+      responses:
+        "200":
+          description: To get and update the details of shoes.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shoes'
+  /user:
+    get:
+      summary: Lists all users
+      tags: [Users]
+      responses:
+        "200":
+          description: The list of users.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /user:
+    post:
+      summary: To create new user
+      tags: [Users]
+      responses:
+        "201":
+          description: New user created when someone signs Up for first time.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /user/{userid}:
+    get:
+      summary: Deatils of single user
+      tags: [Users]
+      responses:
+        "200":
+          description: to get the details of the single user from db.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /user/{userid}:
+    put:
+      summary: Update details of any user
+      tags: [Users]
+      responses:
+        "200":
+          description: Update the details of the user to ehich the {userid belongs}.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /coupoun:
+    get:
+      summary: Lists all coupouns
+      tags: [Coupouns]
+      responses:
+        "200":
+          description: The list of coupouns.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coupoun'
+  /coupoun/{code}:
+    get:
+      summary: Fetch the details of particular coupoun
+      tags: [Coupouns]
+      responses:
+        "200":
+          description: Get the particular coupoun details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /api:
+    get:
+      summary: Lists all posts
+      tags: [Posts]
+      responses:
+        "200":
+          description: The list of Posts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Posts'
+  /api:
+    post:
+      summary: To post a new Post
+      tags: [Posts]
+      requestBody:
+        description: Optional description in
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Posts'
+      responses:
+        "201":
+          description: New post created in db.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Posts'
+
+components:
+  schemas:
+    Brand:
+      type: object
+      required:
+        - name
+        - followers
+        - posts
+        - logo
+      properties:
+        id:
+          type: integer
+          description: The auto-generated id of the brand.
+        name:
+          type: string
+          description: The name of the brand.
+        followers:
+          type: number
+          description: The number of followers of the brand
+        posts:
+          type: number
+          description: The numbers of posts by particular brand
+        logo:
+          type: string
+          description: Image of the brand
+      example:
+        name: Addidas
+        followers: 14500
+        posts: 132
+        logo: Addi.png
+    Shoes:
+      type: object
+      required:
+        - name
+        - brand
+        - image
+        - size
+        - price
+        - type
+        - comments
+        - rating
+        - gender
+        - description
+        - views
+        - date
+      properties:
+        id:
+          type: integer
+          description: The auto-generated id of the shoe.
+        name:
+          type: string
+          description: The name of the shoe.
+        brand:
+          type: string
+          description: The brand of the shoe
+        image:
+          type: array
+          description: The images of the shoes
+        size:
+          type: array
+          description: Sizes of shoes available
+        price:
+          type: number
+          description: Cost of the shoe
+        type:
+          type: string
+          description: Type of the shoe
+        rating:
+          type: number
+          description: Customer rating of the shoe
+        comments:
+          type: array
+          description: Comments of the buyers
+        gender:
+          type: string
+          description: Ideal for which gender
+        views:
+          type: number
+          description: Numbers of persons viewed the shoes
+        description:
+          type: string
+          description: Details of the shoe
+        date:
+          type: date
+          description: Date of the shoe posted on the website
+      example:
+        name: "Addidas Vapour Max Pro"
+        brand: "Addidas"
+        image: ['adi1.png', 'addi2.png']
+        price: 12300
+        size: [6,7,8,9]
+        type: "Sneakars"
+        rating: 4.3
+        comments: ["awsome shows", "killer look"]
+        gender: "male"
+        views: 1340
+        description: "With design elements inspired by the movement and motion of city life, the Wild Rider Layers Unisex Sneakers brings a fresh new dimension to the iconic Rider family. We've layered a rich mix of premium leather, suede and hairy suede onto a nylon upper to create texture and a raw edgy look that is pure street. The IMEVA midsole and rubber outsole ensure combined lightweight comfort and great traction to take you forward, further and faster through your day and beyond."
+        date: "01-04-22"
+    Posts:
+      type: object
+      required:
+        - shoeId
+        - caption
+        - brand
+        - postImg
+        - views
+        - date
+      properties:
+        id:
+          type: integer
+          description: The auto-generated id of the post.
+        shoeId:
+          type: string
+          description: Particular Id of the shoe related to which post is being done.
+        caption:
+          type: string
+          description: Caption or msg for the post 
+        brand:
+          type: string
+          description: The brand, to which the post belongs.
+        postImg:
+          type: string
+          description: Image for the post.
+        views:
+          type: number
+          description: Number of people who viewed the post
+        date:
+          type: string
+          description: The date on which the post is being done.
+      example:
+        email: piyush@gmail.com
+        caption: "Wear and fly"
+        brand: Puma
+        postImg: puma.png
+    User:
+      type: object
+      required:
+        - name
+        - googleId
+        - givenName
+        - email
+        - profileImg
+        - liked
+        - followed
+        - orders
+        - since
+      properties:
+        id:
+          type: integer
+          description: The auto-generated id of the user.
+        name:
+          type: string
+          description: Full name of the user
+        googleId:
+          type: string
+          description : Unique Google id of the user
+        givenName:
+          type: string
+          description: Username given to the user
+        email:
+          type: string
+          description: Email id of the user.
+        profileImg:
+          type: string
+          description: Image for user profile.
+        liked:
+          type: array
+          description: Collection of shoes liked by the user
+        followed:
+          type: array
+          description: List of brands followed by the user
+        orders:
+          type: array
+          description: List of orders of user
+        since:
+          type: string
+          description: Date since the user is signed in on ShoeBox
+      example:
+        name: Surya S
+        googleId: 12367AB9DC
+        givenName: suryaStar
+        email: surya16@gmail.com
+        profileImg: surya.png
+        liked: ["Addidas Pro 3", "Nike Air"]
+        followed: ["Puma", "Reebok"]
+        orders: []
+        since: "10-02-22"
+    Coupoun:
+      type: object
+      required:
+        - name
+        - amount
+        - expiery
+      properties:
+        id:
+          type: integer
+          description: The auto-generated id of the coupoun.
+        name:
+          type: string
+          description: Coupoun name
+        amount:
+          type: number
+          description: The amount of discount the coupoun will provide.
+        expiery:
+          type: date
+          description: The date after which coupoun will expier
+      example:
+        name: FLASH50
+        amount: 399
+        expiery: 10-04-22
+      
+
+
+        
+      

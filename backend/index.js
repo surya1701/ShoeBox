@@ -1,12 +1,27 @@
 const express = require("express");
 const cors = require('cors');
 const mongoose = require('mongoose');
-
+const bodyParser = require('body-parser');
+const api = require('./routes/postsroutes');
+const swaggerUi = require('swagger-ui-express')
+const YAML = require('yamljs');
+const swaggerDocument = YAML.load('./swagger.yaml');
 
 require('dotenv').config();
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument)
+);
+app.use('/public', express.static('public'));
+app.use('/api', api);
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
@@ -38,7 +53,7 @@ const PostsRouter = require('./routes/postsroutes')
 app.use('/posts', PostsRouter)
 
 const CouponRouter = require('./routes/couponroutes')
-app.use('/coupons', CouponRouter)
+app.use('/coupon', CouponRouter)
 
 const UserRouter = require('./routes/userroutes')
 app.use('/users', UserRouter)
