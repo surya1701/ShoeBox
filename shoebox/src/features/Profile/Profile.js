@@ -8,7 +8,6 @@ import ItemDisplay from '../../components/ItemDisplay';
 import './style.css';
 import styled from 'styled-components'
 import { Edit } from '@material-ui/icons';
-import { Modal, Button } from "react-bootstrap";
 import Form from 'react-bootstrap/Form'
 import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios'

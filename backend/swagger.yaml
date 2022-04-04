@@ -5,7 +5,10 @@ info:
   description: API's for shoebox 
 
 servers:
+  - url: http://localhost:3001/
+    description: Back-End
   - url: http://localhost:3000/
+    description: Front-End
 
 tags:
   - name: Shoebox
@@ -45,7 +48,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Shoes'
-  /shoes/{shoeid}:
     put:
       summary: To update details of a shoe
       tags: [Shoes]
@@ -67,7 +69,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-  /user:
     post:
       summary: To create new user
       tags: [Users]
@@ -89,7 +90,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-  /user/{userid}:
     put:
       summary: Update details of any user
       tags: [Users]
@@ -133,7 +133,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Posts'
-  /api:
     post:
       summary: To post a new Post
       tags: [Posts]
