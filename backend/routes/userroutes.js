@@ -1,8 +1,9 @@
-let express = require('express'),
-    multer = require('multer'),
-    mongoose = require('mongoose'),
-    uuidv4 = require('uuid/v4'),
-    router = express.Router();
+const Router = require("express");
+const User = require("../models/users")
+const router = Router()
+
+const multer = require('multer');
+const uuidv4 = require('uuid/v4');
 const DIR = './public/';
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -24,22 +25,7 @@ var upload = multer({
         }
     }
 });
-// User model
-let User = require('../models/users');
-router.patch('/profileImg', upload.single('image'), async (req, res, next) => {
-    const url = req.protocol + '://' + req.get('host')
-    const update = {
-        profileImg: url + '/public/' + req.file.filename
-    };
-    console.log(update);
-    try {
-        const updatedUser = await User.findOneAndUpdate({"googleId": req.body.id},
-        update, {new: true});
-        res.status(200).json("User Data Updated !!")
-    } catch (error) {
-        res.status(400).json({message: error.message})
-    }
-})
+
 // Get collection for Users
 router.get("/", async (req, res) => {
     try {
@@ -53,6 +39,7 @@ router.post("/", async (req, res) =>{
     // console.log(req.body);
     const data = new User({
         name: req.body.name,
+        googleId: req.body.googleId,
         givenName: req.body.givenName,
         email: req.body.email,
         profileImg: req.body.imageUrl,
@@ -71,7 +58,20 @@ router.post("/", async (req, res) =>{
 router.get("/:id", getUser, (req, res) =>{
     res.status(200).json(res.user)
 })
-
+router.patch('/profileImg', upload.single('image'), async (req, res, next) => {
+    const url = req.protocol + '://' + req.get('host')
+    const update = {
+        profileImg: url + '/public/' + req.file.filename
+    };
+    console.log(update);
+    try {
+        const updatedUser = await User.findOneAndUpdate({"googleId": req.body.id},
+        update, {new: true});
+        res.status(200).json("User Data Updated !!")
+    } catch (error) {
+        res.status(400).json({message: error.message})
+    }
+})
 router.put("/:id", async (req, res) =>{
     // console.log(req.body);
     const update = {

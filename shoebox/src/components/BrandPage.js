@@ -10,7 +10,7 @@ import {Check, ArrowRightAlt} from '@material-ui/icons';
 const BrandPage = ({brand, brands, show, handleClose, user}) => {
     const [follow, setFollow] = useState(false);
 
-    if(!follow && user !== null)
+    if(!follow && (user !== null && !user.message))
     fetch("http://localhost:3001/users/"+user.googleId)
     .then(res => res.json())
     .then(result => {
