@@ -153,7 +153,7 @@ const ProductDemo = ({ shoesValue, user }) => {
                     {item.comments.map((c) =>
                       <div className="flex">
                         <p>
-                          <img className={"rounded-circle"} width={"15px"} src={c.byImage} alt={"user-profile"} />
+                          {/* <img className={"rounded-circle"} width={"15px"} src={c.byImage} alt={"user-profile"} /> */}
                           &nbsp;
                           <Link to={{ pathname: "/user", search: "?id="+c.byID }} style={{textDecoration: "none", color: "black"}}>
                             <b>{c.by}</b>

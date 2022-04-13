@@ -5,10 +5,14 @@ const bodyParser = require('body-parser');
 const swaggerUi = require('swagger-ui-express')
 const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./swagger.yaml');
+const morgan = require('morgan')
+const fsr = require('file-stream-rotator');
 
 require('dotenv').config();
 
 const app = express();
+let logsinfo = fsr.getStream({ filename: "logs/access.log", frequency: "1h", verbose: true });
+app.use(morgan('dev', { stream: logsinfo })) //tiny,dev,common,combined
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
