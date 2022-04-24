@@ -7,12 +7,12 @@ services:
       dockerfile: Dockerfile
     image: myapp-server
     container_name: myapp-node-server
-    command: npm run start
+    command: npm start
     volumes:
       - ./backend/:/usr/app
       - /usr/app/node_modules
     ports:
-      - "8080:8080"
+      - "3001:3001"
     depends_on:
       - mongo
     env_file: ./backend/.env
