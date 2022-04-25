@@ -25,7 +25,7 @@ var upload = multer({
     }
 });
 // User model
-let Post = require('../models/Posts');
+let Post = require('../models/posts');
 router.post('/postForm', upload.single('image'), (req, res, next) => {
     const url = req.protocol + '://' + req.get('host')
     const post = new Post({
@@ -51,12 +51,12 @@ router.post('/postForm', upload.single('image'), (req, res, next) => {
             });
     })
 })
-router.get("/", async (req, res) =>{
+router.get("/", async (req, res) => {
     try {
         const data = await Post.find()
         res.json(data)
     } catch (error) {
-        res.status(400).json({message: error.message})
+        res.status(400).json({ message: error.message })
     }
 })
 module.exports = router;
