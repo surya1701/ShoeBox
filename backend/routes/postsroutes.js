@@ -5,11 +5,9 @@ let express = require('express'),
     router = express.Router(),
     redis = require('redis');
 
-// const REDIS_PORT = process.env.PORT || 6379;
-// const redis_client = redis.createClient(REDIS_PORT);
 const redis_client = redis.createClient({
-    host: "redis-10459.c301.ap-south-1-1.ec2.cloud.redislabs.com",
-    port: 10459
+    url: "redis://redis-10459.c301.ap-south-1-1.ec2.cloud.redislabs.com:10459",
+    password: "Jf2zNrNF4jWXz0zsVaQkBd1EJVhtdp3o"
 });
 redis_client.connect();
 
