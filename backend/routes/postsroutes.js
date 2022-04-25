@@ -2,7 +2,13 @@ let express = require('express'),
     multer = require('multer'),
     mongoose = require('mongoose'),
     uuidv4 = require('uuid/v4'),
-    router = express.Router();
+    router = express.Router(),
+    redis = require('redis');
+
+const REDIS_PORT = process.env.PORT || 6379;
+const redis_client = redis.createClient(REDIS_PORT);
+redis_client.connect();
+
 const DIR = './public/';
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -51,12 +57,40 @@ router.post('/postForm', upload.single('image'), (req, res, next) => {
             });
     })
 })
-router.get("/", async (req, res) => {
-    try {
-        const data = await Post.find()
-        res.json(data)
+
+
+async function getPosts (req,res,next){
+    try{
+        const api_data = await Post.find()
+        redis_client.on('error', (err) => console.log('Redis Client Error', err));
+        redis_client.setEx('allPosts',3600,JSON.stringify(api_data))
+        res.json(api_data)
     } catch (error) {
-        res.status(400).json({ message: error.message })
+        res.status(400).json({message: error.message})
     }
-})
+}
+async function postsCache (req,res,next){
+    try{
+        redis_client.on('error', (err) => console.log('Redis Client Error', err));
+        const value = await redis_client.get('allPosts')
+        if (value!=null){
+            const obj = JSON.parse(value.toString());
+            res.json(obj)
+        }
+        else{
+            next();
+        }
+    }catch(error){
+        throw error;
+    }
+}
+router.get("/", postsCache, getPosts)
+// router.get("/", async (req, res) => {
+//     try {
+//         const data = await Post.find()
+//         res.json(data)
+//     } catch (error) {
+//         res.status(400).json({ message: error.message })
+//     }
+// })
 module.exports = router;

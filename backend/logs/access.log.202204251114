@@ -1,0 +1,2 @@
+[0mGET /coupons/:1 [33m400[0m 142.355 ms - 35[0m
+[0mGET /coupons/abc10 [32m200[0m 287.375 ms - 99[0m

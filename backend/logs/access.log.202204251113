@@ -1,0 +1,3 @@
+[0mGET /brands [32m200[0m 360.080 ms - 767[0m
+[0mGET /coupons [33m400[0m 0.511 ms - 37[0m
+[0mGET /coupon [33m404[0m 0.473 ms - 145[0m
