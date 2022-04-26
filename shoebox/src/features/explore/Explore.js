@@ -52,7 +52,7 @@ function Explore({ user, shoesValue, items, filtersortBy, filterBrands, filterGe
         },
         filter_clear: () => {
             store.dispatch({ type: 'clearAll' });
-            fetch("http://localhost:3001/shoes")
+            fetch("https://aqueous-springs-31900.herokuapp.com/shoes")
             .then(res => res.json())
             .then(result => {
               if(result) {
