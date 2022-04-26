@@ -1,0 +1,9 @@
+[0mGET /brands [36m304[0m 5746.034 ms - -[0m
+[0mGET /posts [32m200[0m 5778.310 ms - 1421[0m
+[0mGET /shoes [36m304[0m 5983.034 ms - -[0m
+[0mGET /public/046dc2b7-8a51-4ed7-9218-5727541bf90b-legends_-ronaldinho.jpg [36m304[0m 6.276 ms - -[0m
+[0mGET /public/e01dec9c-b683-4d7e-8a9e-1ef48b01e0ff-messi,-the-eternal-10.jpg [36m304[0m 5.044 ms - -[0m
+[0mGET /public/53a3fade-71cb-4f2b-9de6-737c805049ab-iota_logo.png [36m304[0m 5.256 ms - -[0m
+[0mGET /posts [36m304[0m 175.491 ms - -[0m
+[0mGET /brands [36m304[0m 179.657 ms - -[0m
+[0mGET /shoes [36m304[0m 539.002 ms - -[0m

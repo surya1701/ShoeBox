@@ -1,0 +1,4 @@
+[0mPOST /admin/register [33m400[0m 4.454 ms - 21[0m
+[0mGET /admin [33m403[0m 1.543 ms - 38[0m
+[0mGET /admin [33m403[0m 0.485 ms - 38[0m
+[0mPOST /admin/register [33m400[0m 1.392 ms - 21[0m

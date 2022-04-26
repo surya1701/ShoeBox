@@ -1,0 +1,8 @@
+[0mGET /posts [36m304[0m 505.374 ms - -[0m
+[0mGET /brands [36m304[0m 2213.084 ms - -[0m
+[0mGET /shoes [36m304[0m 2609.709 ms - -[0m
+[0mGET /posts [36m304[0m 396.509 ms - -[0m
+[0mGET /brands [36m304[0m 396.956 ms - -[0m
+[0mGET /admin [33m403[0m 2.169 ms - 38[0m
+[0mGET /shoes [36m304[0m 794.328 ms - -[0m
+[0mGET /admin [33m403[0m 0.844 ms - 38[0m

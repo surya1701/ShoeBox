@@ -1,0 +1,12 @@
+[0mGET /admin [33m403[0m 0.872 ms - 38[0m
+[0mGET /admin [33m403[0m 0.393 ms - 38[0m
+[0mGET /admin [33m403[0m 1.024 ms - 38[0m
+[0mGET /admin [33m403[0m 0.464 ms - 38[0m
+[0mGET /admin [33m403[0m 0.408 ms - 38[0m
+[0mGET /admin [33m403[0m 0.607 ms - 38[0m
+[0mGET /admin [33m403[0m 0.410 ms - 38[0m
+[0mGET /admin [33m403[0m 0.706 ms - 38[0m
+[0mGET /admin [33m403[0m 0.499 ms - 38[0m
+[0mGET /admin [33m403[0m 0.622 ms - 38[0m
+[0mOPTIONS /admin [32m204[0m 0.263 ms - 0[0m
+[0mPOST /admin [32m201[0m 877.458 ms - 365[0m

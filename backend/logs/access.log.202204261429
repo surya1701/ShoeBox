@@ -1,0 +1,6 @@
+[0mOPTIONS /admin [32m204[0m 0.286 ms - 0[0m
+[0mPOST /admin [0m-[0m - ms - -[0m
+[0mPOST /admin [0m-[0m - ms - -[0m
+[0mGET /posts [36m304[0m 135.670 ms - -[0m
+[0mGET /shoes [36m304[0m 756.818 ms - -[0m
+[0mGET /brands [36m304[0m 1089.292 ms - -[0m

@@ -59,3 +59,6 @@ app.use('/coupons', CouponRouter)
 
 const UserRouter = require('./routes/userroutes')
 app.use('/users', UserRouter)
+
+const AdminRouter = require('./routes/adminroutes')
+app.use('/admin', AdminRouter)

@@ -1,0 +1,7 @@
+[0mGET /admin [33m403[0m 0.702 ms - 38[0m
+[0mOPTIONS /admin/login [32m204[0m 0.373 ms - 0[0m
+[0mPOST /admin/login [33m400[0m 316.060 ms - 19[0m
+[0mGET /posts [36m304[0m 152.619 ms - -[0m
+[0mGET /brands [36m304[0m 3529.587 ms - -[0m
+[0mGET /admin [33m403[0m 0.916 ms - 38[0m
+[0mGET /shoes [36m304[0m 3842.301 ms - -[0m

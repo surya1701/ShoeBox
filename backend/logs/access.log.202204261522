@@ -1,0 +1,8 @@
+[0mOPTIONS /admin [32m204[0m 0.192 ms - 0[0m
+[0mGET /admin [33m401[0m 0.350 ms - 13[0m
+[0mOPTIONS /admin [32m204[0m 0.159 ms - 0[0m
+[0mGET /admin [33m401[0m 0.980 ms - 13[0m
+[0mOPTIONS /admin/login [32m204[0m 0.124 ms - 0[0m
+[0mPOST /admin/login [33m400[0m 194.112 ms - 365[0m
+[0mGET /admin [32m200[0m 492.116 ms - 63886[0m
+[0mGET /admin [33m403[0m 0.555 ms - 38[0m

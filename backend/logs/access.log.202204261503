@@ -1,0 +1,4 @@
+[0mGET /admin [33m403[0m 0.457 ms - 38[0m
+[0mOPTIONS /admin/login [32m204[0m 0.621 ms - 0[0m
+[0mPOST /admin/login [33m400[0m 592.157 ms - 365[0m
+[0mGET /admin [33m403[0m 0.838 ms - 38[0m

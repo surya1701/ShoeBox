@@ -5,6 +5,7 @@ let express = require('express'),
     router = express.Router(),
     redis = require('redis');
 
+// redis-cli -h redis-10459.c301.ap-south-1-1.ec2.cloud.redislabs.com -p 10459 -a Jf2zNrNF4jWXz0zsVaQkBd1EJVhtdp3o
 const redis_client = redis.createClient({
     url: "redis://redis-10459.c301.ap-south-1-1.ec2.cloud.redislabs.com:10459",
     password: "Jf2zNrNF4jWXz0zsVaQkBd1EJVhtdp3o"
