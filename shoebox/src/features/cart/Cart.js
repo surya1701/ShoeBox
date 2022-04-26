@@ -13,7 +13,7 @@ const Cart = ({ cartValue, discounted, user }) => {
     const [totalItems, setTotalItems] = useState(0);
     // function to apply coupouns
     const handleCoupon = (data) => {
-        fetch("http://localhost:3001/coupons/"+ data.coupon)
+        fetch("https://aqueous-springs-31900.herokuapp.com/coupons/"+ data.coupon)
             .then(result => {
                 if (result.status === 200) {
                     result.json()

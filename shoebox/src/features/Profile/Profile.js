@@ -18,14 +18,14 @@ const Profile = ({user, ShoesData}) => {
         const formData = new FormData()
         formData.append('id', user.googleId)
         formData.append('image', e.target.files[0])
-        axios.patch("http://localhost:3001/users/profileImg", formData, {
+        axios.patch("https://aqueous-springs-31900.herokuapp.com/profileImg", formData, {
         }).then(res => {
             console.log(res);
         })
     }
 
     if (! brands)
-    fetch("http://localhost:3001/brands")
+    fetch("https://aqueous-springs-31900.herokuapp.com/brands")
     .then(res => res.json())
     .then(result => {
         if(result) {

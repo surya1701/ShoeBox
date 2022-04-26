@@ -24,7 +24,7 @@ const ProductDemo = ({ shoesValue, user }) => {
   const [like, setLike] = useState(false);
   const handleLike = (event) => {
     if (event.target.checked) {
-      fetch("http://localhost:3001/users/" + user.googleId, {
+      fetch("https://aqueous-springs-31900.herokuapp.com/users/" + user.googleId, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -39,7 +39,7 @@ const ProductDemo = ({ shoesValue, user }) => {
       store.dispatch({ type: 'GOOGLE_AUTH_SUCCESS', payload: { user: { ...user, liked: [...user.liked, item._id] } } });
       setLike(true);
     } else {
-      fetch("http://localhost:3001/users/" + user.googleId, {
+      fetch("https://aqueous-springs-31900.herokuapp.com/users/" + user.googleId, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -62,7 +62,7 @@ const ProductDemo = ({ shoesValue, user }) => {
     />)
   };
   const handleComment = (data) => {
-    fetch("http://localhost:3001/shoes/" + item._id, {
+    fetch("https://aqueous-springs-31900.herokuapp.com/shoes/" + item._id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -82,7 +82,7 @@ const ProductDemo = ({ shoesValue, user }) => {
       if (element._id === key) {
         setItem({ ...element, views: parseInt(element.views + 1) });
         if (user !== null)
-          fetch("http://localhost:3001/users/" + user.googleId)
+          fetch("https://aqueous-springs-31900.herokuapp.com/users/" + user.googleId)
             .then(res => res.json())
             .then(result => {
               if (result) {
@@ -98,7 +98,7 @@ const ProductDemo = ({ shoesValue, user }) => {
     setTimeout(() => {
       setaddedToCart(false);
     }, 3000);
-    fetch("http://localhost:3001/shoes/" + item._id, {
+    fetch("https://aqueous-springs-31900.herokuapp.com/shoes/" + item._id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"

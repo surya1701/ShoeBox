@@ -17,7 +17,7 @@ const Confirmation = () => {
             });
             setAmount(price);
         }
-        fetch("http://localhost:3001/users/"+data.data.email)
+        fetch("https://aqueous-springs-31900.herokuapp.com/users/"+data.data.email)
             .then(res => res.json())
             .then(result => {
             let all_orders = [];
@@ -25,7 +25,7 @@ const Confirmation = () => {
             all_orders = [...result.orders, {cart:[...data.cart], date:date, amount:amount, details: data.data}];
             else
             all_orders = [{cart:[...data.cart], date:date, amount:amount, details: data.data}];
-            fetch("http://localhost:3001/users/" + data.data.email, {
+            fetch("https://aqueous-springs-31900.herokuapp.com/users/" + data.data.email, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"

@@ -21,10 +21,10 @@ All the route links are rendered in app component, using Route component of reac
 
 function App() {
   const [brands, setBrands] = useState(null)
-  const url = "http://localhost:3001/brands"; // Mock backend API to fetch brands
+  const url = "https://aqueous-springs-31900.herokuapp.com/brands"; // Mock backend API to fetch brands
 
   useEffect(() => {
-    fetch("http://localhost:3001/shoes")
+    fetch("https://aqueous-springs-31900.herokuapp.com/shoes")
       .then(res => res.json())
       .then(result => {
         if (result) {
@@ -32,7 +32,7 @@ function App() {
           store.dispatch({ type: 'LOAD_DATA_EXPLORE', payload: { shoes: [...result] } }) // changing state of explore items
         }
       })
-      fetch("http://localhost:3001/posts")
+      fetch("https://aqueous-springs-31900.herokuapp.com/posts")
       .then(res => res.json())
       .then(result => {
         if (result) {

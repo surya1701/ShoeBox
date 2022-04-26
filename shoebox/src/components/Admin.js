@@ -14,7 +14,7 @@ function Admin() {
   }
 const onRegister = (e) => {
     e.preventDefault()
-    fetch('http://localhost:3001/admin/register', {  
+    fetch('https://aqueous-springs-31900.herokuapp.com/admin/register', {  
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -26,7 +26,7 @@ const onRegister = (e) => {
 }
 const onLogin = (e) => {
     e.preventDefault()
-    fetch('http://localhost:3001/admin/login', {  
+    fetch('https://aqueous-springs-31900.herokuapp.com/admin/login', {  
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -40,7 +40,7 @@ const onLogin = (e) => {
     }
     )};
     useEffect(() => {
-        fetch("http://localhost:3001/admin", {headers: {'x-access-token': token}})
+        fetch("https://aqueous-springs-31900.herokuapp.com/admin", {headers: {'x-access-token': token}})
         .then(res => res.json())
         .then(result => {
             if (result) {
