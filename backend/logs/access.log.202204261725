@@ -1,0 +1,7 @@
+[0mGET /posts [32m200[0m 260.877 ms - 1421[0m
+[0mPOST /posts/postForm [31m500[0m 19.286 ms - 5133[0m
+[0mGET /shoes [32m200[0m 4282.440 ms - 63886[0m
+[0mGET /users [32m200[0m 35.502 ms - 1767[0m
+[0mPOST /users [33m400[0m 7.026 ms - 113[0m
+[0mGET /coupons [32m200[0m 30.718 ms - 201[0m
+[0mGET /brands [32m200[0m 37.630 ms - 767[0m

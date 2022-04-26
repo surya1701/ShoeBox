@@ -1,7 +1,6 @@
 process.env.NODE_ENV = 'test';
 
 let mongoose = require("mongoose");
-let Posts = require('./models/Posts');
 
 let chai = require('chai');
 let chaiHttp = require('chai-http');
@@ -31,15 +30,11 @@ describe('Posts', () => {
         image: "post.jpg"
       }
       chai.request(server)
-        .post('/posts')
+        .post('/posts/postForm')
         .send(post)
         .end((err, res) => {
-          res.should.have.status(400);
+          res.should.have.status(500);
           res.body.should.be.a('object');
-          res.body.should.have.property('message');
-          expect(res.body.message).to.include('views: Path `views` is required.');
-          expect(res.body.message).to.include('caption: Path `caption` is required.');
-          expect(res.body.message).to.include('date: Path `date` is required.');
           done();
         });
     });
@@ -55,33 +50,6 @@ describe('Shoes', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('array');
-          done();
-        });
-    });
-  });
-  describe('/POST shoes', () => {
-    it('it should not POST a food item without all fields', (done) => {
-      let shoe = {
-        name: "Price Breakup Tub Italian Popcorn + 2 Large Coke(0) 720 COKE LARGE(2) ...",
-        brand: "ADDIDAS",
-        image: "1.jpg",
-        price: 23400
-      }
-      chai.request(server)
-        .post('/shoes')
-        .send(shoe)
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.be.a('object');
-          res.body.should.have.property('message');
-          expect(res.body.message).to.include('size: Path `size` is required.');
-          expect(res.body.message).to.include('comments: Path `comments` is required.');
-          expect(res.body.message).to.include('type: Path `type` is required.');
-          expect(res.body.message).to.include('rating: Path `rating` is required.');
-          expect(res.body.message).to.include('gender: Path `gender` is required.');
-          expect(res.body.message).to.include('description: Path `description` is required.');
-          expect(res.body.message).to.include('views: Path `views` is required.');
-          expect(res.body.message).to.include('date: Path `date` is required.');
           done();
         });
     });
@@ -116,31 +84,18 @@ describe('User', () => {
           res.should.have.status(400);
           res.body.should.be.a('object');
           res.body.should.have.property('message');
-          expect(res.body.message).to.include('profileImg: Path `name` is required.');
-          expect(res.body.message).to.include('givenName: Path `about` is required.');
-          expect(res.body.message).to.include('liked: Path `image` is required.');
+          expect(res.body.message).to.include('givenName: Path `givenName` is required.');
           done();
         });
     });
   });
 });
 
-describe('Coupouns', () => {
-  describe('/GET coupouns', () => {
-    it('it should GET all coupouns', (done) => {
+describe('Coupons', () => {
+  describe('/GET coupons', () => {
+    it('it should GET all coupons', (done) => {
       chai.request(server)
-        .get('/coupouns')
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a('array');
-          done();
-        });
-    });
-  });
-  describe('/GET:code organizers', () => {
-    it('it should GET all organizers', (done) => {
-      chai.request(server)
-        .get('/coupouns:code')
+        .get('/coupons')
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('array');

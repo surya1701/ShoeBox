@@ -62,3 +62,5 @@ app.use('/users', UserRouter)
 
 const AdminRouter = require('./routes/adminroutes')
 app.use('/admin', AdminRouter)
+
+module.exports = app;

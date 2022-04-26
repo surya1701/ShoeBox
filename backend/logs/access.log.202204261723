@@ -1,0 +1,14 @@
+[0mGET /posts [32m200[0m 366.557 ms - 1421[0m
+[0mPOST /posts/postForm [31m500[0m 19.593 ms - 5133[0m
+[0mGET /shoes [32m200[0m 3217.136 ms - 63886[0m
+[0mGET /users [32m200[0m 40.307 ms - 1767[0m
+[0mPOST /users [33m400[0m 10.679 ms - 113[0m
+[0mGET /coupons [32m200[0m 39.655 ms - 201[0m
+[0mGET /brands [32m200[0m 39.102 ms - 767[0m
+[0mGET /posts [32m200[0m 107.546 ms - 1421[0m
+[0mPOST /posts/postForm [31m500[0m 29.407 ms - 5133[0m
+[0mGET /shoes [32m200[0m 5816.529 ms - 63886[0m
+[0mGET /users [32m200[0m 63.949 ms - 1767[0m
+[0mPOST /users [33m400[0m 8.313 ms - 113[0m
+[0mGET /coupons [32m200[0m 192.761 ms - 201[0m
+[0mGET /brands [32m200[0m 198.116 ms - 767[0m
