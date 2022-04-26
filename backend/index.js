@@ -45,6 +45,11 @@ connection.once('open', () => {
 
 app.use(express.json())
 
+
+if (process.env.NODE_ENV == "production") {
+  app.use(express.static("shoebox/build"));
+}
+
 const BrandsRouter = require('./routes/brandsroutes')
 app.use('/brands', BrandsRouter)
 
