@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 
 
 // Client Id for Google Auth Sign in
-const clientId = "88496550643-kdkgke1hc694sk4d0gngrbv5m0l2l3fi.apps.googleusercontent.com";
+const clientId = "88496550643-9jqbi3pq7n9bhhcgf41k9qlj4b0losn3.apps.googleusercontent.com";
 
 /* Login component - In this functional component the Google Sign In and Sign Out methods are written
 and rendered using 
