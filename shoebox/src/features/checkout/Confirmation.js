@@ -17,6 +17,7 @@ const Confirmation = () => {
             });
             setAmount(price);
         }
+        console.log(data);
         fetch("https://aqueous-springs-31900.herokuapp.com/users/"+data.data.googleId)
             .then(res => res.json())
             .then(result => {
