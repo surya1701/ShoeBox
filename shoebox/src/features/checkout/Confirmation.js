@@ -25,7 +25,7 @@ const Confirmation = () => {
             all_orders = [...result.orders, {cart:[...data.cart], date:date, amount:amount, details: data.data}];
             else
             all_orders = [{cart:[...data.cart], date:date, amount:amount, details: data.data}];
-            fetch("https://aqueous-springs-31900.herokuapp.com/users/" + data.data.email, {
+            fetch("https://aqueous-springs-31900.herokuapp.com/users/" + data.data.googleId, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
