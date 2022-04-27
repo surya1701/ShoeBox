@@ -37,7 +37,7 @@ function Header({ cartValue, user }) {
                 <Login />
               </div>
             </Nav.Link>
-            <Nav.Link as={Link} to="/" style={{ color: '#265db5', textDecoration: 'none' }}>Home</Nav.Link>
+            <Nav.Link as={Link} to="/" style={{ color: '#265db5', textDecoration: 'none' }}>Home Page Check</Nav.Link>
             <Nav.Link as={Link} to="/explore" style={{ color: '#265db5', textDecoration: 'none' }}>Explore</Nav.Link>
             <Nav.Link as={Link} to="/posts" style={{ color: '#265db5', textDecoration: 'none' }}>Posts</Nav.Link>
             <Nav.Link as={Link} to="/admin" style={{ color: '#265db5', textDecoration: 'none' }}>Admin</Nav.Link>
