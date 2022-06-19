@@ -69,8 +69,7 @@ Use the above test card and test upi details to check payment using razorpay api
 [Chaintany Anand Kopoori](https://github.com/chaitanya9993)<br>
 
 ## Deployed Website
-[Deployed Website](#)
-The project has not been deployed yet. It will be deployed soon.
+[Deployed Website](https://benevolent-gelato-ba9e27.netlify.app/)
 
 ## Tech Stack
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
